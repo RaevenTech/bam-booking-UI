@@ -1,0 +1,41 @@
+:root {
+    --d:#283739;
+    --t:#2c5d63;
+    --g:#a2c11c;
+    --w:#faf9f0;
+}
+.navbar {
+    background:var(--t);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+.nav_btn{
+    color: #2c5d63;
+    margin-left: 0.5em;
+    padding: 5px 10px;
+    border:none;
+
+}
+.nav_btn_list{
+    color: white;
+    margin-left: 0.5em;
+    padding: 5px 10px;
+    border:white;
+    background:transparent ;
+
+
+}
+.nav_logo {
+    font-weight:500;
+    font-size: 1.4em;
+}
+.nav_container {
+    color: white;
+    width: 100%;
+    max-width: 1024px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
