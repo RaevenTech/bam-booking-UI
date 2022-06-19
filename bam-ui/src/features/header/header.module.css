@@ -1,0 +1,27 @@
+
+
+.header {
+    background-color:var(--t);
+    color:white;
+    display:flex;
+    justify-content: center;
+}
+.header_2 {
+    font-size: 2.8rem;
+}
+.header_container {
+    width: 100%;
+    max-width: 1024px;
+}
+.header_list {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+.header_subtitle {
+    margin: 0px 0px 50px 0px;
+}
+.header_title {
+    margin-bottom: 10px;
+    letter-spacing: 0.1rem;
+}

@@ -1,9 +1,4 @@
-:root {
-    --d:#283739;
-    --t:#2c5d63;
-    --g:#a2c11c;
-    --w:#faf9f0;
-}
+
 .navbar {
     background:var(--t);
     height: 50px;
@@ -11,8 +6,9 @@
     justify-content: center;
 
 }
+
 .nav_btn{
-    color: #2c5d63;
+    color: var(--t);
     margin-left: 0.5em;
     padding: 5px 10px;
     border:none;
@@ -24,12 +20,13 @@
     padding: 5px 10px;
     border:white;
     background:transparent ;
-
-
 }
 .nav_logo {
     font-weight:500;
     font-size: 1.4em;
+}
+.logo_2{
+    font-size: 1.8rem;
 }
 .nav_container {
     color: white;
