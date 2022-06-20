@@ -1,6 +1,7 @@
 import styles from "./header.module.css";
 import { faGavel } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
     return (
@@ -23,6 +24,11 @@ const Header = () => {
                         Find something you like. Bid for it, or Buy it for a
                         lower price.
                     </p>
+                    <section>
+                        <div className={styles.header_search}>
+                            <HeaderSearch />
+                        </div>
+                    </section>
                 </div>
             </div>
         </>
