@@ -47,7 +47,7 @@ const HeaderSearch = () => {
                         </span>
                     </div>
                     <div className={styles.header_search_section}>
-                        <button className={styles.header_search_button}>
+                        <button className={styles.header_search_btn}>
                             Search
                         </button>
                     </div>
