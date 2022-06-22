@@ -5,10 +5,21 @@ import {
     faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./headerSearch.module.css";
-//import { useState } from "react";
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
+import { useState } from "react";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 const HeaderSearch = () => {
     //const [searchLocation, setSearchLocation] = useState("");
+    const [date, setDate] = useState([
+        {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: "selection",
+        },
+    ]);
 
     return (
         <>
@@ -33,8 +44,18 @@ const HeaderSearch = () => {
                             className={styles.header_search_icon}
                         />
                         <span className={styles.header_search_text}>
-                            date in - date out
+                            {`${format(
+                                date[0].startDate,
+                                "MM/dd/yyyy"
+                            )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
                         </span>
+                        <DateRange
+                            editableDateInputs={true}
+                            onChange={(item) => setDate([item.selection])}
+                            moveRangeOnFirstSelection={false}
+                            ranges={date}
+                            className={styles.search_dates}
+                        />
                     </div>
                     <div className={styles.header_search_section}>
                         {" "}
