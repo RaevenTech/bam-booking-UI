@@ -95,7 +95,7 @@ const HeaderSearch = () => {
                         {showGuests && (
                             <div className={styles.search_guest_modal}>
                                 <div className={styles.guest_option}>
-                                    <span className={styles.guest_option_text}>
+                                    <span className={styles.guest_option_text1}>
                                         Adult
                                     </span>
                                     <div className={styles.counter}>
@@ -107,14 +107,13 @@ const HeaderSearch = () => {
                                         >
                                             +
                                         </button>
-                                        <input
-                                            id="guest_adult"
-                                            type="text"
+                                        <span
                                             className={
                                                 styles.guest_input_counter
                                             }
-                                            value={guest.adult}
-                                        />
+                                        >
+                                            {guest.adult}
+                                        </span>
 
                                         <button
                                             disabled={guest.adult <= 1}
@@ -143,14 +142,13 @@ const HeaderSearch = () => {
                                         >
                                             +
                                         </button>
-                                        <input
-                                            id="guest_children"
-                                            type="text"
+                                        <span
                                             className={
                                                 styles.guest_input_counter
                                             }
-                                            value={guest.children}
-                                        />
+                                        >
+                                            {guest.children}
+                                        </span>
                                         <button
                                             disabled={guest.children <= 0}
                                             onClick={() =>
@@ -166,7 +164,7 @@ const HeaderSearch = () => {
                                     </div>
                                 </div>
                                 <div className={styles.guest_option}>
-                                    <span className={styles.guest_option_text}>
+                                    <span className={styles.guest_option_text2}>
                                         Room
                                     </span>
                                     <div className={styles.counter}>
@@ -178,14 +176,13 @@ const HeaderSearch = () => {
                                         >
                                             +
                                         </button>
-                                        <input
-                                            id="guest_room"
-                                            type="text"
+                                        <span
                                             className={
                                                 styles.guest_input_counter
                                             }
-                                            value={guest.room}
-                                        />
+                                        >
+                                            {guest.room}
+                                        </span>
                                         <button
                                             disabled={guest.room <= 1}
                                             onClick={() =>

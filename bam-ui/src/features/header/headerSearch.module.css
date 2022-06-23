@@ -76,10 +76,23 @@
     width: 1rem;
     text-align: center;
     border: none;
+    padding :5px;
     
 }
 .guest_option {
     padding: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px
+}
+.guest_option_text{
+    padding-right: 23px;
+}
+.guest_option_text1{
+    padding-right: 43px;
+}
+.guest_option_text2{
+    padding-right: 39px;
 }
 .guest_counter_btn {
     width: 1.5rem;
