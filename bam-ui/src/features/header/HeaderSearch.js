@@ -13,6 +13,13 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 
 const HeaderSearch = () => {
     //const [searchLocation, setSearchLocation] = useState("");
+    const [showDate, setShowDate] = useState(false);
+    const [showGuests, setShowGuest] = useState(false);
+    const [guest, setGuest] = useState({
+        adult: 1,
+        children: 0,
+        room: 1,
+    });
     const [date, setDate] = useState([
         {
             startDate: new Date(),
@@ -43,19 +50,24 @@ const HeaderSearch = () => {
                             icon={faCalendarDays}
                             className={styles.header_search_icon}
                         />
-                        <span className={styles.header_search_text}>
+                        <span
+                            onClick={() => setShowDate(!showDate)}
+                            className={styles.header_search_text}
+                        >
                             {`${format(
                                 date[0].startDate,
                                 "MM/dd/yyyy"
                             )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
                         </span>
-                        <DateRange
-                            editableDateInputs={true}
-                            onChange={(item) => setDate([item.selection])}
-                            moveRangeOnFirstSelection={false}
-                            ranges={date}
-                            className={styles.search_dates}
-                        />
+                        {showDate && (
+                            <DateRange
+                                editableDateInputs={true}
+                                onChange={(item) => setDate([item.selection])}
+                                moveRangeOnFirstSelection={false}
+                                ranges={date}
+                                className={styles.search_dates}
+                            />
+                        )}
                     </div>
                     <div className={styles.header_search_section}>
                         {" "}
@@ -64,8 +76,36 @@ const HeaderSearch = () => {
                             className={styles.header_search_icon}
                         />{" "}
                         <span className={styles.header_search_text}>
-                            2 adults . 0 children . 1 room{" "}
+                            {`${guest.adult} adult . ${guest.children} children . ${guest.room} room`}
                         </span>
+                        <div className={styles.search_guest_modal}>
+                            <div className={styles.guest_option}>
+                                <span className={styles.guest_option_text}>
+                                    Adult
+                                </span>
+                                <button className={styles.guest_counter_btn}>
+                                    +
+                                </button>
+                                <input
+                                    type="text"
+                                    placeholder="1"
+                                    className={styles.guest_input_counter}
+                                />
+                                <button className={styles.guest_counter_btn}>
+                                    -
+                                </button>
+                            </div>
+                            <div className={styles.guest_option}>
+                                <span className={styles.guest_option_text}>
+                                    Children
+                                </span>
+                            </div>
+                            <div className={styles.guest_option}>
+                                <span className={styles.guest_option_text}>
+                                    Room
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div className={styles.header_search_section}>
                         <button className={styles.header_search_btn}>

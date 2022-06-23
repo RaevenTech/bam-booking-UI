@@ -48,5 +48,13 @@
 .search_dates {
     position:absolute;
     top:50px;
+    z-index: 2;
+}
+.search_guest_modal {
+    color: gray;
+}
+.guest_input_counter {
+    width: 1rem;
+    text-align: center;
 }
 
