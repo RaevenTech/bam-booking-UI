@@ -10,4 +10,7 @@
     --w:#faf9f0;
     
 }
+.rdrDateDisplayWrapper {
+    background-color: var(--t) !important;
+}
 

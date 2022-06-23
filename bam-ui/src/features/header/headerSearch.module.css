@@ -47,14 +47,51 @@
 }
 .search_dates {
     position:absolute;
-    top:50px;
+    top:55px;
     z-index: 2;
+    box-shadow: 3px 5px 10px gray;
+    left: 260px;
+    border-radius: 5px;
+    background: white;
+    border: 1px solid var(--t);
 }
 .search_guest_modal {
-    color: gray;
+    color: black;
+    background-color: white;
+    padding: 0px 15px;
+    position: absolute;
+    top: 55px;
+    right: 200px;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 3px 5px 10px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--t);
+    
 }
 .guest_input_counter {
     width: 1rem;
     text-align: center;
+    border: none;
+    
+}
+.guest_option {
+    padding: 5px 5px;
+}
+.guest_counter_btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white ;
+    color:var(--t);
+    cursor: pointer;
+}
+.guest_counter_btn:disabled {
+    cursor: not-allowed;
+}
+.guest_counter_btn:disabled:hover {
+    border: 1px dashed rgba(255, 0, 0, 0.489);
 }
 

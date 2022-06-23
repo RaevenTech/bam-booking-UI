@@ -14,7 +14,8 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 const HeaderSearch = () => {
     //const [searchLocation, setSearchLocation] = useState("");
     const [showDate, setShowDate] = useState(false);
-    const [showGuests, setShowGuest] = useState(false);
+    const [showGuests, setShowGuests] = useState(false);
+
     const [guest, setGuest] = useState({
         adult: 1,
         children: 0,
@@ -27,6 +28,16 @@ const HeaderSearch = () => {
             key: "selection",
         },
     ]);
+
+    const handleCount = (name, counter) => {
+        setGuest((prev) => {
+            return {
+                ...prev,
+                [name]:
+                    counter === "increase" ? guest[name] + 1 : guest[name] - 1,
+            };
+        });
+    };
 
     return (
         <>
@@ -75,37 +86,119 @@ const HeaderSearch = () => {
                             icon={faUserGroup}
                             className={styles.header_search_icon}
                         />{" "}
-                        <span className={styles.header_search_text}>
+                        <span
+                            onClick={() => setShowGuests(!showGuests)}
+                            className={styles.header_search_text}
+                        >
                             {`${guest.adult} adult . ${guest.children} children . ${guest.room} room`}
                         </span>
-                        <div className={styles.search_guest_modal}>
-                            <div className={styles.guest_option}>
-                                <span className={styles.guest_option_text}>
-                                    Adult
-                                </span>
-                                <button className={styles.guest_counter_btn}>
-                                    +
-                                </button>
-                                <input
-                                    type="text"
-                                    placeholder="1"
-                                    className={styles.guest_input_counter}
-                                />
-                                <button className={styles.guest_counter_btn}>
-                                    -
-                                </button>
+                        {showGuests && (
+                            <div className={styles.search_guest_modal}>
+                                <div className={styles.guest_option}>
+                                    <span className={styles.guest_option_text}>
+                                        Adult
+                                    </span>
+                                    <div className={styles.counter}>
+                                        <button
+                                            onClick={() =>
+                                                handleCount("adult", "increase")
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            +
+                                        </button>
+                                        <input
+                                            id="guest_adult"
+                                            type="text"
+                                            className={
+                                                styles.guest_input_counter
+                                            }
+                                            value={guest.adult}
+                                        />
+
+                                        <button
+                                            disabled={guest.adult <= 1}
+                                            onClick={() =>
+                                                handleCount("adult", "decrease")
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            -
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className={styles.guest_option}>
+                                    <span className={styles.guest_option_text}>
+                                        Children
+                                    </span>
+                                    <div className={styles.counter}>
+                                        <button
+                                            onClick={() =>
+                                                handleCount(
+                                                    "children",
+                                                    "increase"
+                                                )
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            +
+                                        </button>
+                                        <input
+                                            id="guest_children"
+                                            type="text"
+                                            className={
+                                                styles.guest_input_counter
+                                            }
+                                            value={guest.children}
+                                        />
+                                        <button
+                                            disabled={guest.children <= 0}
+                                            onClick={() =>
+                                                handleCount(
+                                                    "children",
+                                                    "decrease"
+                                                )
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            -
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className={styles.guest_option}>
+                                    <span className={styles.guest_option_text}>
+                                        Room
+                                    </span>
+                                    <div className={styles.counter}>
+                                        <button
+                                            onClick={() =>
+                                                handleCount("room", "increase")
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            +
+                                        </button>
+                                        <input
+                                            id="guest_room"
+                                            type="text"
+                                            className={
+                                                styles.guest_input_counter
+                                            }
+                                            value={guest.room}
+                                        />
+                                        <button
+                                            disabled={guest.room <= 1}
+                                            onClick={() =>
+                                                handleCount("room", "decrease")
+                                            }
+                                            className={styles.guest_counter_btn}
+                                        >
+                                            -
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className={styles.guest_option}>
-                                <span className={styles.guest_option_text}>
-                                    Children
-                                </span>
-                            </div>
-                            <div className={styles.guest_option}>
-                                <span className={styles.guest_option_text}>
-                                    Room
-                                </span>
-                            </div>
-                        </div>
+                        )}
                     </div>
                     <div className={styles.header_search_section}>
                         <button className={styles.header_search_btn}>
