@@ -3,18 +3,22 @@ import { faGavel } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderSearch from "./HeaderSearch";
 
-const Header = (page) => {
+const Header = ({ page }) => {
     return (
         <>
             <div className={styles.header}>
                 <div className={styles.header_container}>
                     <div className={styles.header_list}>
-                        <div className={styles.header_item}>
-                            <FontAwesomeIcon icon={faGavel} />
-                            <span>
-                                Bid<span className={styles.header_2}>2</span>Buy
-                            </span>
-                        </div>
+                        {page === "auctions" && (
+                            <div className={styles.header_item}>
+                                <FontAwesomeIcon icon={faGavel} />
+                                <span>
+                                    Bid
+                                    <span className={styles.header_2}>2</span>
+                                    Buy
+                                </span>
+                            </div>
+                        )}
                     </div>
 
                     {page !== "auctions" && (
