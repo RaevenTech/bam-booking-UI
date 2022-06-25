@@ -1,4 +1,4 @@
-import styles from "./feacturedCity.module.css";
+import styles from "./featuredCity.module.css";
 
 const FeaturedCity = () => {
     return (

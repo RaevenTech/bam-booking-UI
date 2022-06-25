@@ -49,7 +49,7 @@
     position:absolute;
     top:55px;
     z-index: 2;
-    box-shadow: 3px 5px 10px gray;
+    box-shadow: 3px 5px 15px black;
     left: 260px;
     border-radius: 5px;
     background: white;
@@ -64,7 +64,7 @@
     right: 200px;
     z-index: 2;
     border-radius: 5px;
-    box-shadow: 3px 5px 10px gray;
+    box-shadow: 3px 5px 15px black;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -10,6 +10,7 @@ const Home = () => {
             <Header />
             <div className={styles.home_main_container}>
                 <FeaturedCity />
+                <h2 className={styles.home_property_title}>Property Type</h2>
             </div>
         </>
     );
