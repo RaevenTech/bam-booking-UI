@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../../features/header/Header";
-import Navbar from "../../../features/navbar/Navbar";
+import Header from "../../features/header/Header";
+import Navbar from "../../features/navbar/Navbar";
 
 const Auctions = () => {
     return (

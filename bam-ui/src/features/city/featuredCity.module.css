@@ -11,6 +11,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding-left: 5px;
+    cursor: pointer;
 }
 .cities_img {
     width: 100%;
