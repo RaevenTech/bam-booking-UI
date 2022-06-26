@@ -31,3 +31,11 @@
 .cities_title>h3{
     margin-top: 5px;
 }
+.cities_secondary {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    max-width: 1024px;
+    position: relative;
+}
