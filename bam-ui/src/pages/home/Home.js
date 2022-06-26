@@ -11,9 +11,8 @@ const Home = () => {
             <Header />
             <div className={styles.home_main_container}>
                 <FeaturedCity />
-                <h2 className={styles.home_property_title}>
-                    <PropertyType />
-                </h2>
+                <h2 className={styles.home_property_title}>Type of property</h2>
+                <PropertyType />
             </div>
         </>
     );

@@ -1,0 +1,33 @@
+.property_list {
+    display: flex;
+    max-width: 1024px;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    
+
+}
+.property_list_item{
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.property_list_item_img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.property_list_item_title {
+    font-size: 0.7rem;
+    padding-left: 2px;
+}
+.property_list_item_title>h1{
+    margin: 0px;
+    
+}
+.property_list_item_title>h3{
+    margin-top: 0px;
+    
+}
