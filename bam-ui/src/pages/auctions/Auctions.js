@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./auctions.module.css";
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 

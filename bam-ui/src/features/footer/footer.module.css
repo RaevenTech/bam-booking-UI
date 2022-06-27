@@ -1,0 +1,41 @@
+.footer_container {
+    display: flex;
+    justify-content: space-evenly;
+   width: 100%;
+   background: var(--t);
+   height: 200px;
+    
+}
+.footer_container_lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1024px;
+    color:white;
+    padding: 20px;
+    margin-right: 0px;
+    flex: 2;
+    
+}
+.footer_list {
+    display: flex;
+    justify-content: space-between;
+   gap:40px;
+    max-width: 1024px;
+    list-style: none;
+
+}
+.footer_list_2 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+}
+.copy_right {
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: -45px;
+    background-color: var(--t);
+}
