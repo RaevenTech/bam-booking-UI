@@ -10,11 +10,13 @@ import { format } from "date-fns";
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { useNavigate } from "react-router-dom";
 
 const HeaderSearch = () => {
-    //const [searchLocation, setSearchLocation] = useState("");
+    const [searchLocation, setSearchLocation] = useState("");
     const [showDate, setShowDate] = useState(false);
     const [showGuests, setShowGuests] = useState(false);
+    const navigate = useNavigate();
 
     const [guest, setGuest] = useState({
         adult: 1,
@@ -39,6 +41,10 @@ const HeaderSearch = () => {
         });
     };
 
+    const handleSearch = () => {
+        navigate("/auctions", { state: { searchLocation, date, guest } });
+    };
+
     return (
         <>
             <div className={styles.header_search}>
@@ -53,7 +59,7 @@ const HeaderSearch = () => {
                             className={styles.header_search_input}
                             type="text"
                             placeholder="Search by location"
-                            //onChange={(e) => setSearchLocation(e.target.value)}
+                            onChange={(e) => setSearchLocation(e.target.value)}
                         />
                     </div>
                     <div className={styles.header_search_section}>
@@ -198,7 +204,10 @@ const HeaderSearch = () => {
                         )}
                     </div>
                     <div className={styles.header_search_section}>
-                        <button className={styles.header_search_btn}>
+                        <button
+                            className={styles.header_search_btn}
+                            onClick={handleSearch}
+                        >
                             Search
                         </button>
                     </div>
