@@ -8,7 +8,7 @@ const AuctionSearch = () => {
     const location = useLocation();
     const [destination] = useState(location.state.searchLocation);
     const [date, setDate] = useState(location.state.date);
-    //const [guest, setGuest] = useState(location.state.guest);
+    const [guest, setGuest] = useState(location.state.guest);
     const [showDate, setShowDate] = useState(false);
 
     return (
@@ -27,10 +27,10 @@ const AuctionSearch = () => {
                         className={styles.auction_search_date}
                         onClick={() => setShowDate(!showDate)}
                     >
-                        {`${format(
-                            date[0].startDate,
+                        {`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
+                            date[0].endDate,
                             "MM/dd/yyyy"
-                        )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
+                        )}`}
                     </div>
                     {showDate && (
                         <DateRange
@@ -59,19 +59,34 @@ const AuctionSearch = () => {
                     <div className={styles.item_adult}>
                         <small>Adult</small>
                     </div>
-                    <input className={styles.item_input} type="number" />
+                    <input
+                        className={styles.item_input}
+                        type="number"
+                        min={1}
+                        placeholder={guest.adult}
+                    />
                 </div>
                 <div className={styles.item_text}>
                     <div className={styles.item_children}>
                         <small>Children</small>
                     </div>
-                    <input className={styles.item_input} type="number" />
+                    <input
+                        className={styles.item_input}
+                        type="number"
+                        min={0}
+                        placeholder={guest.children}
+                    />
                 </div>
                 <div className={styles.item_text}>
                     <div className={styles.item_room}>
                         <small>Room</small>
                     </div>
-                    <input className={styles.item_input} type="number" />
+                    <input
+                        className={styles.item_input}
+                        type="number"
+                        min={1}
+                        placeholder={guest.room}
+                    />
                 </div>
             </div>
         </div>
