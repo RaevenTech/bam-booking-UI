@@ -8,11 +8,11 @@ const AuctionSearch = () => {
     const location = useLocation();
     const [destination] = useState(location.state.searchLocation);
     const [date, setDate] = useState(location.state.date);
-    const [guest, setGuest] = useState(location.state.guest);
+    const [guest] = useState(location.state.guest);
     const [showDate, setShowDate] = useState(false);
 
     return (
-        <div className={styles.auction_search}>
+        <div className={styles.auction_search_wrapper}>
             <h1 className={styles.auction_list_title}>
                 <span>Search</span>
             </h1>
@@ -88,6 +88,9 @@ const AuctionSearch = () => {
                         placeholder={guest.room}
                     />
                 </div>
+            </div>
+            <div className={styles.search_btn_section}>
+                <button className={styles.auction_search_btn}> Search</button>
             </div>
         </div>
     );
