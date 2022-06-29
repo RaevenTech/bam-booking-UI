@@ -70,6 +70,7 @@
     color: var(--t);
     border: 2px solid var(--t);
     background: transparent;
+    transition: 0.5s ease-in-out;
 }
 .auction_search_btn:hover {
     background: var(--t);
