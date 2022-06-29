@@ -1,6 +1,38 @@
+
+.auction_search {
+    max-width: fit-content;
+}
+.item_price,.item_details {
+    color: var(--t);
+    font-weight: 500;
+}
+
 .auction_search_item {
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-bottom: 10px;
+    color: var(--t);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+.auction_search_destination> input {
+    border: none;
+    padding: 2px;
+    height: 30px;
+    margin-left: 10px;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding-left: 5px;
+
+}
+.auction_list_title {
+    color:var(--t);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.auction_search_date {
+    background-color: white;
 }

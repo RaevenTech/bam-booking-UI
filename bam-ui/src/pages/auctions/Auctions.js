@@ -2,6 +2,7 @@ import styles from "./auctions.module.css";
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 import AuctionSearch from "./AuctionSearch";
+import AuctionResults from "./AuctionResults";
 
 const Auctions = () => {
     return (
@@ -13,7 +14,18 @@ const Auctions = () => {
                     <div className={styles.auction_search}>
                         <AuctionSearch />
                     </div>
-                    <div className={styles.auction_search_results}></div>
+                    <div className={styles.auction_search_results}>
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                        <AuctionResults />
+                    </div>
                 </div>
             </div>
         </div>
