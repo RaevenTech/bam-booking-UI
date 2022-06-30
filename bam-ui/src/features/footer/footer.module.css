@@ -39,4 +39,6 @@
     justify-content: center;
     margin-top: -45px;
     background-color: var(--t);
+    bottom: 0;
+   
 }
