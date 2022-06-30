@@ -20,6 +20,9 @@ const Property = () => {
 
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
+                    <button className={styles.property_url_btn}>
+                        Retail price
+                    </button>
                     <h1 className={styles.property_title}>Property Title</h1>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon
@@ -45,7 +48,7 @@ const Property = () => {
                     <div className={styles.property_description}>
                         <div className={styles.property_details}>
                             <h2 className={styles.property_subtitle}>
-                                Prime location everything in walkind distance
+                                Prime location everything in walking distance
                             </h2>
                             <p className={styles.property_introduction}>
                                 Lorem ipsum dolor sit amet consectetur
@@ -73,9 +76,7 @@ const Property = () => {
                                     -
                                 </button>
                             </div>
-                            <span className={styles.property_page_url}>
-                                www.noneofyourbusiness.com
-                            </span>
+                            <span className={styles.property_page_url}></span>
                         </div>
                     </div>
                 </div>

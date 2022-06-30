@@ -2,18 +2,34 @@
    display: flex;
    justify-content: center;
     color: black;
+    
 }
+.property_url_btn {
+    position:absolute;
+    top:10px;
+    margin-top: 20px;
+    right: 0;
+    padding: 10px;
+    font-weight: bold;
+    background: var(--g);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 .property_title {
     font-size: 2.5rem;
 }
 .property_location_icon {
     font-size: 2rem;
+    color: var(--orange);
 }
 .property_location {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     gap: 10px;
+    margin-bottom: 10px;
 }
 .property_section {
     display: flex;
@@ -21,6 +37,18 @@
     flex-direction: column;
     width: 100%;
     max-width: 1024px;
+    position: relative;
+    
+}
+
+
+.property_images {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    
 }
 .image_section {
     width: 33%;
@@ -28,4 +56,23 @@
 .src_image {
     width: 100%;
     object-fit: cover;
+}
+.property_attractions {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    ;
+}
+.property_description {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.property_details {
+    flex: 3;
+}
+.property_price_bid {
+    display: flex;
+    align-items:center;
+    flex: 2;
+    flex-direction: column;
 }
