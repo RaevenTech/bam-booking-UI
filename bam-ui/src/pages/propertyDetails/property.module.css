@@ -1,0 +1,31 @@
+.property_container {
+   display: flex;
+   justify-content: center;
+    color: black;
+}
+.property_title {
+    font-size: 2.5rem;
+}
+.property_location_icon {
+    font-size: 2rem;
+}
+.property_location {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 10px;
+}
+.property_section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1024px;
+}
+.image_section {
+    width: 33%;
+}
+.src_image {
+    width: 100%;
+    object-fit: cover;
+}
