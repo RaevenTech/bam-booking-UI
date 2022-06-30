@@ -22,20 +22,30 @@ const AuctionResults = () => {
                 </div>
             </div>
             <div className={styles.details}>
-                <div className={styles.details_rating}>
-                    <span>Excellent</span>
-                    <button className={styles.details_rating_btn}>8.7</button>
+                <div className={styles.closing_date_counter}>
+                    <div className={styles.date_counter}>
+                        <span>Closing</span>
+                        <span className={styles.price_anount_item_1}>
+                            2d 00:00:00
+                        </span>
+                    </div>
                 </div>
                 <div className={styles.results_details_prices}>
                     <div className={styles.results_details_purchase_price}>
-                        €55
+                        <span>Buy now</span>
+                        <span className={styles.price_anount_item_1}>€55</span>
                     </div>
                     <div className={styles.results_details_starting_price}>
-                        €10
+                        <span>Starting bid</span>
+                        <span className={styles.price_anount_item_1}>€10</span>
                     </div>
                     <div className={styles.results_details_current_price}>
-                        €23
+                        <span>Current bid</span>
+                        <span className={styles.price_anount_item}>€23</span>
                     </div>
+                </div>
+                <div className={styles.add_bid_btn}>
+                    <button className={styles.bid_btn}>Add your bid</button>
                 </div>
             </div>
         </div>

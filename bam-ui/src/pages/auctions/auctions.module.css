@@ -2,6 +2,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    position: relative;
     
 
 }
@@ -11,16 +12,16 @@
     width: 100%;
     max-width: 1024px;
     color: var(--w);
-  
+
 
 }
 .auction_search {
+    
     flex: 1;
     background-color: var(--g);
     padding: 10px;
     font-size: 1.3rem;
     border-radius: 15px;
-    position:sticky;
     height: fit-content;
 }
 .auction_search_results {

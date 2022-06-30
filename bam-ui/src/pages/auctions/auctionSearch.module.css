@@ -1,8 +1,5 @@
 
-.auction_search_wrapper {
-   position: sticky;
-  
-}
+
 .item_price,.item_details {
     color: var(--t);
     font-weight: 500;
