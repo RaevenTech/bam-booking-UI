@@ -67,16 +67,22 @@ const Property = () => {
                             <h1 className={styles.live_auction}>
                                 Live Auction
                             </h1>
-                            <h2 className={styles.current_bid}>€122</h2>
+                            <h2 className={styles.current_bid}>
+                                Current Bid
+                                <span className={styles.current_bid_amount}>
+                                    €122
+                                </span>
+                            </h2>
                             <div className={styles.increment_btns}>
                                 <button className={styles.increase_btn}>
                                     +
                                 </button>
+
                                 <button className={styles.decrease_btn}>
                                     -
                                 </button>
                             </div>
-                            <span className={styles.property_page_url}></span>
+                            <span className={styles.property_input}></span>
                         </div>
                     </div>
                 </div>

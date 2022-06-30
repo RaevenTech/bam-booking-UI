@@ -56,6 +56,7 @@
 .src_image {
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
 }
 .property_attractions {
     font-size: 1.5rem;
@@ -75,4 +76,22 @@
     align-items:center;
     flex: 2;
     flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--orange);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.live_auction {
+    margin-top: 4px;
+}
+.current_bid{
+    margin-top: -10px;
+}
+.current_bid_amount {
+   margin-left: 10px;
+    border:1px solid black;
+    padding: 2px 4px;
+    border-radius: 5px;
+    
+    ;
 }
