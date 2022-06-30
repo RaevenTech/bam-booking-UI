@@ -13,14 +13,12 @@ const AuctionResults = () => {
                 <div className={styles.results_attraction}>
                     5min walk to the beach
                 </div>
-                <div className={styles.results_features}>
-                    Apartment has Air conditioning
-                </div>
+                <div className={styles.results_features}>Air conditioning</div>
                 <div className={styles.results_description_room}>
                     2 Bed, 1 Bath, full Kitchen
                 </div>
                 <div className={styles.results_terms_conditions}>
-                    <small>Once the bidding id closed, NO cancellations</small>
+                    <small>Once the bidding is closed, NO cancellations</small>
                 </div>
             </div>
             <div className={styles.details}>
@@ -29,15 +27,15 @@ const AuctionResults = () => {
                     <button className={styles.details_rating_btn}>8.7</button>
                 </div>
                 <div className={styles.results_details_prices}>
-                    <span className={styles.results_details_purchase_price}>
+                    <div className={styles.results_details_purchase_price}>
                         €55
-                    </span>
-                    <span className={styles.results_details_starting_price}>
+                    </div>
+                    <div className={styles.results_details_starting_price}>
                         €10
-                    </span>
-                    <span className={styles.results_details_current_price}>
+                    </div>
+                    <div className={styles.results_details_current_price}>
                         €23
-                    </span>
+                    </div>
                 </div>
             </div>
         </div>
