@@ -1,10 +1,16 @@
 import Navbar from "../../features/navbar/Navbar";
 import Header from "../../features/header/Header";
+import Footer from "../../features/footer/Footer";
 import styles from "./property.module.css";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
+    const [count, setCount] = useState(0);
+    const [imageIndex, setImageIndex] = useState(0);
+    const [show, setShow] = useState(false);
+
     const pictures = [
         { src: "https://www.fillmurray.com/640/360" },
         { src: "https://loremflickr.com/640/360" },
@@ -13,11 +19,15 @@ const Property = () => {
         { src: "https://picsum.photos/640/360" },
         { src: "https://www.placecage.com/640/360" },
     ];
+
+    const handleShow = (i) => {
+        setImageIndex(i);
+    };
+
     return (
         <div>
             <Navbar />
             <Header page="auctions" />
-
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
                     <button className={styles.property_url_btn}>
@@ -64,29 +74,56 @@ const Property = () => {
                             </p>
                         </div>
                         <div className={styles.property_price_bid}>
-                            <h1 className={styles.live_auction}>
+                            <h1 className={styles.live_auction_title}>
                                 Live Auction
                             </h1>
-                            <h2 className={styles.current_bid}>
-                                Current Bid
+                            <span className={styles.auction_subtitle}>
+                                Make this your next holiday
+                            </span>
+                            <h3 className={styles.current_bid}>
+                                Current price
                                 <span className={styles.current_bid_amount}>
-                                    €122
+                                    {count}
                                 </span>
-                            </h2>
+                            </h3>
+                            <span className={styles.property_input}>
+                                {count}
+                            </span>
                             <div className={styles.increment_btns}>
-                                <button className={styles.increase_btn}>
+                                <button
+                                    className={styles.increase_btn}
+                                    onClick={() => {
+                                        setCount(count + 1);
+                                    }}
+                                >
                                     +
                                 </button>
-
-                                <button className={styles.decrease_btn}>
+                                <button
+                                    className={styles.reset_btn}
+                                    onClick={() => {
+                                        setCount(0);
+                                    }}
+                                >
+                                    Reset
+                                </button>
+                                <button
+                                    disabled={count <= 0}
+                                    className={styles.decrease_btn}
+                                    onClick={() => {
+                                        setCount(count - 1);
+                                    }}
+                                >
                                     -
                                 </button>
                             </div>
-                            <span className={styles.property_input}></span>
+                            <button className={styles.submit_bid_amount}>
+                                Submit Bid
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

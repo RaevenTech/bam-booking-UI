@@ -1,10 +1,13 @@
 .footer_container {
-    
     display: flex;
     justify-content: space-evenly;
    width: 100%;
    background: var(--t);
-   height: 200px;
+   height: 150px;
+   position:fixed;
+left:0;
+bottom:0;
+right:0;
     
 }
 .footer_container_lists {
@@ -40,5 +43,9 @@
     margin-top: -45px;
     background-color: var(--t);
     bottom: 0;
+    position:fixed;
+left:0;
+bottom:0;
+right:0;
    
 }

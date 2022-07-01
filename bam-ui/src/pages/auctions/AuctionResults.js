@@ -1,12 +1,18 @@
 import styles from "./auctionResults.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AuctionResults = () => {
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate("/details");
+    };
     return (
         <div className={styles.auction_results}>
             <img
                 className={styles.search_results_img}
                 src="https://www.fillmurray.com/640/360"
                 alt=""
+                onClick={handleNavigate}
             />
             <div className={styles.results_description}>
                 <h1 className={styles.results_title}>Apartment</h1>
@@ -45,7 +51,9 @@ const AuctionResults = () => {
                     </div>
                 </div>
                 <div className={styles.add_bid_btn}>
-                    <button className={styles.bid_btn}>Add your bid</button>
+                    <button className={styles.bid_btn} onClick={handleNavigate}>
+                        Add your bid
+                    </button>
                 </div>
             </div>
         </div>
