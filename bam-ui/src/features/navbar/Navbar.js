@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import UserLogin from "../../forms/login/UserLogin";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-    const [showForm, setShowForm] = useState(false);
+    const navigate = useNavigate();
 
-    const handleShowForm = () => {
-        setShowForm(!showForm);
+    const handleRegFrom = () => {
+        navigate("/register");
+    };
+    const handleLogForm = () => {
+        navigate("/login");
     };
 
     return (
@@ -20,14 +23,18 @@ const Navbar = () => {
                         <button className={styles.nav_btn_list}>
                             List your property
                         </button>
-                        <button className={styles.nav_btn}>Register</button>
                         <button
                             className={styles.nav_btn}
-                            onClick={handleShowForm}
+                            onClick={handleRegFrom}
+                        >
+                            Register
+                        </button>
+                        <button
+                            className={styles.nav_btn}
+                            onClick={handleLogForm}
                         >
                             Sign in
                         </button>
-                        {showForm && <UserLogin />}
                     </div>
                 </div>
             </div>
