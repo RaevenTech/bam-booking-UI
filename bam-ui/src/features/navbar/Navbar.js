@@ -5,11 +5,8 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
     const navigate = useNavigate();
 
-    const handleRegFrom = () => {
-        navigate("/register");
-    };
-    const handleLogForm = () => {
-        navigate("/login");
+    const handleForms = () => {
+        navigate("/register/login");
     };
 
     return (
@@ -24,14 +21,16 @@ const Navbar = () => {
                             List your property
                         </button>
                         <button
+                            id="register"
                             className={styles.nav_btn}
-                            onClick={handleRegFrom}
+                            onClick={handleForms}
                         >
                             Register
                         </button>
                         <button
+                            id="sign_in"
                             className={styles.nav_btn}
-                            onClick={handleLogForm}
+                            onClick={handleForms}
                         >
                             Sign in
                         </button>

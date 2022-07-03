@@ -34,6 +34,18 @@
 }
 .form_tile{
  color: var(--t);
+ display: flex;
+ flex-direction: column;
+ flex-wrap: nowrap;
+ margin-bottom: 0px;
+}
+.form_tile_1 {
+    color: var(--t);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 0px;
+    margin-top:  0px; 
 }
 .input_item {
     display: flex;

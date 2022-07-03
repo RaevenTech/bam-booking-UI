@@ -11,7 +11,8 @@ const Register = () => {
             </div>
             <div className={styles.form_container}>
                 <div className={styles.reg_form}>
-                    <h1 className={styles.form_tile}>Register</h1>
+                    <h1 className={styles.form_tile}>Register new</h1>
+                    <h1 className={styles.form_tile_1}>account</h1>
                     <form className={styles.form_inputs}>
                         <div className={styles.input_item}>
                             <label>Username</label>
