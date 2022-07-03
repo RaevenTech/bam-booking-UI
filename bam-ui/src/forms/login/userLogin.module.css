@@ -1,0 +1,46 @@
+.reg_form {
+    width: 400px;
+    display: flex;
+    background:var(--gy);
+    flex-direction: column;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.reg_form:hover {
+    box-shadow: 1px 1px 10px var(--g);
+}
+.form_title {
+    display:flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+.form_title_1 {
+    display:flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input_item {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.username_input {
+    height: 30px;
+}
+.submit_reg_btn{
+    margin: 10px 0px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: var(--t);
+    border: none;
+}
+.submit_reg_btn:hover{
+    background: var(--g);
+    border:1px soild var(--g);
+}

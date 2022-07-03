@@ -6,7 +6,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleForms = () => {
-        navigate("/register/login");
+        navigate("/login/register");
     };
 
     return (
@@ -21,14 +21,12 @@ const Navbar = () => {
                             List your property
                         </button>
                         <button
-                            id="register"
                             className={styles.nav_btn}
                             onClick={handleForms}
                         >
                             Register
                         </button>
                         <button
-                            id="sign_in"
                             className={styles.nav_btn}
                             onClick={handleForms}
                         >

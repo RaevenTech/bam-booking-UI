@@ -4,17 +4,15 @@ import Home from "./pages/home/Home";
 import Auctions from "./pages/auctions/Auctions";
 import Property from "./pages/propertyDetails/Property";
 import NotFound from "./pages/notFound/NotFound";
-import UserLogin from "./forms/login/UserLogin";
-import Register from "./forms/register/Register";
 import BackOffice from "./pages/dashboard/BackOffice";
+import Layout from "./forms/formlayout/Layout";
 
 function App() {
     return (
         <div className="App">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login/register" element={<UserLogin />} />
-                <Route path="/register/login" element={<Register />} />
+                <Route path="/login/register" element={<Layout />} />
                 <Route path="/auctions" element={<Auctions />} />
                 <Route path="/details" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />

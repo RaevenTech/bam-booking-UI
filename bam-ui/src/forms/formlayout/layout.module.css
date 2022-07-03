@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--t);
+    height: 100vh;
+}
+.form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+    width: 900px;
+    background: var(--d);
+    position: relative;
+    
+}
+.home_btn {
+    font-size: 2rem;
+    color: var(--orange);
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.icon_text {
+    font-size: 1.3rem;
+    padding-left: 4px;
+}
