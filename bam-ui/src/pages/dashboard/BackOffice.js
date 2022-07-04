@@ -2,6 +2,7 @@ import styles from "./backOffice.module.css";
 import Header from "../../features/header/Header";
 import Footer from "../../features/footer/Footer";
 import Active from "./Active";
+import NewPost from "../../forms/newPost/NewPost";
 
 const BackOffice = () => {
     return (
@@ -16,6 +17,9 @@ const BackOffice = () => {
                     <Active />
                     <Active />
                     <Active />
+                </div>
+                <div className={styles.new_post}>
+                    <NewPost />
                 </div>
             </div>
             <div className={styles.footer}>

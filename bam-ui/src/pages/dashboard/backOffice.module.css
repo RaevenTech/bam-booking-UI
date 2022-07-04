@@ -21,6 +21,11 @@ background: var(--d);
     gap: 5px;
     background:var(--w);
     border-radius: 5px;
-    padding: 10px;
     position: relative;
+}
+.new_post {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: center;
 }

@@ -30,9 +30,6 @@ const Property = () => {
             <Header page="auctions" />
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
-                    <button className={styles.property_url_btn}>
-                        Retail price
-                    </button>
                     <h1 className={styles.property_title}>Property Title</h1>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon

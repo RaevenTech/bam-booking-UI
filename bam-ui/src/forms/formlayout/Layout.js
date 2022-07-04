@@ -4,6 +4,7 @@ import styles from "./layout.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
 import UserLogin from "../login/UserLogin";
+
 import Register from "../register/Register";
 
 const Layout = () => {
