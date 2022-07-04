@@ -25,9 +25,10 @@
    border: none;
    color:white;
    background-color: var(--t);
-   padding: 15px;
+   padding: 8px 5px;
    width: 100%;
    order: 1;
+   ;
 }
 .header_search_btn:hover {
     color:var(--g);

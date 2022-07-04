@@ -1,6 +1,16 @@
 import styles from "./footer.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    const navigate = useNavigate();
+
+    const handleHome = () => {
+        navigate("/");
+    };
+    const handleListing = () => {
+        navigate("/auctions");
+    };
+
     return (
         <>
             <div className={styles.footer_container}>
@@ -11,10 +21,18 @@ const Footer = () => {
                         <li className={styles.footer_list_item}>
                             Terms & conditions
                         </li>
-                        <li className={styles.footer_list_item}>
+                        <li
+                            className={styles.footer_list_item}
+                            onClick={handleListing}
+                        >
                             Latest listings
                         </li>
-                        <li className={styles.footer_list_item}>Home</li>
+                        <li
+                            className={styles.footer_list_item}
+                            onClick={handleHome}
+                        >
+                            Home
+                        </li>
                     </ul>
                 </div>
             </div>

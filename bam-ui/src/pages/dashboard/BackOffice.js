@@ -18,6 +18,7 @@ const BackOffice = () => {
                     <Active />
                     <Active />
                 </div>
+
                 <div className={styles.new_post}>
                     <NewPost />
                 </div>

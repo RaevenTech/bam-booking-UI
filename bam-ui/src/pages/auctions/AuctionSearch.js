@@ -41,19 +41,6 @@ const AuctionSearch = () => {
                 </div>
             </div>
             <div className={styles.search_item}>
-                <label className={styles.item_price}>Price</label>
-                <div className={styles.item_text}>
-                    <div className={styles.max_price}>
-                        <small>max</small>
-                    </div>
-                    <input className={styles.item_input} type="number" />
-                </div>
-                <div className={styles.item_text}>
-                    <div className={styles.min_price}>
-                        <small>min</small>
-                    </div>
-                    <input className={styles.item_input} type="number" />
-                </div>
                 <label className={styles.item_details}>Details</label>
                 <div className={styles.item_text}>
                     <div className={styles.item_adult}>

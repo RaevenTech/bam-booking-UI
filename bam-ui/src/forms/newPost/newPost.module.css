@@ -1,3 +1,19 @@
 .title {
+    display: flex;
+    justify-content: center;
+    margin:20px 0px;
     color: var(--orange);
+}
+.main_form_container {
+    background-color: var(--w);
+    width: 600px;
+    height: 700px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
+.form_item {
+    display:flex;
+    flex-direction: column;
+    padding: 5px 20px;
 }

@@ -29,7 +29,11 @@ right:0;
    gap:40px;
     max-width: 1024px;
     list-style: none;
+    cursor: pointer;
 
+}
+.footer_list_item:hover {
+    color: var(--orange);
 }
 .footer_list_2 {
     display: flex;
