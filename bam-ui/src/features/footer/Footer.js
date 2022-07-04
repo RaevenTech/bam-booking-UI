@@ -14,10 +14,7 @@ const Footer = () => {
                         <li className={styles.footer_list_item}>
                             Latest listings
                         </li>
-                        <li className={styles.footer_list_item}>Register</li>
-                        <li className={styles.footer_list_item}>
-                            Register a property
-                        </li>
+                        <li className={styles.footer_list_item}>Home</li>
                     </ul>
                 </div>
             </div>

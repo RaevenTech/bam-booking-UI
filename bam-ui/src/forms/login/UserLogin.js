@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "./userLogin.module.css";
+import { useNavigate } from "react-router-dom";
 
 const UserLogin = () => {
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate("/dashboard");
+    };
+
     return (
         <div className={styles.form_container}>
             <div className={styles.reg_form}>
@@ -24,7 +31,10 @@ const UserLogin = () => {
                         />
                     </div>
 
-                    <button className={styles.submit_reg_btn}>
+                    <button
+                        className={styles.submit_reg_btn}
+                        onClick={handleLogin}
+                    >
                         Begin session
                     </button>
                 </form>

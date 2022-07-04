@@ -1,0 +1,26 @@
+.main_page {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: var(--d);
+}
+.header {
+    width: 100%;
+    max-width: 1024px;
+}
+.active {
+    color: var(--orange);
+    margin-bottom: 0px;
+}
+.active_auction {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex: 1;
+    gap: 5px;
+    background:var(--w);
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+}
