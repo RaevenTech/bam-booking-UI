@@ -2,8 +2,37 @@ import styles from "./newPost.module.css";
 import { useRef } from "react";
 
 const NewPost = () => {
+    const titleRef = useRef();
+    const locationRef = useRef();
+    const attractionsRef = useRef();
+    const startingBidRef = useRef();
+    const bedsRef = useRef();
+    const adultsRef = useRef();
+    const childrenRef = useRef();
+    const descriptionRef = useRef();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const titleValue = titleRef.current.value;
+        const locationValue = locationRef.current.value;
+        const attractionsValue = attractionsRef.current.value;
+        const startingBidValue = startingBidRef.current.value;
+        const bedsValue = bedsRef.current.value;
+        const adultsValue = adultsRef.current.value;
+        const childrenValue = childrenRef.current.value;
+        const descriptionValue = descriptionRef.current.value;
+
+        const formData = {
+            title: titleValue,
+            location: locationValue,
+            attractions: attractionsValue,
+            price: startingBidValue,
+            beds: bedsValue,
+            adults: adultsValue,
+            children: childrenValue,
+            description: descriptionValue,
+        };
+        console.log(formData);
     };
 
     return (
@@ -20,6 +49,7 @@ const NewPost = () => {
                             type="text"
                             placeHolder="Title"
                             required
+                            ref={titleRef}
                         />
                     </div>
                     <div className={styles.form_item}>
@@ -31,17 +61,20 @@ const NewPost = () => {
                             type="text"
                             placeHolder="Address"
                             required
+                            ref={locationRef}
                         />
                     </div>
                     <div className={styles.form_item}>
                         <lable className={styles.post_title}>
                             <b>Attractions:</b>
                         </lable>
-                        <input
+                        <textarea
                             className={styles.input}
                             type="text"
                             placeHolder="Local attractions"
+                            rows={3}
                             required
+                            ref={attractionsRef}
                         />
                     </div>
                     <div className={styles.form_item}>
@@ -54,17 +87,17 @@ const NewPost = () => {
                             placeHolder="€1 min bids are min on €1"
                             min={1}
                             required
+                            ref={startingBidRef}
                         />
                     </div>
                     <div className={styles.form_item}>
                         <lable className={styles.post_title}>
                             <b>Closing date:</b>
                         </lable>
-                        <textarea
+                        <input
                             className={styles.input}
-                            type="text"
-                            placeHolder="Local attractions"
-                            rows={3}
+                            type="date"
+                            placeHolder="closing date"
                             required
                         />
                     </div>
@@ -79,6 +112,7 @@ const NewPost = () => {
                                 placeHolder="1"
                                 required
                                 min={1}
+                                ref={adultsRef}
                             />
                             <lable className={styles.post_title}>
                                 <b>Children:</b>
@@ -89,6 +123,7 @@ const NewPost = () => {
                                 min={0}
                                 placeHolder="0"
                                 required
+                                ref={childrenRef}
                             />
                             <lable className={styles.post_title}>
                                 <b>Beds:</b>
@@ -98,6 +133,7 @@ const NewPost = () => {
                                 type="text"
                                 placeHolder="1 double"
                                 required
+                                ref={bedsRef}
                             />
                         </div>
                     </section>
@@ -110,10 +146,12 @@ const NewPost = () => {
                             placeHolder="Short description and specifications"
                             rows="6"
                             required
+                            ref={descriptionRef}
                         />
                     </div>
                     <div className={styles.form_btn}>
                         <button className={styles.btn}>Add to auction</button>
+                        <button className={styles.btn_2}>Add images</button>
                     </div>
                 </form>
             </div>

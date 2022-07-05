@@ -41,4 +41,21 @@
 .btn {
     border-radius: 5px;
     background: var(--t);
+    border: 1px solid var(--t);
+}
+.btn:hover {
+    background:var(--orange); 
+}
+.btn_2 {
+    border-radius: 5px;
+    background: var(--g);
+    margin-left: 10px;
+    margin-right: 10px;
+    border:  1px solid var(--g);
+    
+}
+.btn_2:hover {
+    color: green;
+    border: 1px solid green;
+    background: transparent;
 }
