@@ -19,9 +19,6 @@ const Auctions = () => {
                         <AuctionResults />
                         <AuctionResults />
                         <AuctionResults />
-                        <AuctionResults />
-                        <AuctionResults />
-                        <AuctionResults />
                     </div>
                 </div>
             </div>
