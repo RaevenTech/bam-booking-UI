@@ -8,7 +8,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2015/05/Aurora-apartments-for-rent-in-North-Bethesda-MD.jpg"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>
@@ -19,7 +19,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://aceraft.com/wp-content/uploads/2019/04/ACE-Adventure-Adventure-Resort-West-Virginia-Rental-Cabin-Aspen-1500x938.jpg"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>
@@ -30,7 +30,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/22443294.jpg?k=fc9d8a13beb15e92eb0479d21af7e66ae55f8da78f5b45b1b63a2937a52fb3d0&o=&hp=1"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>
@@ -41,7 +41,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://sandypinescamping.com/wp-content/uploads/2019/07/Maine-Glamping-Under-the-Stars.jpg"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>
@@ -52,7 +52,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://cdn.excellenceriviera.com/v7/excellenceriviera.com/wp-content/uploads/2021/06/Bayview-Monaco-Featured-1-7.jpg"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>
@@ -63,7 +63,7 @@ const PropertyType = () => {
                 <div className={styles.property_list_item}>
                     <img
                         className={styles.property_list_item_img}
-                        src="https://picsum.photos/640/360"
+                        src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/239521743.jpg?k=2c918e4238b8a896de6fdbea2fc13976d4733da2207998e33053b7d8035de696&o=&hp=1"
                         alt="listing"
                     />
                     <div className={styles.property_list_item_title}>

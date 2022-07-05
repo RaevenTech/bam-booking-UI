@@ -7,34 +7,34 @@ const FeaturedCity = () => {
                 <div className={styles.cities_item}>
                     <img
                         className={styles.cities_img}
-                        src="http://placeimg.com/640/360/any"
+                        src="https://4.bp.blogspot.com/-JSKx1mfNp2A/Vyz8cVODCzI/AAAAAAAAmh0/Xmi6WYxXn18WOGCyB2n18PfpSdkLXfS2QCLcB/s1600/IMG_9350.JPG"
                         alt="city"
                     />
                     <div className={styles.cities_title}>
-                        <h1>City Name</h1>
-                        <h3>Subtitle</h3>
+                        <h1>Budapest</h1>
+                        <h3>Hungary</h3>
                     </div>
                 </div>
                 <div className={styles.cities_item}>
                     <img
                         className={styles.cities_img}
-                        src="http://placeimg.com/640/360/any"
+                        src="https://www.melhoresdestinos.com.br/wp-content/uploads/2017/01/lisboa-portugal-capa-1-820x430.jpg"
                         alt="city"
                     />
                     <div className={styles.cities_title}>
-                        <h1>City Name</h1>
-                        <h3>Subtitle</h3>
+                        <h1>Lisbon</h1>
+                        <h3>Portugal</h3>
                     </div>
                 </div>
                 <div className={styles.cities_item}>
                     <img
                         className={styles.cities_img}
-                        src="http://placeimg.com/640/360/any"
+                        src="https://www.viajenaviagem.com/wp-content/uploads/2013/10/paris-louvre-noite-1920x1080-1-960x540.jpg"
                         alt="city"
                     />
                     <div className={styles.cities_title}>
-                        <h1>City Name</h1>
-                        <h3>Subtitle</h3>
+                        <h1>Paris</h1>
+                        <h3>France</h3>
                     </div>
                 </div>
             </div>
@@ -43,23 +43,23 @@ const FeaturedCity = () => {
                     <div className={styles.cities_item}>
                         <img
                             className={styles.cities_img}
-                            src="http://placeimg.com/640/360/any"
+                            src="https://reisetips.nettavisen.no/content/uploads/sites/2/2022/05/Barcelona-scaled.jpg"
                             alt="city"
                         />
                         <div className={styles.cities_title}>
-                            <h1>City Name</h1>
-                            <h3>Subtitle</h3>
+                            <h1>Barcelona</h1>
+                            <h3>Spain</h3>
                         </div>
                     </div>
                     <div className={styles.cities_item}>
                         <img
                             className={styles.cities_img}
-                            src="http://placeimg.com/640/360/any"
+                            src="https://www.thegeographicalcure.com/wp-content/uploads/2021/09/160_file.jpg"
                             alt="city"
                         />
                         <div className={styles.cities_title}>
-                            <h1>City Name</h1>
-                            <h3>Subtitle</h3>
+                            <h1>Florence</h1>
+                            <h3>Italy</h3>
                         </div>
                     </div>
                 </div>
