@@ -11,8 +11,9 @@ const NewPost = (props) => {
     const childrenRef = useRef();
     const descriptionRef = useRef();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         const titleValue = titleRef.current.value;
         const locationValue = locationRef.current.value;
         const attractionsValue = attractionsRef.current.value;
@@ -32,8 +33,18 @@ const NewPost = (props) => {
             children: childrenValue,
             description: descriptionValue,
         };
-        props.onAddNewpost(formData);
-        console.log("data sent");
+
+        const response = await fetch(
+            "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json",
+            {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        console.log(response);
     };
 
     return (

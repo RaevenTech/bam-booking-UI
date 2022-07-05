@@ -5,20 +5,6 @@ import Active from "./Active";
 import NewPost from "../../forms/newPost/NewPost";
 
 const BackOffice = () => {
-    const newPostHandler = (formData) => {
-        fetch(
-            "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json",
-            {
-                method: "POST",
-                body: JSON.stringify(formData),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        );
-        console.log("post success");
-    };
-
     return (
         <>
             <div className={styles.main_page}>
@@ -34,7 +20,7 @@ const BackOffice = () => {
                 </div>
 
                 <div className={styles.new_post}>
-                    <NewPost onAddNewPost={newPostHandler} />
+                    <NewPost />
                 </div>
             </div>
             <div className={styles.footer}>
