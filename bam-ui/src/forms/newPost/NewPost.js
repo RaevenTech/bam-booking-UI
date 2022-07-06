@@ -1,7 +1,8 @@
 import styles from "./newPost.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const NewPost = (props) => {
+    const [date, setDate] = useState("");
     const titleRef = useRef();
     const locationRef = useRef();
     const attractionsRef = useRef();
@@ -32,6 +33,7 @@ const NewPost = (props) => {
             adults: adultsValue,
             children: childrenValue,
             description: descriptionValue,
+            closingDate: date,
         };
 
         const response = await fetch(
@@ -107,10 +109,14 @@ const NewPost = (props) => {
                             <b>Closing date:</b>
                         </label>
                         <input
+                            value={date}
                             className={styles.input}
                             type="date"
                             placeholder="closing date"
                             required
+                            onChange={(e) => {
+                                setDate(e.target.value);
+                            }}
                         />
                     </div>
                     <section>

@@ -1,11 +1,30 @@
 import styles from "./auctionResults.module.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const AuctionResults = () => {
+    const [posts, setPosts] = useState([]);
+
     const navigate = useNavigate();
     const handleNavigate = () => {
         navigate("/details");
     };
+
+    const url =
+        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json";
+    const fetchData = async () => {
+        try {
+            const response = await fetch(url);
+            const jsonData = await response.json();
+            setPosts(jsonData);
+        } catch (error) {
+            console.log("Data fetching Error", error);
+        }
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className={styles.auction_results}>
             <img
