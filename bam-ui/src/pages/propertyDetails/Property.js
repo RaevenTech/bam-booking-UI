@@ -50,7 +50,7 @@ const Property = () => {
             <Navbar />
             <Header page="auctions" />
 
-            <section>
+            <section className={styles.image_display}>
                 <div className={styles.property_images}>
                     {pictures.map((image, i) => (
                         <div className={styles.image_section} key={[i]}>
@@ -58,14 +58,36 @@ const Property = () => {
                                 className={styles.src_image}
                                 src={image.src}
                                 alt=""
-                                onClick={handleShowOpen}
+                                onClick={() => handleShowOpen(i)}
                             />
                         </div>
                     ))}
                 </div>
-            </section>
 
-            {showOpen && <div className={styles.image_slider}></div>}
+                {showOpen && (
+                    <div className={styles.image_slider}>
+                        <FontAwesomeIcon
+                            icon={faPersonThroughWindow}
+                            className={styles.exit_slider}
+                        />
+                        <FontAwesomeIcon
+                            icon={faCircleLeft}
+                            className={styles.arrow}
+                        />
+                        <div className={styles.image_slider_wrapper}>
+                            <img
+                                className={styles.slider_image}
+                                src={pictures[imageIndex].src}
+                                alt=""
+                            />
+                        </div>
+                        <FontAwesomeIcon
+                            icon={faCircleRight}
+                            className={styles.arrow}
+                        />
+                    </div>
+                )}
+            </section>
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
                     <h1 className={styles.property_title}>{posts.title}</h1>
