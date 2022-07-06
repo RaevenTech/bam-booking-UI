@@ -51,8 +51,10 @@
 
 .property_images {
     display: flex;
+    margin: 20px 40px;
     flex-wrap: wrap ;
     justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
     overflow: hidden;
     
@@ -64,6 +66,7 @@
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    padding: 5px;
 }
 
 .property_description {
@@ -75,8 +78,25 @@
 .property_details {
     flex: 3;
 }
-.property_introduction {
+.property_specifications {
     font-size: 20px;
+}
+.guests_room {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.adult,.children,.bed {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gy);
+    
+
+}
+.guest_count {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    color: black;
 }
 
 .auction_subtitle {
@@ -86,7 +106,7 @@
 .property_price_bid {
     display: flex;
     align-items:center;
-    flex: 1;
+    flex: 2;
     flex-direction: column;
     position: relative;
     background-color: var(--orange);
@@ -150,4 +170,7 @@
     border-radius: 10px;
     padding: 5px;
     border: none;
+}
+.count_down_clock {
+    margin-bottom: 20px;
 }

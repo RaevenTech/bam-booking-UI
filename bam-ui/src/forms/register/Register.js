@@ -60,6 +60,7 @@ const Register = () => {
                                 }}
                             />
                         </div>
+                        {error && <alert>{error}</alert>}
                         <div className={styles.input_item}>
                             <label>Confirm Password</label>
                             <input

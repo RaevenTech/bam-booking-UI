@@ -38,10 +38,8 @@ const AuctionResults = () => {
                 <div className={styles.results_attraction}>
                     5min walk to the beach
                 </div>
-                <div className={styles.results_features}>Air conditioning</div>
-                <div className={styles.results_description_room}>
-                    2 Bed, 1 Bath, full Kitchen
-                </div>
+
+                <div className={styles.results_description_room}>2 Bed</div>
                 <div className={styles.results_terms_conditions}>
                     <small>Once the bidding is closed, NO cancellations</small>
                 </div>
