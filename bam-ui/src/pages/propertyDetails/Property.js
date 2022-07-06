@@ -4,7 +4,12 @@ import Footer from "../../features/footer/Footer";
 import styles from "./property.module.css";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+    faLocationDot,
+    faCircleLeft,
+    faCircleRight,
+    faPersonThroughWindow,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
     const [count, setCount] = useState(0);
@@ -60,9 +65,7 @@ const Property = () => {
                 </div>
             </section>
 
-            {showOpen && (
-                <div className={styles.image_slider}> Image slider</div>
-            )}
+            {showOpen && <div className={styles.image_slider}></div>}
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
                     <h1 className={styles.property_title}>{posts.title}</h1>
