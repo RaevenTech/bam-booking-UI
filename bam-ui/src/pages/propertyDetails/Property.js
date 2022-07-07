@@ -43,15 +43,6 @@ const Property = () => {
         setImageIndex(newImageIndex);
     };
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch(url);
-            const posts = await response.json();
-        } catch (error) {
-            console.log("Data fetching Error", error);
-        }
-    };
-
     const url =
         "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json";
     useEffect(() => {
