@@ -1,5 +1,6 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
+import { nanoid } from "nanoid";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
@@ -23,6 +24,7 @@ const NewPost = (props) => {
         const adultsValue = adultsRef.current.value;
         const childrenValue = childrenRef.current.value;
         const descriptionValue = descriptionRef.current.value;
+        const id = nanoid();
 
         const formData = {
             title: titleValue,
@@ -34,6 +36,7 @@ const NewPost = (props) => {
             children: childrenValue,
             description: descriptionValue,
             closingDate: date,
+            id: id,
         };
 
         const response = await fetch(

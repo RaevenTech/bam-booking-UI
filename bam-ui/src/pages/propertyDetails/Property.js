@@ -8,7 +8,7 @@ import {
     faLocationDot,
     faCircleLeft,
     faCircleRight,
-    faPersonThroughWindow,
+    faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -30,6 +30,17 @@ const Property = () => {
         setImageIndex(i);
         setShowOpen(true);
     };
+
+    const handleOnClick = (click) => {
+        let newImageIndex;
+        if (click === "left") {
+            newImageIndex = imageIndex === 0 ? 5 : imageIndex - 1;
+        } else {
+            newImageIndex = imageIndex === 5 ? 0 : imageIndex + 1;
+        }
+        setImageIndex(newImageIndex);
+    };
+
     const url =
         "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json";
     const fetchData = async () => {
@@ -67,12 +78,15 @@ const Property = () => {
                 {showOpen && (
                     <div className={styles.image_slider}>
                         <FontAwesomeIcon
-                            icon={faPersonThroughWindow}
+                            icon={faCircleXmark}
                             className={styles.exit_slider}
+                            onClick={() => setShowOpen(false)}
                         />
+
                         <FontAwesomeIcon
                             icon={faCircleLeft}
                             className={styles.arrow}
+                            onClick={() => handleOnClick("left")}
                         />
                         <div className={styles.image_slider_wrapper}>
                             <img
@@ -84,6 +98,7 @@ const Property = () => {
                         <FontAwesomeIcon
                             icon={faCircleRight}
                             className={styles.arrow}
+                            onClick={() => handleOnClick("right")}
                         />
                     </div>
                 )}
