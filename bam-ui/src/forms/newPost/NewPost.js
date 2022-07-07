@@ -24,7 +24,7 @@ const NewPost = (props) => {
         const adultsValue = adultsRef.current.value;
         const childrenValue = childrenRef.current.value;
         const descriptionValue = descriptionRef.current.value;
-        const id = nanoid();
+        const postId = nanoid();
 
         const formData = {
             title: titleValue,
@@ -36,7 +36,7 @@ const NewPost = (props) => {
             children: childrenValue,
             description: descriptionValue,
             closingDate: date,
-            id: id,
+            postId: postId,
         };
 
         const response = await fetch(
