@@ -165,14 +165,7 @@ const Property = () => {
                                 >
                                     +
                                 </button>
-                                <button
-                                    className={styles.reset_btn}
-                                    onClick={() => {
-                                        setCount(0);
-                                    }}
-                                >
-                                    Reset
-                                </button>
+
                                 <button
                                     disabled={count <= 0}
                                     className={styles.decrease_btn}

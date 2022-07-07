@@ -4,14 +4,9 @@
     color: black;
     margin-bottom: 50px; 
 }
-.image_display{
-    position: relative;
-    width: 100%;
-   
-}
+
 .property_section {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     width: 100%;
     max-width: 1024px;
@@ -95,7 +90,7 @@
     font-weight: 600;
     color: var(--gy);
     
-
+/*--------------------- llive auction ------------------------------------*/
 }
 .guest_count {
     font-size: 1.3rem;
@@ -178,17 +173,21 @@
 .count_down_clock {
     margin-bottom: 20px;
 }
+/*----------- slider --------------------------------*/
+
+
 .image_slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0px 40px 0px 20px;
-    height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(128, 128, 128, 0.749);
+    top: 160px;
+    left: 25px;
+    width: 1310px;
+    height: 490px;
+    margin: 0px 40px 0px 20px;
+   padding-left: 190px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.613);
 }
 .slider_image {
     width: 800px;
@@ -196,6 +195,14 @@
 .exit_slider {
     position: absolute;
     top: 10px;
-    right: 200px;
+    left: 20px;
+    color: var(--orange);
+    font-size: 1.5rem;
+}
+.arrow {
+    color: var(--gy);
+    font-size: 3rem;
+   
+   
 }
 
