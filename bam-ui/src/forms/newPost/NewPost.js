@@ -12,6 +12,7 @@ const NewPost = (props) => {
     const adultsRef = useRef();
     const childrenRef = useRef();
     const descriptionRef = useRef();
+    const imageRef = useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +25,7 @@ const NewPost = (props) => {
         const adultsValue = adultsRef.current.value;
         const childrenValue = childrenRef.current.value;
         const descriptionValue = descriptionRef.current.value;
+        const imageValue = imageRef.current.value;
         const postId = nanoid();
 
         const formData = {
@@ -35,6 +37,7 @@ const NewPost = (props) => {
             adults: adultsValue,
             children: childrenValue,
             description: descriptionValue,
+            image: imageValue,
             closingDate: date,
             postId: postId,
         };
@@ -57,6 +60,19 @@ const NewPost = (props) => {
             <h1 className={styles.title}>Add new listing</h1>
             <div className={styles.main_form_container}>
                 <form onSubmit={handleSubmit}>
+                    <div className={styles.form_item}>
+                        <label className={styles.post_image_url}>
+                            <b>Add image/url:</b>
+                        </label>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="url"
+                            required
+                            ref={imageRef}
+                        />
+                    </div>
+
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
                             <b>Add title:</b>
