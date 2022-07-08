@@ -84,95 +84,19 @@
     display: flex;
     justify-content: flex-start;
     gap: 30px;
+
+}
+.guest_count {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    color:var(--d);
 }
 .adult,.children,.bed {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--gy);
-    
-/*--------------------- llive auction ------------------------------------*/
-}
-.guest_count {
-    font-size: 1.3rem;
-    margin-left: 10px;
-    color: black;
 }
 
-.auction_subtitle {
-    font-size: 18px;
-    margin-top: -5px;
-}
-.property_price_bid {
-    display: flex;
-    align-items:center;
-    flex: 2;
-    flex-direction: column;
-    position: relative;
-    background-color: var(--orange);
-    margin-top: 10px;
-    border-radius: 10px;
-}
-.live_auction_title {
-    margin-top: 4px;
-    margin-bottom: 4px ;
-}
-.current_bid{
-    margin-top: 4px;
-}
-.current_bid_amount {
-   margin-left: 10px;
-   margin-right: 10px;
-    border:1px solid black;
-    padding-right: 5px;
-    border-radius: 5px;
-    align-items: center;
-}
-.property_input {
-    font-size: 2rem;
-    margin-top: -15px;
-    padding-bottom: 10px;
-}
-.increment_btns {
-    display: flex;;
-    gap: 10px;
-    align-items:center;
-    margin-bottom: 10px;
-}
-.increase_btn {
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    border: none;
-   
-}
-.decrease_btn {
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    border: none;
-}
-.reset_btn {
-    cursor: pointer;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-}
-.reset_btn:hover {
-    color: red;
-    border: none;
-}
-.submit_bid_amount {
-    font-size: 1.5rem;
-    background-color: var(--g);
-    margin-bottom:15px ;
-    border-radius: 10px;
-    padding: 5px;
-    border: none;
-}
-.count_down_clock {
-    margin-bottom: 20px;
-}
 /*----------- slider --------------------------------*/
 
 
