@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { db } from "../utils/firebase";
 import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
-import { onValue, ref, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
-    const [newAmount, setNewAmount] = useState("");
+    c;
 
     const handleAmountChange = (e) => {
         setCount(e.target.value);
     };
 
-    useEffect(() => {
-        onValue(ref(db), (snapshot) => {
-            setCount([]);
-            const data = snapshot.val();
-            if (data !== null) {
-                Object.values(data).map(() => {
-                    setNewAmount((oldAmount) => [...oldAmount, count]);
-                });
-            }
-        });
-    }, []);
+    //read
+
+    //write
+    //delete
 
     const writeToDatabase = () => {
         set(ref(db, "/newbid"), {
@@ -40,7 +33,7 @@ const LiveAuction = () => {
                     Current price :
                     <span className={styles.current_bid_amount}>
                         {" "}
-                        € {newAmount}
+                        € {count}
                     </span>
                 </h3>
 
@@ -62,9 +55,7 @@ const LiveAuction = () => {
                 >
                     Submit Bid
                 </button>
-                <button className={styles.update_bid_amount} onClick={""}>
-                    Update Bid
-                </button>
+                <button className={styles.update_bid_amount}>Update Bid</button>
                 <div className={styles.counter_section}>
                     <div className={styles.clock}>
                         <h3 className={styles.count_down}>Time left:</h3>
