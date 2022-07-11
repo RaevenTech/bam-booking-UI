@@ -1,11 +1,21 @@
 import React, { useState } from "react";
+import { db } from "../utils/firebase";
+import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
+import { ref, set } from "firebase/database";
 
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
 
-    const handelAmount = (e) => {
+    const handleAmountChange = (e) => {
         setCount(e.target.value);
+    };
+
+    const writeToDatabase = () => {
+        set(ref(db, `/${nanoid()}`), {
+            amount: count,
+            nanoid: nanoid(),
+        });
     };
 
     return (
@@ -15,7 +25,10 @@ const LiveAuction = () => {
                 <h1 className={styles.live_auction_title}>Live Auction</h1>
                 <h3 className={styles.current_bid}>
                     Current price :
-                    <span className={styles.current_bid_amount}>{count}</span>
+                    <span className={styles.current_bid_amount}>
+                        {" "}
+                        € {count}
+                    </span>
                 </h3>
 
                 {/* <div className={styles.increment_btns}>
@@ -41,7 +54,7 @@ const LiveAuction = () => {
                 <input
                     type="number"
                     className={styles.bid_input_field}
-                    onChange={(e) => handleAmount(e.target.value)}
+                    min={"0"}
                 />
                 <button className={styles.submit_bid_amount}>Submit Bid</button>
                 <div className={styles.counter_section}>
