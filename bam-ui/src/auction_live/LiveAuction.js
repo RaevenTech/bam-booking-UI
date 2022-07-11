@@ -14,6 +14,7 @@ const LiveAuction = () => {
 
     useEffect(() => {
         onValue(ref(db), (snapshot) => {
+            setCount([]);
             const data = snapshot.val();
             if (data !== null) {
                 Object.values(data).map(() => {
@@ -39,30 +40,10 @@ const LiveAuction = () => {
                     Current price :
                     <span className={styles.current_bid_amount}>
                         {" "}
-                        € {count}
+                        € {newAmount}
                     </span>
                 </h3>
 
-                {/* <div className={styles.increment_btns}>
-                    <button
-                        className={styles.increase_btn}
-                        onClick={() => {
-                            setCount(count + 1);
-                        }}
-                    >
-                        +
-                    </button>
-
-                    <button
-                        disabled={count <= 0}
-                        className={styles.decrease_btn}
-                        onClick={() => {
-                            setCount(count - 1);
-                        }}
-                    >
-                        -
-                    </button>
-                </div>*/}
                 <div className={styles.bid_info}>
                     <span className={styles.bid_input_text}>
                         Your last bid: €
@@ -70,8 +51,8 @@ const LiveAuction = () => {
                     <input
                         type="number"
                         className={styles.bid_input_field}
-                        min={"0"}
-                        value={newAmount}
+                        min={0}
+                        value={count}
                         onChange={handleAmountChange}
                     />
                 </div>
@@ -81,7 +62,7 @@ const LiveAuction = () => {
                 >
                     Submit Bid
                 </button>
-                <button className={styles.submit_bid_amount} onClick={""}>
+                <button className={styles.update_bid_amount} onClick={""}>
                     Update Bid
                 </button>
                 <div className={styles.counter_section}>
