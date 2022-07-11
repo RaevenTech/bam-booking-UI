@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../utils/firebase";
 import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
-import { ref, set } from "firebase/database";
+import { onValue, ref, set } from "firebase/database";
 
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
+    const [newAmount, setNewAmount] = useState("");
 
     const handleAmountChange = (e) => {
         setCount(e.target.value);
     };
 
+    useEffect(() => {
+        onValue(ref(db), (snapshot) => {
+            const data = snapshot.val();
+            if (data !== null) {
+                Object.values(data).map(() => {
+                    setNewAmount((oldAmount) => [...oldAmount, count]);
+                });
+            }
+        });
+    }, []);
+
     const writeToDatabase = () => {
-        set(ref(db, `/${nanoid()}`), {
+        set(ref(db, "/newbid"), {
             amount: count,
-            nanoid: nanoid(),
+            bidId: nanoid(),
         });
     };
 
@@ -51,12 +63,27 @@ const LiveAuction = () => {
                         -
                     </button>
                 </div>*/}
-                <input
-                    type="number"
-                    className={styles.bid_input_field}
-                    min={"0"}
-                />
-                <button className={styles.submit_bid_amount}>Submit Bid</button>
+                <div className={styles.bid_info}>
+                    <span className={styles.bid_input_text}>
+                        Your last bid: €
+                    </span>
+                    <input
+                        type="number"
+                        className={styles.bid_input_field}
+                        min={"0"}
+                        value={newAmount}
+                        onChange={handleAmountChange}
+                    />
+                </div>
+                <button
+                    className={styles.submit_bid_amount}
+                    onClick={writeToDatabase}
+                >
+                    Submit Bid
+                </button>
+                <button className={styles.submit_bid_amount} onClick={""}>
+                    Update Bid
+                </button>
                 <div className={styles.counter_section}>
                     <div className={styles.clock}>
                         <h3 className={styles.count_down}>Time left:</h3>
