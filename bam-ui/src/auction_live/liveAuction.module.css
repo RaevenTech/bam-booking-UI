@@ -76,6 +76,8 @@
 .bid_input_field {
     margin: 5px 50px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
 }
 .submit_bid_amount {
     font-size: 1.5rem;
