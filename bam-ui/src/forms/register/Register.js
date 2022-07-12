@@ -18,6 +18,8 @@ const Register = () => {
             return setError("Password does not match");
         }
     };
+
+    //write to db
     const writeUserData = (userName, email, password);
     const reference = ref(db, "users/");
     set(reference, {

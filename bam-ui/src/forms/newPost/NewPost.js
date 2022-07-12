@@ -43,7 +43,7 @@ const NewPost = (props) => {
         };
 
         const response = await fetch(
-            "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json",
+            "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json",
             {
                 method: "POST",
                 body: JSON.stringify(formData),
