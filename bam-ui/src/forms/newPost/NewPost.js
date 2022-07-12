@@ -1,6 +1,7 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
@@ -40,6 +41,10 @@ const NewPost = (props) => {
             image: imageValue,
             closingDate: date,
             postId: postId,
+            currentBid: {
+                amount: "",
+                userId: 123,
+            },
         };
 
         const response = await fetch(
@@ -68,7 +73,6 @@ const NewPost = (props) => {
                             className={styles.input}
                             type="text"
                             placeholder="url"
-                            required
                             ref={imageRef}
                         />
                     </div>
