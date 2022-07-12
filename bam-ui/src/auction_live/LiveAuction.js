@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { db } from "../utils/firebase";
 import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
-import { ref, set } from "firebase/database";
-
+import { onValue, ref, set } from "firebase/database";
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
 
@@ -12,11 +11,18 @@ const LiveAuction = () => {
     };
 
     //read
+    const readUserData = count;
+    const amountRef = ref(db, "newbid/" + "/amount");
+    onValue(amountRef, (snapshot) => {
+        const data = snapshot.val();
+        updateAmount(postElement, data);
+    });
 
     //write
     const writeToDatabase = () => {
         set(ref(db, "/newbid"), {
-            amount: count,
+            count: count,
+
             bidId: nanoid(),
         });
     };
