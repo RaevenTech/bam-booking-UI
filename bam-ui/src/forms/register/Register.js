@@ -1,5 +1,7 @@
 import styles from "./register.module.css";
 import { useState } from "react";
+import { db } from "../../utils/firebase";
+import { ref, set } from "firebase/database";
 
 const Register = () => {
     const [userName, setUserName] = useState("");
@@ -16,6 +18,14 @@ const Register = () => {
             return setError("Password does not match");
         }
     };
+
+    const reference = ref(db, "users/" + userName);
+
+    set(reference, {
+        userName: userName,
+        email: email,
+        password: password,
+    });
 
     return (
         <div>

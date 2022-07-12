@@ -6,7 +6,6 @@ import { ref, set } from "firebase/database";
 
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
-    c;
 
     const handleAmountChange = (e) => {
         setCount(e.target.value);
@@ -15,8 +14,6 @@ const LiveAuction = () => {
     //read
 
     //write
-    //delete
-
     const writeToDatabase = () => {
         set(ref(db, "/newbid"), {
             amount: count,
