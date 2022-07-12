@@ -18,9 +18,8 @@ const Register = () => {
             return setError("Password does not match");
         }
     };
-
-    const reference = ref(db, "users/" + userName);
-
+    const writeUserData = (userName, email, password);
+    const reference = ref(db, "users/");
     set(reference, {
         userName: userName,
         email: email,
@@ -82,7 +81,10 @@ const Register = () => {
                                 }}
                             />
                         </div>
-                        <button className={styles.submit_reg_btn}>
+                        <button
+                            className={styles.submit_reg_btn}
+                            onClick={writeUserData}
+                        >
                             Create an account
                         </button>
                     </form>
