@@ -123,6 +123,9 @@ const Property = () => {
                 <div key={[i]} className={styles.property_container}>
                     <div className={styles.property_section}>
                         <h1 className={styles.property_title}>{post.title}</h1>
+                        <p>
+                            <small></small>
+                        </p>
                         <div className={styles.property_location}>
                             <FontAwesomeIcon
                                 icon={faLocationDot}
