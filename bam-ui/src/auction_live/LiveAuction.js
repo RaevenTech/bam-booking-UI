@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
-import { ref, set } from "firebase/database";
-
+import { onValue, ref, set, update } from "firebase/database";
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
+    const [currentPrice, setCurrentPrice] = useState(0);
 
     const handleAmountChange = (e) => {
         setCount(e.target.value);
@@ -13,11 +13,25 @@ const LiveAuction = () => {
 
     //read
 
+    useEffect(() => {
+        onValue(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), (snapshot) => {
+            // id should be taken from url params
+            const data = snapshot.val();
+            //updateAmount(postElement, data);
+            console.log("DATA: ", data);
+            setCurrentPrice(data.currentBid.amount);
+        });
+    });
+
     //write
     const writeToDatabase = () => {
-        set(ref(db, "/newbid"), {
-            amount: count,
-            bidId: nanoid(),
+        console.log("COUNT ", count);
+        update(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), {
+            currentBid: {
+                amount: count,
+                userID: 123123, // <-- once you have real users
+            },
+            // bidId: nanoid(),
         });
     };
 
@@ -30,7 +44,7 @@ const LiveAuction = () => {
                     Current price :
                     <span className={styles.current_bid_amount}>
                         {" "}
-                        € {count}
+                        € {currentPrice}
                     </span>
                 </h3>
 
