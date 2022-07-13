@@ -27,6 +27,9 @@ const Active = () => {
                             <b>00:00:00</b>
                         </span>
                     </div>
+                    <div className={styles.btns}>
+                        <button className={styles.btn_delete}>Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

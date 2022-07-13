@@ -11,8 +11,8 @@ const BackOffice = () => {
                 <div className={styles.header}>
                     <Header page="auctions" />
                 </div>
-                <h1 className={styles.active}>Active</h1>
-                <div className={styles.active_auction}>
+                <h1 className={styles.active}>Active listings</h1>
+                <div className={styles.active_auctions}>
                     <Active />
                     <Active />
                     <Active />

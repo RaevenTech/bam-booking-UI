@@ -1,12 +1,13 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
-import { counter } from "@fortawesome/fontawesome-svg-core";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
     const titleRef = useRef();
-    const locationRef = useRef();
+    const countryRef = useRef();
+    const cityRef = useRef();
+    const addressRef = useRef();
     const attractionsRef = useRef();
     const startingBidRef = useRef();
     const bedsRef = useRef();
@@ -19,7 +20,9 @@ const NewPost = (props) => {
         e.preventDefault();
 
         const titleValue = titleRef.current.value;
-        const locationValue = locationRef.current.value;
+        const countryValue = countryRef.current.value;
+        const cityValue = cityRef.current.value;
+        const addressValue = addressRef.current.value;
         const attractionsValue = attractionsRef.current.value;
         const startingBidValue = startingBidRef.current.value;
         const bedsValue = bedsRef.current.value;
@@ -31,7 +34,9 @@ const NewPost = (props) => {
 
         const formData = {
             title: titleValue,
-            location: locationValue,
+            country: countryValue,
+            city: cityValue,
+            addressRef: addressValue,
             attractions: attractionsValue,
             price: startingBidValue,
             beds: bedsValue,
@@ -76,7 +81,6 @@ const NewPost = (props) => {
                             ref={imageRef}
                         />
                     </div>
-
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
                             <b>Add title:</b>
@@ -91,14 +95,38 @@ const NewPost = (props) => {
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
-                            <b>Location:</b>
+                            <b>Country:</b>
+                        </label>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="Country"
+                            required
+                            ref={countryRef}
+                        />
+                    </div>
+                    <div className={styles.form_item}>
+                        <label className={styles.post_title}>
+                            <b>City:</b>
+                        </label>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="city"
+                            required
+                            ref={cityRef}
+                        />
+                    </div>
+                    <div className={styles.form_item}>
+                        <label className={styles.post_title}>
+                            <b>Adderss:</b>
                         </label>
                         <input
                             className={styles.input}
                             type="text"
                             placeholder="Address"
                             required
-                            ref={locationRef}
+                            ref={addressRef}
                         />
                     </div>
                     <div className={styles.form_item}>
@@ -113,10 +141,15 @@ const NewPost = (props) => {
                             required
                             ref={attractionsRef}
                         />
+                        <p>
+                            <small>
+                                Local places you would recommend to visitors
+                            </small>
+                        </p>
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
-                            <b>Startin bid: €</b>
+                            <b>Starting bid: €</b>
                         </label>
                         <input
                             className={styles.input}

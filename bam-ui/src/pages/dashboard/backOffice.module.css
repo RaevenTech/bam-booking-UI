@@ -7,13 +7,13 @@ background: var(--d);
 }
 .header {
     width: 100%;
-    max-width: 1024px;
+   
 }
 .active {
     color: var(--orange);
-    margin-bottom: 0px;
+    margin: 15px ;
 }
-.active_auction {
+.active_auctions {
     width: 100%;
     max-width: 1024px;
     display: flex;
@@ -23,6 +23,7 @@ background: var(--d);
     border-radius: 5px;
     position: relative;
 }
+
 .new_post {
     width: 100%;
     max-width: 1024px;
