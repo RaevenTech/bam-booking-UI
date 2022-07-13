@@ -148,7 +148,7 @@ const NewPost = (props) => {
                                 <b>Adults:</b>
                             </label>
                             <input
-                                className={styles.input_g}
+                                className={styles.input_guests}
                                 type="number"
                                 placeholder="1"
                                 required
@@ -159,7 +159,7 @@ const NewPost = (props) => {
                                 <b>Children:</b>
                             </label>
                             <input
-                                className={styles.input_g}
+                                className={styles.input_guests}
                                 type="number"
                                 min={0}
                                 placeholder="0"
@@ -190,6 +190,7 @@ const NewPost = (props) => {
                             ref={descriptionRef}
                         />
                     </div>
+
                     <div className={styles.form_btn}>
                         <button className={styles.btn}>Add to auction</button>
                         <button className={styles.btn_2}>Add images</button>

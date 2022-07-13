@@ -7,7 +7,7 @@
 .main_form_container {
     background-color: var(--w);
     width: 600px;
-    height: 700px;
+    height: fit-content;
     margin-bottom: 20px;
     border-radius: 10px;
     position: relative;
@@ -26,7 +26,7 @@
     margin-top: 15px;
     
 }
-.input_g {
+.input_guests {
     width:50px;
     margin-right: 20px;
 }
@@ -34,9 +34,10 @@
     width: 200px;
 }
 .form_btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
 }
 .btn {
     border-radius: 5px;
