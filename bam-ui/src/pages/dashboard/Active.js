@@ -33,6 +33,7 @@ const Active = () => {
                         <FontAwesomeIcon
                             icon={faGavel}
                             className={styles.gavel}
+                            //if item is sold gavel diplays green : red
                         />
                         <button className={styles.btn_delete}>Delete</button>
                     </div>
