@@ -11,7 +11,7 @@ const AuctionResults = () => {
     };
 
     const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json";
+        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
     const fetchData = async () => {
         try {
             const response = await fetch(url);

@@ -16,6 +16,31 @@
     max-width: 1024px;
     font-size: 1.3rem;
     margin-bottom: -15px;
-    
+}
+.email_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  height: 50px;
+  background-color: var(--d);
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.email_input {
+    width: 300px;
+    border-radius: 5px 0px 0px 5px;
+}
+.email_btn {
+    border-radius: 0px 5px 5px 0px;
+}
+.email_btn:hover {
+    background-color: var(--orange);
+    color: var(--d);
+}
+.newsletter {
+    color: var(--gy);
+    padding-right: 10px;
 }
 

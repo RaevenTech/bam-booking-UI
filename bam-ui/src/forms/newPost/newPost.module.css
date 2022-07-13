@@ -7,7 +7,7 @@
 .main_form_container {
     background-color: var(--w);
     width: 600px;
-    height: 700px;
+    height: fit-content;
     margin-bottom: 20px;
     border-radius: 10px;
     position: relative;
@@ -19,6 +19,7 @@
     padding: 5px 20px;
     
 }
+
 .form_item_guest{
     display: flex;
     justify-content:center;
@@ -26,7 +27,7 @@
     margin-top: 15px;
     
 }
-.input_g {
+.input_guests {
     width:50px;
     margin-right: 20px;
 }
@@ -34,28 +35,42 @@
     width: 200px;
 }
 .form_btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
 }
-.btn {
+.add_btn {
     border-radius: 5px;
     background: var(--t);
     border: 1px solid var(--t);
+    margin-right:10px;
 }
-.btn:hover {
+.add_btn:hover {
     background:var(--orange); 
 }
-.btn_2 {
-    border-radius: 5px;
-    background: var(--g);
-    margin-left: 10px;
-    margin-right: 10px;
-    border:  1px solid var(--g);
-    
+
+.country_city {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    text-transform: capitalize;
 }
-.btn_2:hover {
-    color: green;
-    border: 1px solid green;
-    background: transparent;
+.startbid_closeDate {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
 }
+.property_type_select {
+    display: flex;
+    justify-content: start;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+.prop_type_container {
+    padding: 5px;
+}
+

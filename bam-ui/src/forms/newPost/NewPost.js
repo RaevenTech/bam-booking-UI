@@ -1,12 +1,14 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
-import { counter } from "@fortawesome/fontawesome-svg-core";
+import { Form } from "react-bootstrap";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
     const titleRef = useRef();
-    const locationRef = useRef();
+    const countryRef = useRef();
+    const cityRef = useRef();
+    const addressRef = useRef();
     const attractionsRef = useRef();
     const startingBidRef = useRef();
     const bedsRef = useRef();
@@ -19,7 +21,9 @@ const NewPost = (props) => {
         e.preventDefault();
 
         const titleValue = titleRef.current.value;
-        const locationValue = locationRef.current.value;
+        const countryValue = countryRef.current.value;
+        const cityValue = cityRef.current.value;
+        const addressValue = addressRef.current.value;
         const attractionsValue = attractionsRef.current.value;
         const startingBidValue = startingBidRef.current.value;
         const bedsValue = bedsRef.current.value;
@@ -31,7 +35,9 @@ const NewPost = (props) => {
 
         const formData = {
             title: titleValue,
-            location: locationValue,
+            country: countryValue,
+            city: cityValue,
+            addressRef: addressValue,
             attractions: attractionsValue,
             price: startingBidValue,
             beds: bedsValue,
@@ -76,7 +82,6 @@ const NewPost = (props) => {
                             ref={imageRef}
                         />
                     </div>
-
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
                             <b>Add title:</b>
@@ -89,17 +94,102 @@ const NewPost = (props) => {
                             ref={titleRef}
                         />
                     </div>
+                    <div className={styles.country_city}>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Country:</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                placeholder="Country"
+                                required
+                                ref={countryRef}
+                            />
+                        </div>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>City:</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                placeholder="city"
+                                required
+                                ref={cityRef}
+                            />
+                        </div>
+                    </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
-                            <b>Location:</b>
+                            <b>Adderss:</b>
                         </label>
                         <input
                             className={styles.input}
                             type="text"
                             placeholder="Address"
                             required
-                            ref={locationRef}
+                            ref={addressRef}
                         />
+                    </div>
+
+                    <div className={styles.startbid_closeDate}>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Starting bid: €</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="number"
+                                placeholder="€1 min bids are min on €1"
+                                min={1}
+                                required
+                                ref={startingBidRef}
+                            />
+                        </div>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Closing date:</b>
+                            </label>
+                            <input
+                                value={date}
+                                className={styles.input}
+                                type="date"
+                                placeholder="closing date"
+                                required
+                                onChange={(e) => {
+                                    setDate(e.target.value);
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.property_type_select}>
+                        <Form.Select
+                            className={styles.prop_type_container}
+                            aria-label="Default select example"
+                        >
+                            <option className={styles.prop_type_item}>
+                                Select property type
+                            </option>
+                            <option className={styles.prop_type_item} value="1">
+                                Apartment
+                            </option>
+                            <option className={styles.prop_type_item} value="2">
+                                Cabin
+                            </option>
+                            <option className={styles.prop_type_item} value="3">
+                                Hotel
+                            </option>
+                            <option className={styles.prop_type_item} value="4">
+                                Campsite
+                            </option>
+                            <option className={styles.prop_type_item} value="5">
+                                Villa/Guest house
+                            </option>
+                            <option className={styles.prop_type_item} value="6">
+                                BnB/Inn
+                            </option>
+                        </Form.Select>
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
@@ -113,34 +203,11 @@ const NewPost = (props) => {
                             required
                             ref={attractionsRef}
                         />
-                    </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>Startin bid: €</b>
-                        </label>
-                        <input
-                            className={styles.input}
-                            type="number"
-                            placeholder="€1 min bids are min on €1"
-                            min={1}
-                            required
-                            ref={startingBidRef}
-                        />
-                    </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>Closing date:</b>
-                        </label>
-                        <input
-                            value={date}
-                            className={styles.input}
-                            type="date"
-                            placeholder="closing date"
-                            required
-                            onChange={(e) => {
-                                setDate(e.target.value);
-                            }}
-                        />
+                        <p>
+                            <small>
+                                Local places you would recommend to visitors
+                            </small>
+                        </p>
                     </div>
                     <section>
                         <div className={styles.form_item_guest}>
@@ -148,7 +215,7 @@ const NewPost = (props) => {
                                 <b>Adults:</b>
                             </label>
                             <input
-                                className={styles.input_g}
+                                className={styles.input_guests}
                                 type="number"
                                 placeholder="1"
                                 required
@@ -159,7 +226,7 @@ const NewPost = (props) => {
                                 <b>Children:</b>
                             </label>
                             <input
-                                className={styles.input_g}
+                                className={styles.input_guests}
                                 type="number"
                                 min={0}
                                 placeholder="0"
@@ -171,8 +238,8 @@ const NewPost = (props) => {
                             </label>
                             <input
                                 className={styles.input_bed}
-                                type="text"
-                                placeholder="1 double"
+                                type="number"
+                                placeholder="2"
                                 required
                                 ref={bedsRef}
                             />
@@ -190,9 +257,11 @@ const NewPost = (props) => {
                             ref={descriptionRef}
                         />
                     </div>
+
                     <div className={styles.form_btn}>
-                        <button className={styles.btn}>Add to auction</button>
-                        <button className={styles.btn_2}>Add images</button>
+                        <button className={styles.add_btn}>
+                            Add to auction
+                        </button>
                     </div>
                 </form>
             </div>

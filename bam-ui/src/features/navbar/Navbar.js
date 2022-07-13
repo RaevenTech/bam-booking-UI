@@ -17,9 +17,6 @@ const Navbar = () => {
                         Bid<span className={styles.logo_2}>2</span>Buy.com
                     </div>
                     <div className={styles.nav_btns}>
-                        <button className={styles.nav_btn_list}>
-                            List your property
-                        </button>
                         <button
                             className={styles.nav_btn}
                             onClick={handleForms}

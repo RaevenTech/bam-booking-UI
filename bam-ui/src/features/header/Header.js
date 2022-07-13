@@ -1,6 +1,5 @@
 import styles from "./header.module.css";
-import { faGavel } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import HeaderSearch from "./HeaderSearch";
 
 const Header = ({ page }) => {
@@ -11,7 +10,6 @@ const Header = ({ page }) => {
                     <div className={styles.header_list}>
                         {page === "auctions" && (
                             <div className={styles.header_item}>
-                                <FontAwesomeIcon icon={faGavel} />
                                 <span>
                                     Bid
                                     <span className={styles.header_2}>2</span>
@@ -27,8 +25,15 @@ const Header = ({ page }) => {
                                 You want it? Get it!
                             </h1>
                             <p className={styles.header_subtitle}>
-                                Find something you like. Bid for it, or Buy it
-                                for a lower price.
+                                Make sure you get want you want.{" "}
+                                <span className={styles.logo_subtitle}>
+                                    Bid
+                                </span>
+                                <span className={styles.logo_2}>2</span>
+                                <span className={styles.logo_subtitle}>
+                                    Buy
+                                </span>{" "}
+                                the holiday you want!
                             </p>
                             <section>
                                 <div className={styles.header_search}>

@@ -14,8 +14,17 @@ const Home = () => {
                 <FeaturedCity />
                 <h2 className={styles.home_property_title}>Type of property</h2>
                 <PropertyType />
+                <div className={styles.email_list}>
+                    <div>
+                        <span className={styles.newsletter}>
+                            Get our news letter
+                        </span>
+                        <input className={styles.email_input} type="email" />
+                        <button className={styles.email_btn}>Subscribe</button>
+                    </div>
+                </div>
             </div>
-            <hr />
+
             <Footer />
         </>
     );
