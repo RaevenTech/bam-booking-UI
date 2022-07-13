@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./active.module.css";
+import { faGavel } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Active = () => {
     return (
@@ -28,6 +30,10 @@ const Active = () => {
                         </span>
                     </div>
                     <div className={styles.btns}>
+                        <FontAwesomeIcon
+                            icon={faGavel}
+                            className={styles.gavel}
+                        />
                         <button className={styles.btn_delete}>Delete</button>
                     </div>
                 </div>

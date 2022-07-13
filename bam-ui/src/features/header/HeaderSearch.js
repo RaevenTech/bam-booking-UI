@@ -1,13 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faMapLocation,
-    faCalendarDays,
-    faUserGroup,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 import styles from "./headerSearch.module.css";
 import { useState } from "react";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+
 import { useNavigate } from "react-router-dom";
 
 const HeaderSearch = () => {

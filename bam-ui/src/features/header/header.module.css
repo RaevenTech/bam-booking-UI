@@ -9,6 +9,7 @@
 }
 .header_2 {
     font-size: 2.8rem;
+    color: var(--orange);
 }
 .header_container {
     width: 100%;
@@ -29,5 +30,11 @@
 }
 .header_item {
     padding-bottom: 20px;
+}
+.logo_2 {
+    color: var(--orange);
+}
+.logo_subtitle {
+    color: var(--g);
 }
 

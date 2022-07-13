@@ -93,29 +93,31 @@ const NewPost = (props) => {
                             ref={titleRef}
                         />
                     </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>Country:</b>
-                        </label>
-                        <input
-                            className={styles.input}
-                            type="text"
-                            placeholder="Country"
-                            required
-                            ref={countryRef}
-                        />
-                    </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>City:</b>
-                        </label>
-                        <input
-                            className={styles.input}
-                            type="text"
-                            placeholder="city"
-                            required
-                            ref={cityRef}
-                        />
+                    <div className={styles.country_city}>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Country:</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                placeholder="Country"
+                                required
+                                ref={countryRef}
+                            />
+                        </div>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>City:</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                placeholder="city"
+                                required
+                                ref={cityRef}
+                            />
+                        </div>
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
@@ -128,6 +130,37 @@ const NewPost = (props) => {
                             required
                             ref={addressRef}
                         />
+                    </div>
+
+                    <div className={styles.startbid_closeDate}>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Starting bid: €</b>
+                            </label>
+                            <input
+                                className={styles.input}
+                                type="number"
+                                placeholder="€1 min bids are min on €1"
+                                min={1}
+                                required
+                                ref={startingBidRef}
+                            />
+                        </div>
+                        <div className={styles.form_item}>
+                            <label className={styles.post_title}>
+                                <b>Closing date:</b>
+                            </label>
+                            <input
+                                value={date}
+                                className={styles.input}
+                                type="date"
+                                placeholder="closing date"
+                                required
+                                onChange={(e) => {
+                                    setDate(e.target.value);
+                                }}
+                            />
+                        </div>
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
@@ -146,34 +179,6 @@ const NewPost = (props) => {
                                 Local places you would recommend to visitors
                             </small>
                         </p>
-                    </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>Starting bid: €</b>
-                        </label>
-                        <input
-                            className={styles.input}
-                            type="number"
-                            placeholder="€1 min bids are min on €1"
-                            min={1}
-                            required
-                            ref={startingBidRef}
-                        />
-                    </div>
-                    <div className={styles.form_item}>
-                        <label className={styles.post_title}>
-                            <b>Closing date:</b>
-                        </label>
-                        <input
-                            value={date}
-                            className={styles.input}
-                            type="date"
-                            placeholder="closing date"
-                            required
-                            onChange={(e) => {
-                                setDate(e.target.value);
-                            }}
-                        />
                     </div>
                     <section>
                         <div className={styles.form_item_guest}>
