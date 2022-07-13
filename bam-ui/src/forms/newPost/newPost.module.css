@@ -40,32 +40,22 @@
     align-items: center;
     padding: 10px;
 }
-.btn {
+.add_btn {
     border-radius: 5px;
     background: var(--t);
     border: 1px solid var(--t);
+    margin-right:10px;
 }
-.btn:hover {
+.add_btn:hover {
     background:var(--orange); 
 }
-.btn_2 {
-    border-radius: 5px;
-    background: var(--g);
-    margin-left: 10px;
-    margin-right: 10px;
-    border:  1px solid var(--g);
-    
-}
-.btn_2:hover {
-    color: green;
-    border: 1px solid green;
-    background: transparent;
-}
+
 .country_city {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 30px;
+    text-transform: capitalize;
 }
 .startbid_closeDate {
     display: flex;
@@ -73,3 +63,14 @@
     align-items: center;
     gap: 30px;
 }
+.property_type_select {
+    display: flex;
+    justify-content: start;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+.prop_type_container {
+    padding: 5px;
+}
+

@@ -1,6 +1,7 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
+import { Form } from "react-bootstrap";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
@@ -162,6 +163,34 @@ const NewPost = (props) => {
                             />
                         </div>
                     </div>
+                    <div className={styles.property_type_select}>
+                        <Form.Select
+                            className={styles.prop_type_container}
+                            aria-label="Default select example"
+                        >
+                            <option className={styles.prop_type_item}>
+                                Select property type
+                            </option>
+                            <option className={styles.prop_type_item} value="1">
+                                Apartment
+                            </option>
+                            <option className={styles.prop_type_item} value="2">
+                                Cabin
+                            </option>
+                            <option className={styles.prop_type_item} value="3">
+                                Hotel
+                            </option>
+                            <option className={styles.prop_type_item} value="4">
+                                Campsite
+                            </option>
+                            <option className={styles.prop_type_item} value="5">
+                                Villa/Guest house
+                            </option>
+                            <option className={styles.prop_type_item} value="6">
+                                BnB/Inn
+                            </option>
+                        </Form.Select>
+                    </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
                             <b>Attractions:</b>
@@ -209,8 +238,8 @@ const NewPost = (props) => {
                             </label>
                             <input
                                 className={styles.input_bed}
-                                type="text"
-                                placeholder="1 double"
+                                type="number"
+                                placeholder="2"
                                 required
                                 ref={bedsRef}
                             />
@@ -230,8 +259,9 @@ const NewPost = (props) => {
                     </div>
 
                     <div className={styles.form_btn}>
-                        <button className={styles.btn}>Add to auction</button>
-                        <button className={styles.btn_2}>Add images</button>
+                        <button className={styles.add_btn}>
+                            Add to auction
+                        </button>
                     </div>
                 </form>
             </div>

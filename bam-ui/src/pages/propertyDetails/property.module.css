@@ -4,7 +4,6 @@
     color: black;
     margin-bottom: 50px; 
 }
-
 .property_section {
     display: flex;
     flex-direction: column;
@@ -25,7 +24,6 @@
     color: white;
     cursor: pointer;
 }
-
 .property_title {
     font-size: 2.5rem;
 }
@@ -40,14 +38,11 @@
     gap: 10px;
     margin-bottom: 10px;
 }
-
 .property_attractions {
     font-size: 1.5rem;
     margin-bottom: 20px;
     ;
 }
-
-
 .property_images {
     display: flex;
     margin: 20px 40px;
@@ -67,7 +62,6 @@
     border-radius: 10px;
     padding: 5px;
 }
-
 .property_description {
     display: flex;
     justify-content: space-between;
@@ -133,4 +127,14 @@
 .arrow:hover {
 color: var(--g)
 }
+/*--------- spinner ----------*/
 
+.loading_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin :200px;
+    font-size: 5rem;
+    
+
+}

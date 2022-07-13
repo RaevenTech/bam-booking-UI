@@ -1,17 +1,48 @@
 import styles from "./auctionSearch.module.css";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
-import { format } from "date-fns";
-import { DateRange } from "react-date-range";
+import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 const AuctionSearch = () => {
-    const location = useLocation();
-    const [destination] = useState(location.state.searchLocation);
-    const [date, setDate] = useState(location.state.date);
-    const [guest] = useState(location.state.guest);
-    const [showDate, setShowDate] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [listings, setListings] = useState([]);
 
+    const url =
+        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
+    useEffect(() => {
+        setLoading(true);
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                const allListings = [];
+                for (const key in data) {
+                    const postObj = {
+                        id: key,
+                        ...data[key],
+                    };
+                    allListings.push(postObj);
+                }
+                setLoading(false);
+                setListings(allListings);
+            });
+    }, []);
+    if (loading) {
+        return (
+            <section>
+                <span className={styles.loading_spinner}>
+                    Loading...{" "}
+                    <Spinner
+                        animation="border"
+                        variant="info"
+                        className={styles.loading_spinner}
+                    />
+                </span>{" "}
+            </section>
+        );
+    }
     return (
+       { (
         <div className={styles.auction_search_wrapper}>
             <h1 className={styles.auction_list_title}>
                 <span>Search</span>
@@ -19,25 +50,11 @@ const AuctionSearch = () => {
             <div className={styles.auction_search_item}>
                 <div className={styles.auction_search_destination}>
                     <label>Destination</label>
-                    <input typeof="text" placeholder={destination} />
+                    <input typeof="text" placeholder="make dynamic" />
                 </div>
                 <div className={styles.auction_search_item}>
                     <label>Check in date</label>
-                    <div
-                        className={styles.auction_search_date}
-                        onClick={() => setShowDate(!showDate)}
-                    >
-                        {`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
-                            date[0].endDate,
-                            "MM/dd/yyyy"
-                        )}`}
-                    </div>
-                    {showDate && (
-                        <DateRange
-                            onChange={(items) => setDate([items.selection])}
-                            ranges={date}
-                        />
-                    )}
+                    <div className={styles.auction_search_date}></div>
                 </div>
             </div>
             <div className={styles.search_item}>
@@ -50,7 +67,7 @@ const AuctionSearch = () => {
                         className={styles.item_input}
                         type="number"
                         min={1}
-                        placeholder={guest.adult}
+                        placeholder="1"
                     />
                 </div>
                 <div className={styles.item_text}>
@@ -61,7 +78,7 @@ const AuctionSearch = () => {
                         className={styles.item_input}
                         type="number"
                         min={0}
-                        placeholder={guest.children}
+                        placeholder="0"
                     />
                 </div>
                 <div className={styles.item_text}>
@@ -72,14 +89,14 @@ const AuctionSearch = () => {
                         className={styles.item_input}
                         type="number"
                         min={1}
-                        placeholder={guest.room}
+                        placeholder="1"
                     />
                 </div>
             </div>
             <div className={styles.search_btn_section}>
                 <button className={styles.auction_search_btn}> Search</button>
             </div>
-        </div>
+        </div>)}
     );
 };
 

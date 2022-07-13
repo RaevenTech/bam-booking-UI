@@ -44,7 +44,7 @@ const Property = () => {
     };
 
     const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/new-post.json";
+        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
     useEffect(() => {
         setLoading(true);
         fetch(url)
@@ -67,7 +67,14 @@ const Property = () => {
     if (loading) {
         return (
             <section>
-                <Spinner animation="border" variant="info" />
+                <span className={styles.loading_spinner}>
+                    Loading...{" "}
+                    <Spinner
+                        animation="border"
+                        variant="info"
+                        className={styles.loading_spinner}
+                    />
+                </span>{" "}
             </section>
         );
     }
