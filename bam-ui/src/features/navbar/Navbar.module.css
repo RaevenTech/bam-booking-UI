@@ -23,9 +23,11 @@
 .nav_logo {
     font-weight:500;
     font-size: 1.4em;
+    color: var(--g);
 }
 .logo_2{
     font-size: 1.8rem;
+    color: var(--orange);
 }
 .nav_container {
     color: white;
@@ -34,4 +36,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.nav_btn:hover {
+    background: var(--d);
+    color: var(--w);
 }
