@@ -1,4 +1,5 @@
 .header_search {
+    
     position: relative;
 }
 .header_search_container {
@@ -8,13 +9,14 @@
     border: 4px solid var(--g);
     background-color: white;
     height:45px;
-    width: 100%;
+    width: 40%;
     max-width: 1024px;
     position: absolute;
     bottom: -25px;
 }
 .header_search_section{
     display: flex;
+    width: 90px;
     align-items: center;
     gap:0.8rem;
     padding-left: 0.5rem;
@@ -22,20 +24,19 @@
     order:2;
 }
 .header_search_btn {
-   border: none;
-   color:white;
-   background-color: var(--t);
+   border: var(--g);
+   color:var(--d);
+   background-color: var(--g);
    padding: 8px 5px;
    width: 100%;
    order: 1;
    ;
 }
 .header_search_btn:hover {
-    color:var(--g);
+    color:var(--gy);
+    background: var(--d);
 }
-.header_search_text {
-    color: darkgray;
-}
+
 .header_search_icon {
     color:lightgray;
     font-size: 1.3rem;
@@ -46,66 +47,9 @@
     outline: none;
     font-size: 1.1rem;
 }
-.search_dates {
-    position:absolute;
-    top:55px;
-    z-index: 2;
-    box-shadow: 3px 5px 15px black;
-    left: 260px;
-    border-radius: 5px;
-    background: white;
-    border: 1px solid var(--t);
-}
-.search_guest_modal {
-    color: black;
-    background-color: white;
-    padding: 0px 15px;
-    position: absolute;
-    top: 55px;
-    right: 200px;
-    z-index: 2;
-    border-radius: 5px;
-    box-shadow: 3px 5px 15px black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--t);
-    
-}
-.guest_input_counter {
-    width: 1rem;
-    text-align: center;
-    border: none;
-    padding :5px;
-    
-}
-.guest_option {
-    padding: 5px 5px;
-    display: flex;
-    flex-direction: row;
-    gap: 5px
-}
-.guest_option_text{
-    padding-right: 23px;
-}
-.guest_option_text1{
-    padding-right: 43px;
-}
-.guest_option_text2{
-    padding-right: 39px;
-}
-.guest_counter_btn {
-    width: 1.5rem;
-    height: 1.5rem;
-    background: white ;
-    color:var(--t);
-    cursor: pointer;
-}
-.guest_counter_btn:disabled {
-    cursor: not-allowed;
-}
-.guest_counter_btn:disabled:hover {
-    border: 1px dashed rgba(255, 0, 0, 0.489);
-}
+
+
+
+
+
 

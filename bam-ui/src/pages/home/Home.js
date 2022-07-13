@@ -16,10 +16,11 @@ const Home = () => {
                 <PropertyType />
                 <div className={styles.email_list}>
                     <div>
+                        <span className={styles.newsletter}>
+                            Get our news letter
+                        </span>
                         <input className={styles.email_input} type="email" />
-                        <button className={styles.email_btn}>
-                            keep up date
-                        </button>
+                        <button className={styles.email_btn}>Subscribe</button>
                     </div>
                 </div>
             </div>
