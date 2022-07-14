@@ -59,12 +59,10 @@ const AuctionResults = () => {
                     />
                     <div className={styles.results_description}>
                         <h1 className={styles.results_title}>Apartment</h1>
-                        <div className={styles.results_attraction}>
-                            5min walk to the beach
-                        </div>
+                        <div className={styles.results_attraction}></div>
 
                         <div className={styles.results_description_room}>
-                            2 Bed
+                            {item.beds}
                         </div>
                         <div className={styles.results_terms_conditions}>
                             <small>
