@@ -37,7 +37,7 @@ const NewPost = (props) => {
             title: titleValue,
             country: countryValue,
             city: cityValue,
-            addressRef: addressValue,
+            address: addressValue,
             attractions: attractionsValue,
             price: startingBidValue,
             beds: bedsValue,
@@ -66,6 +66,8 @@ const NewPost = (props) => {
         console.log(response);
     };
 
+    const fileUploads = 6;
+
     return (
         <div>
             <h1 className={styles.title}>Add new listing</h1>
@@ -73,14 +75,21 @@ const NewPost = (props) => {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_item}>
                         <label className={styles.post_image_url}>
-                            <b>Add image/url:</b>
+                            <b>Add 6 images:</b>
                         </label>
-                        <input
-                            className={styles.input}
-                            type="text"
-                            placeholder="url"
-                            ref={imageRef}
-                        />
+                        {fileUploads === 6 ? (
+                            <input
+                                id="files"
+                                className={styles.input}
+                                type="file"
+                                placeholder="Images"
+                                accept=".jpg,.jpeg,.png"
+                                multiple
+                                ref={imageRef}
+                            />
+                        ) : (
+                            <alert> "6 pictures required to be uploaded"</alert>
+                        )}
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>

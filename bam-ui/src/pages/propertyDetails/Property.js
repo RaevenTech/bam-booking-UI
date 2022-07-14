@@ -14,7 +14,7 @@ import {
 import LiveAuction from "../../auction_live/LiveAuction";
 
 const Property = () => {
-    const [posts, setPosts] = useState([]);
+    const [listings, setListings] = useState([]);
     const [imageIndex, setImageIndex] = useState(0);
     const [showOpen, setShowOpen] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -61,7 +61,7 @@ const Property = () => {
                     allPosts.push(postObj);
                 }
                 setLoading(false);
-                setPosts(allPosts);
+                setListings(allPosts);
             });
     }, []);
     if (loading) {
@@ -126,48 +126,43 @@ const Property = () => {
                     </div>
                 )}
             </section>
-            {posts.map((post, i) => (
+            {listings.map((listing, i) => (
                 <div key={[i]} className={styles.property_container}>
                     <div className={styles.property_section}>
-                        <h1 className={styles.property_title}>{post.title}</h1>
-                        <p>
-                            <small></small>
-                        </p>
+                        <h1 className={styles.property_title}>
+                            {listing.title}
+                        </h1>
                         <div className={styles.property_location}>
                             <FontAwesomeIcon
                                 icon={faLocationDot}
                                 className={styles.property_location_icon}
                             />
-                            <span>{post.location}</span>
+                            <div className={styles.location}>
+                                <span>{listing.country}</span>,{" "}
+                                <span>{listing.city}</span>
+                            </div>
+                            <div className={styles.location_address}>
+                                {listing.address}
+                            </div>
                         </div>
                         <span className={styles.property_attractions}>
-                            Name or list attractions close to the property
+                            <b>Attractions:</b>
+                            {listing.attractions}
                         </span>
 
                         <div className={styles.property_description}>
                             <div className={styles.property_details}>
                                 <h2 className={styles.property_subtitle}>
-                                    Prime location everything in walking
-                                    distance
+                                    Every bid could be a possibility
                                 </h2>
                                 <p className={styles.property_specifications}>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Maxime mollitia, molestiae
-                                    quas vel sint commodi repudiandae
-                                    consequuntur voluptatum laborum numquam
-                                    blanditiis harum quisquam eius sed odit
-                                    fugiat iusto fuga praesentium optio, eaque
-                                    rerum! Provident similique accusantium nemo
-                                    autem. Veritatis obcaecati tenetur iure eius
-                                    earum ut molestias architecto voluptate
-                                    aliquam nihil, eveniet aliquid culpa officia
-                                    aut!
+                                    {listing.description}
                                 </p>
                                 <div className={styles.guests_room}>
                                     <div className={styles.adult}>
                                         Adult:
                                         <span className={styles.guest_count}>
-                                            1
+                                            {listing.adults}
                                         </span>
                                     </div>
                                     <div className={styles.children}>

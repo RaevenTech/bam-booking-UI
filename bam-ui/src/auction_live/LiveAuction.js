@@ -66,7 +66,7 @@ const LiveAuction = () => {
                 >
                     Submit Bid
                 </button>
-                <button className={styles.update_bid_amount}>Update Bid</button>
+
                 <div className={styles.counter_section}>
                     <div className={styles.clock}>
                         <h3 className={styles.count_down}>Time left:</h3>
