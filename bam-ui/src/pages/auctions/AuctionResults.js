@@ -2,6 +2,7 @@ import styles from "./auctionResults.module.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import Clock from "../../countdowntimer/Clock";
 
 const AuctionResults = () => {
     const [listings, setlistings] = useState([]);
@@ -75,21 +76,13 @@ const AuctionResults = () => {
                             <div className={styles.date_counter}>
                                 <span>Closing</span>
                                 <span className={styles.price_anount_item_1}>
-                                    2d 00:00:00
+                                    <small>
+                                        <Clock />
+                                    </small>
                                 </span>
                             </div>
                         </div>
                         <div className={styles.results_details_prices}>
-                            <div
-                                className={
-                                    styles.results_details_purchase_price
-                                }
-                            >
-                                <span>Buy now</span>
-                                <span className={styles.price_anount_item_1}>
-                                    €55
-                                </span>
-                            </div>
                             <div
                                 className={
                                     styles.results_details_starting_price
