@@ -8,3 +8,6 @@
     align-items: center;
     gap: 4px;
 }
+.clock_text {
+    padding-top: 2px;
+}

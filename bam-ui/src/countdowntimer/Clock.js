@@ -8,19 +8,19 @@ const Clock = ({ timerDays, timerHours, timerMinutes, timerSeconds }) => {
             <div className={styles.timer}>
                 <section className={styles.timer_item}>
                     <div>{timerDays}00</div>
-                    <small>Days</small>
+                    <small className={styles.clock_text}>d</small>
                 </section>
                 <section className={styles.timer_item}>
                     <div>{timerHours}00</div>
-                    <small>hrs</small>
+                    <small className={styles.clock_text}>h</small>
                 </section>
                 <section className={styles.timer_item}>
                     <div>{timerMinutes}00</div>
-                    <small>min</small>
+                    <small className={styles.clock_text}>m</small>
                 </section>
                 <section className={styles.timer_item}>
                     <div>{timerSeconds}00</div>
-                    <small>sec</small>
+                    <small className={styles.clock_text}>s</small>
                 </section>
             </div>
         </div>
