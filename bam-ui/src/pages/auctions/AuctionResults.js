@@ -50,7 +50,7 @@ const AuctionResults = () => {
     return (
         <>
             {listings.map((item, i) => (
-                <div className={styles.auction_results}>
+                <div key={[i]} className={styles.auction_results}>
                     <img
                         className={styles.search_results_img}
                         src="https://www.fillmurray.com/640/360"
