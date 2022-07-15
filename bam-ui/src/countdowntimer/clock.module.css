@@ -1,4 +1,10 @@
 .timer {
     display: flex;
+    align-items: center;
     gap: 5px;
+}
+.timer_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
