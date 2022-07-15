@@ -120,7 +120,7 @@ const Property = () => {
                         </div>
                         <FontAwesomeIcon
                             icon={faCircleRight}
-                            className={styles.arrow}
+                            className={styles.arrow_right}
                             onClick={() => handleOnClick("right")}
                         />
                     </div>
