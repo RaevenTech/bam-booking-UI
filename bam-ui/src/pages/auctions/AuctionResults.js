@@ -2,6 +2,7 @@ import styles from "./auctionResults.module.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import Clock from "../../countdowntimer/Clock";
 
 const AuctionResults = () => {
     const [listings, setlistings] = useState([]);
@@ -50,7 +51,7 @@ const AuctionResults = () => {
     return (
         <>
             {listings.map((item, i) => (
-                <div className={styles.auction_results}>
+                <div key={[i]} className={styles.auction_results}>
                     <img
                         className={styles.search_results_img}
                         src="https://www.fillmurray.com/640/360"
@@ -73,23 +74,15 @@ const AuctionResults = () => {
                     <div className={styles.details}>
                         <div className={styles.closing_date_counter}>
                             <div className={styles.date_counter}>
-                                <span>Closing</span>
+                                <span>Closing date:</span>
                                 <span className={styles.price_anount_item_1}>
-                                    2d 00:00:00
+                                    <small>
+                                        <Clock />
+                                    </small>
                                 </span>
                             </div>
                         </div>
                         <div className={styles.results_details_prices}>
-                            <div
-                                className={
-                                    styles.results_details_purchase_price
-                                }
-                            >
-                                <span>Buy now</span>
-                                <span className={styles.price_anount_item_1}>
-                                    €55
-                                </span>
-                            </div>
                             <div
                                 className={
                                     styles.results_details_starting_price

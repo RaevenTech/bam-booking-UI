@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
-import { nanoid } from "nanoid";
 import styles from "./liveAuction.module.css";
-import { onValue, ref, set, update } from "firebase/database";
+import { onValue, ref, update } from "firebase/database";
+import Clock from "../countdowntimer/Clock";
+
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
     const [currentPrice, setCurrentPrice] = useState(0);
@@ -12,12 +13,10 @@ const LiveAuction = () => {
     };
 
     //read
-
     useEffect(() => {
         onValue(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), (snapshot) => {
             // id should be taken from url params
             const data = snapshot.val();
-            //updateAmount(postElement, data);
             console.log("DATA: ", data);
             setCurrentPrice(data.currentBid.amount);
         });
@@ -27,11 +26,11 @@ const LiveAuction = () => {
     const writeToDatabase = () => {
         console.log("COUNT ", count);
         update(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), {
+            // the two id should match
             currentBid: {
                 amount: count,
                 userID: 123123, // <-- once you have real users
             },
-            // bidId: nanoid(),
         });
     };
 
@@ -42,10 +41,16 @@ const LiveAuction = () => {
                 <h1 className={styles.live_auction_title}>Live Auction</h1>
                 <h3 className={styles.current_bid}>
                     Current price :
-                    <span className={styles.current_bid_amount}>
-                        {" "}
-                        € {currentPrice}
-                    </span>
+                    {currentPrice === null ? (
+                        <span className={styles.submit_bid_placeholder}>
+                            Submit bid
+                        </span>
+                    ) : (
+                        <span className={styles.current_bid_amount}>
+                            {" "}
+                            € {currentPrice}
+                        </span>
+                    )}
                 </h3>
 
                 <div className={styles.bid_info}>
@@ -71,7 +76,9 @@ const LiveAuction = () => {
                     <div className={styles.clock}>
                         <h3 className={styles.count_down}>Time left:</h3>
 
-                        <h3 className={styles.count_down_clock}>56:37:02</h3>
+                        <h3 className={styles.count_down_clock}>
+                            <Clock />
+                        </h3>
                     </div>
                     <button className={styles.cancel_bid_btn}>
                         Cancel/Remove bid

@@ -66,7 +66,7 @@ const NewPost = (props) => {
         console.log(response);
     };
 
-    const fileUploads = 6;
+    const imageUploads = 6;
 
     return (
         <div>
@@ -77,7 +77,7 @@ const NewPost = (props) => {
                         <label className={styles.post_image_url}>
                             <b>Add 6 images:</b>
                         </label>
-                        {fileUploads === 6 ? (
+                        {imageUploads === 6 ? (
                             <input
                                 id="files"
                                 className={styles.input}
