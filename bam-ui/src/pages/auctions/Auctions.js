@@ -17,8 +17,6 @@ const Auctions = () => {
                     </div>
                     <div className={styles.auction_search_results}>
                         <AuctionResults />
-                        <AuctionResults />
-                        <AuctionResults />
                     </div>
                 </div>
             </div>

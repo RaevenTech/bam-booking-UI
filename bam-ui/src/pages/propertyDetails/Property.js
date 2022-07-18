@@ -12,8 +12,11 @@ import {
     faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import LiveAuction from "../../auction_live/LiveAuction";
+import { Link, useParams } from "react-router-dom";
 
 const Property = () => {
+    const { firebaseId } = useParams();
+
     const [listings, setListings] = useState([]);
     const [imageIndex, setImageIndex] = useState(0);
     const [showOpen, setShowOpen] = useState(false);
