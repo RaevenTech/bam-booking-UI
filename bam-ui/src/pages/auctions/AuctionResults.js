@@ -74,7 +74,7 @@ const AuctionResults = () => {
                     <div className={styles.details}>
                         <div className={styles.closing_date_counter}>
                             <div className={styles.date_counter}>
-                                <span>Closing</span>
+                                <span>Closing date:</span>
                                 <span className={styles.price_anount_item_1}>
                                     <small>
                                         <Clock />
