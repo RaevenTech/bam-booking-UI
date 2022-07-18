@@ -3,14 +3,10 @@ import { db } from "../utils/firebase";
 import styles from "./liveAuction.module.css";
 import { onValue, ref, update } from "firebase/database";
 import Clock from "../countdowntimer/Clock";
+
 const LiveAuction = () => {
     const [count, setCount] = useState(0);
     const [currentPrice, setCurrentPrice] = useState(0);
-
-    const [timerdays, setTimerdays] = useState();
-    const [timerHours, setTimerhours] = useState();
-    const [timerMinutes, setTimerMinutes] = useState();
-    const [timerSeconds, setTimerSeconds] = useState();
 
     const handleAmountChange = (e) => {
         setCount(e.target.value);
@@ -30,6 +26,7 @@ const LiveAuction = () => {
     const writeToDatabase = () => {
         console.log("COUNT ", count);
         update(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), {
+            // the two id should match
             currentBid: {
                 amount: count,
                 userID: 123123, // <-- once you have real users
@@ -80,12 +77,7 @@ const LiveAuction = () => {
                         <h3 className={styles.count_down}>Time left:</h3>
 
                         <h3 className={styles.count_down_clock}>
-                            <Clock
-                                timerdays={timerdays}
-                                timerHours={timerHours}
-                                timerMinutes={timerMinutes}
-                                timerSeconds={timerSeconds}
-                            />
+                            <Clock />
                         </h3>
                     </div>
                     <button className={styles.cancel_bid_btn}>
