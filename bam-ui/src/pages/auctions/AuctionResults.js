@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
+import { useParams } from "react-router-dom";
 
 const AuctionResults = () => {
     const [listings, setlistings] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    console.log(useParams());
 
     const navigate = useNavigate();
     const handleNavigate = () => {
@@ -50,7 +53,7 @@ const AuctionResults = () => {
 
     return (
         <>
-            {listings.map((item, i) => (
+            {listings.map((post, i) => (
                 <div key={[i]} className={styles.auction_results}>
                     <img
                         className={styles.search_results_img}
@@ -63,7 +66,7 @@ const AuctionResults = () => {
                         <div className={styles.results_attraction}></div>
 
                         <div className={styles.results_description_room}>
-                            {item.beds}
+                            {post.beds}
                         </div>
                         <div className={styles.results_terms_conditions}>
                             <small>
@@ -76,7 +79,7 @@ const AuctionResults = () => {
                             <div className={styles.date_counter}>
                                 <span>Closing date:</span>
                                 <span className={styles.price_anount_item_1}>
-                                    <small>
+                                    <small className={styles.clock}>
                                         <Clock />
                                     </small>
                                 </span>

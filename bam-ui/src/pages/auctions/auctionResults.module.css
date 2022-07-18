@@ -57,9 +57,13 @@
     cursor: pointer;
     
 }
+.clock {
+    color: var(--orange);
+}
 .date_counter {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items:center;
     padding-bottom: 5px;
     margin-top: 5px;
 }
@@ -104,6 +108,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    
 }
 .bid_btn {
     padding: 8px;
