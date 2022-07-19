@@ -3,17 +3,26 @@
     justify-content: center;
     align-items: center;
     background-color: var(--t);
-    height: 100vh;
+    height: auto;
+    
 }
 .form_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 900px;
-    width: 900px;
+    height: 800px;
+    width: 800px;
     background: var(--d);
     position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
     
+}
+.register{
+    padding-bottom: 0px;
+}
+.login{
+    padding-top: 0px;
 }
 .home_btn {
     font-size: 2rem;
