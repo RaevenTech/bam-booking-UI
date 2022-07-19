@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { onValue, ref, update } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { db } from "../../utils/firebase";
 
 const AuctionResults = () => {
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation().search;
-    console.log("LOCATION: ", location);
-    console.log(new URLSearchParams(location).get("state"));
+    //console.log("LOCATION: ", location);
+    //console.log(new URLSearchParams(location).get("state"));
     const [destination, setDestination] = useState(
         new URLSearchParams(location).get("city")
     );
@@ -46,7 +46,7 @@ const AuctionResults = () => {
     }, []);*/
 
     useEffect(() => {
-        console.log("STATE: ", location);
+        //console.log("STATE: ", location);
         setLoading(true);
         onValue(ref(db, `listings`), (snapshot) => {
             // id should be taken from url params
@@ -80,9 +80,9 @@ const AuctionResults = () => {
 
     return (
         <>
-            {listings.map((post, i) => (
+            {listings.map((listing, i) => (
                 <div key={[i]} className={styles.auction_results}>
-                    <Link to={`/details/${post.id}`}>
+                    <Link to={`/details/${listing.id}`}>
                         <img
                             className={styles.search_results_img}
                             src="https://www.fillmurray.com/640/360"
@@ -94,7 +94,7 @@ const AuctionResults = () => {
                         <div className={styles.results_attraction}></div>
 
                         <div className={styles.results_description_room}>
-                            {post.beds}
+                            {listing.beds}
                         </div>
                         <div className={styles.results_terms_conditions}>
                             <small>
@@ -121,7 +121,7 @@ const AuctionResults = () => {
                             >
                                 <span>Starting bid</span>
                                 <span className={styles.price_anount_item_1}>
-                                    €10
+                                    €{listing.price}
                                 </span>
                             </div>
                             <div
@@ -129,7 +129,7 @@ const AuctionResults = () => {
                             >
                                 <span>Current bid</span>
                                 <span className={styles.price_anount_item}>
-                                    €23
+                                    €{listing.currentBid.amount}
                                 </span>
                             </div>
                         </div>

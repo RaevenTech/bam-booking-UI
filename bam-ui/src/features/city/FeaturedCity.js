@@ -1,12 +1,10 @@
 import styles from "./featuredCity.module.css";
-import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
+import { useState } from "react";
+
 import { useSearchParams } from "react-router-dom";
 
 const FeaturedCity = () => {
-    const [loading, setLoading] = useState(false);
-    const [listings, setListings] = useState();
-
+    const [citySearch, setCitySearch] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
 
     const searchCity = searchParams.get("city");

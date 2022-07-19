@@ -6,13 +6,13 @@ import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faLocationDot,
+    //faLocationDot,
     faCircleLeft,
     faCircleRight,
     faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import LiveAuction from "../../auction_live/LiveAuction";
-import { Link, useParams } from "react-router-dom";
+//import LiveAuction from "../../auction_live/LiveAuction";
+import { useParams } from "react-router-dom";
 import { onValue, ref, update } from "firebase/database";
 import { db } from "../../utils/firebase";
 import Clock from "../../countdowntimer/Clock";
@@ -75,7 +75,8 @@ const Property = () => {
         });
 
         //   fetchData();
-    }, [firebaseId]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     if (loading) {
         return (
             <section>
@@ -189,8 +190,8 @@ const Property = () => {
                     </div>
                 </div>
             </div>
-            {/* {listings.map((listing, i) => (
-                <div key={[i]} className={styles.property_container}>
+            {/* 
+                <div className={styles.property_container}>
                     <div className={styles.property_section}>
                         <h1 className={styles.property_title}>
                             {listing.title}
@@ -246,7 +247,7 @@ const Property = () => {
                         <LiveAuction />
                     </div>
                 </div>
-           ))}*/}
+        */}
 
             <Footer />
         </div>
