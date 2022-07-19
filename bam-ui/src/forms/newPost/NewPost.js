@@ -44,14 +44,14 @@ const NewPost = (props) => {
             adults: adultsValue,
             children: childrenValue,
             description: descriptionValue,
-            image: {
-                img1: imageValue,
-                img2: imageValue,
-                img3: imageValue,
-                img4: imageValue,
-                img5: imageValue,
-                img6: imageValue,
-            },
+            image: [
+                { img1: imageValue },
+                { img2: imageValue },
+                { img3: imageValue },
+                { img4: imageValue },
+                { img5: imageValue },
+                { img6: imageValue },
+            ],
             closingDate: date,
             postId: postId,
             currentBid: {

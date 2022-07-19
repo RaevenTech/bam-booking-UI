@@ -1,46 +1,16 @@
 import styles from "./featuredCity.module.css";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 const FeaturedCity = () => {
     const [loading, setLoading] = useState(false);
     const [listings, setListings] = useState();
 
-    const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
-    useEffect(() => {
-        setLoading(true);
-        fetch(url)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const allPosts = [];
-                for (const key in data) {
-                    const postObj = {
-                        id: key,
-                        ...data[key],
-                    };
-                    allPosts.push(postObj);
-                }
-                setLoading(false);
-                setListings(allPosts);
-            });
-    }, []);
-    if (loading) {
-        return (
-            <section>
-                <span className={styles.loading_spinner}>
-                    Loading...{" "}
-                    <Spinner
-                        animation="border"
-                        variant="info"
-                        className={styles.loading_spinner}
-                    />
-                </span>{" "}
-            </section>
-        );
-    }
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const searchCity = searchParams.get("city");
+    console.log(searchParams);
 
     return (
         <>

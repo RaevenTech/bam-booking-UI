@@ -3,8 +3,11 @@ import { useLocation } from "react-router-dom";
 import styles from "./auctionSearch.module.css";
 
 const AuctionSearch = () => {
-    const location = useLocation();
-    const [destination, setDestination] = useState(location.state.destination);
+    const location = useLocation().search;
+    console.log("LOCATION: ", location);
+    const [destination, setDestination] = useState(
+        new URLSearchParams(location).get("city")
+    );
 
     return (
         <div className={styles.auction_search_wrapper}>

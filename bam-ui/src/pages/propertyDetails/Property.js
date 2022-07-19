@@ -13,15 +13,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import LiveAuction from "../../auction_live/LiveAuction";
 import { Link, useParams } from "react-router-dom";
+import { onValue, ref, update } from "firebase/database";
+import { db } from "../../utils/firebase";
+import Clock from "../../countdowntimer/Clock";
 
 const Property = () => {
     const { firebaseId } = useParams();
 
-    const [listings, setListings] = useState([]);
+    const [listing, setListing] = useState(null);
     const [imageIndex, setImageIndex] = useState(0);
     const [showOpen, setShowOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-
+    const [count, setCount] = useState(0);
+    // const db = getFirestore();
     const pictures = [
         { src: "https://www.fillmurray.com/640/360" },
         { src: "https://loremflickr.com/640/360" },
@@ -46,27 +50,32 @@ const Property = () => {
         setImageIndex(newImageIndex);
     };
 
-    const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
+    const writeToDatabase = () => {
+        update(ref(db, "listings/" + firebaseId), {
+            // id url params
+            currentBid: {
+                amount: count,
+                userID: 123123, // <-- once you have real users
+            },
+        });
+    };
+
+    const handleAmountChange = (e) => {
+        setCount(e.target.value);
+    };
+
     useEffect(() => {
         setLoading(true);
-        fetch(url)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const allPosts = [];
-                for (const key in data) {
-                    const postObj = {
-                        id: key,
-                        ...data[key],
-                    };
-                    allPosts.push(postObj);
-                }
-                setLoading(false);
-                setListings(allPosts);
-            });
-    }, []);
+        onValue(ref(db, "listings/" + firebaseId), (snapshot) => {
+            // id taken from url params
+            const data = snapshot.val();
+            console.log("DATA: ", data);
+            setListing(data);
+            setLoading(false);
+        });
+
+        //   fetchData();
+    }, [firebaseId]);
     if (loading) {
         return (
             <section>
@@ -129,7 +138,58 @@ const Property = () => {
                     </div>
                 )}
             </section>
-            {listings.map((listing, i) => (
+            <div>
+                {" "}
+                <div className={styles.property_price_bid}>
+                    <h1 className={styles.live_auction_title}>Live Auction</h1>
+                    <h3 className={styles.current_bid}>
+                        Current price :
+                        {listing.currentBid.amount === null ? (
+                            <span className={styles.submit_bid_placeholder}>
+                                Submit bid
+                            </span>
+                        ) : (
+                            <span className={styles.current_bid_amount}>
+                                {" "}
+                                € {listing.currentBid.amount}
+                            </span>
+                        )}
+                    </h3>
+
+                    <div className={styles.bid_info}>
+                        <span className={styles.bid_input_text}>
+                            Your last bid: €
+                        </span>
+                        <input
+                            type="number"
+                            className={styles.bid_input_field}
+                            min={0}
+                            value={count}
+                            onChange={handleAmountChange}
+                        />
+                    </div>
+                    <button
+                        className={styles.submit_bid_amount}
+                        onClick={writeToDatabase}
+                    >
+                        Submit Bid
+                    </button>
+
+                    <div className={styles.counter_section}>
+                        <div className={styles.clock}>
+                            <h3 className={styles.count_down}>Time left:</h3>
+
+                            <h3 className={styles.count_down_clock}>
+                                <Clock />
+                            </h3>
+                        </div>
+                        <button className={styles.cancel_bid_btn}>
+                            Cancel/Remove bid
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {/* {listings.map((listing, i) => (
                 <div key={[i]} className={styles.property_container}>
                     <div className={styles.property_section}>
                         <h1 className={styles.property_title}>
@@ -186,7 +246,7 @@ const Property = () => {
                         <LiveAuction />
                     </div>
                 </div>
-            ))}
+           ))}*/}
 
             <Footer />
         </div>

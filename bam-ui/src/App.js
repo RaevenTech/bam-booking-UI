@@ -14,7 +14,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login/register" element={<Layout />} />
-                <Route path="/auctions" element={<Auctions />} />
+                <Route path="/auctions/" element={<Auctions />} />
                 <Route path="/details/:firebaseId" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
                 <Route path="*" element={<NotFound />} />

@@ -3,20 +3,26 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { onValue, ref, update } from "firebase/database";
+import { db } from "../../utils/firebase";
 
 const AuctionResults = () => {
-    const [listings, setlistings] = useState([]);
+    const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    console.log(useParams());
+    const location = useLocation().search;
+    console.log("LOCATION: ", location);
+    console.log(new URLSearchParams(location).get("state"));
+    const [destination, setDestination] = useState(
+        new URLSearchParams(location).get("city")
+    );
 
     const navigate = useNavigate();
     const handleNavigate = () => {
         navigate("/details");
     };
-    const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json";
+    /* const url =
+        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json?city=Paris";
     useEffect(() => {
         setLoading(true);
         fetch(url)
@@ -33,8 +39,29 @@ const AuctionResults = () => {
                     allPosts.push(postObj);
                 }
                 setLoading(false);
-                setlistings(allPosts);
+                setListings(allPosts);
+
+                console.log("Post ", listings);
             });
+    }, []);*/
+
+    useEffect(() => {
+        console.log("STATE: ", location);
+        setLoading(true);
+        onValue(ref(db, `listings`), (snapshot) => {
+            // id should be taken from url params
+            const data = [];
+            snapshot.forEach((s) => {
+                data.push(s.val());
+            });
+
+            console.log("DATA: ", data);
+            setListings(data.filter((listing) => listing.city === destination));
+            setLoading(false);
+        });
+
+        //   fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     if (loading) {
         return (
@@ -55,7 +82,7 @@ const AuctionResults = () => {
         <>
             {listings.map((post, i) => (
                 <div key={[i]} className={styles.auction_results}>
-                    <Link to={`details/§{firebaseId}`}>
+                    <Link to={`/details/${post.id}`}>
                         <img
                             className={styles.search_results_img}
                             src="https://www.fillmurray.com/640/360"
