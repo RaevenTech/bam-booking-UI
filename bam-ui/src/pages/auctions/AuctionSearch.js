@@ -1,6 +1,10 @@
+import { useLocation } from "react-router-dom";
 import styles from "./auctionSearch.module.css";
 
 const AuctionSearch = () => {
+    const location = useLocation();
+    console.log(location);
+
     return (
         <div className={styles.auction_search_wrapper}>
             <h1 className={styles.auction_list_title}>
