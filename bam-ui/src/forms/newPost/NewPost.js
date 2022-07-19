@@ -44,7 +44,14 @@ const NewPost = (props) => {
             adults: adultsValue,
             children: childrenValue,
             description: descriptionValue,
-            image: imageValue,
+            image: {
+                img1: imageValue,
+                img2: imageValue,
+                img3: imageValue,
+                img4: imageValue,
+                img5: imageValue,
+                img6: imageValue,
+            },
             closingDate: date,
             postId: postId,
             currentBid: {
@@ -249,6 +256,7 @@ const NewPost = (props) => {
                                 className={styles.input_bed}
                                 type="number"
                                 placeholder="2"
+                                min={1}
                                 required
                                 ref={bedsRef}
                             />
