@@ -2,15 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 import styles from "./headerSearch.module.css";
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 
 const HeaderSearch = () => {
-    const [searchLocation, setSearchLocation] = useState("");
+    const [destination, setDestination] = useState("");
+
     const navigate = useNavigate();
 
     const handleSearch = () => {
-        navigate("/auctions", { state: { searchLocation } });
+        navigate("/auctions", { state: { destination } });
     };
 
     return (
@@ -26,8 +26,8 @@ const HeaderSearch = () => {
                         <input
                             className={styles.header_search_input}
                             type="text"
-                            placeholder="Search by location"
-                            onChange={(e) => setSearchLocation(e.target.value)}
+                            placeholder="Search destination"
+                            onChange={(e) => setDestination(e.target.value)}
                         />
                     </div>
                     <div className={styles.header_search_section}>

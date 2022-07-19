@@ -15,13 +15,13 @@ const Register = () => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            return setError("Password does not match");
+            return setError(<alert>Password does not match</alert>);
         }
     };
 
     //write to db
     const writeUserData = (userName, email, password);
-    const reference = ref(db, "users/");
+    let reference = ref(db, "users/");
     set(reference, {
         userName: userName,
         email: email,
@@ -85,7 +85,7 @@ const Register = () => {
                         </div>
                         <button
                             className={styles.submit_reg_btn}
-                            onClick={writeUserData}
+                            onClick={() => handleSubmit(writeUserData)}
                         >
                             Create an account
                         </button>

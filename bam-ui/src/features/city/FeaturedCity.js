@@ -1,6 +1,15 @@
 import styles from "./featuredCity.module.css";
+import { useState } from "react";
+
+import { useSearchParams } from "react-router-dom";
 
 const FeaturedCity = () => {
+    const [citySearch, setCitySearch] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const searchCity = searchParams.get("city");
+    console.log(searchParams);
+
     return (
         <>
             <div className={styles.cities}>
@@ -10,6 +19,7 @@ const FeaturedCity = () => {
                         src="https://4.bp.blogspot.com/-JSKx1mfNp2A/Vyz8cVODCzI/AAAAAAAAmh0/Xmi6WYxXn18WOGCyB2n18PfpSdkLXfS2QCLcB/s1600/IMG_9350.JPG"
                         alt="city"
                     />
+
                     <div className={styles.cities_title}>
                         <h1>Budapest</h1>
                         <h3>Hungary</h3>
@@ -21,6 +31,7 @@ const FeaturedCity = () => {
                         src="https://www.melhoresdestinos.com.br/wp-content/uploads/2017/01/lisboa-portugal-capa-1-820x430.jpg"
                         alt="city"
                     />
+
                     <div className={styles.cities_title}>
                         <h1>Lisbon</h1>
                         <h3>Portugal</h3>

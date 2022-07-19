@@ -14,7 +14,7 @@ const Layout = () => {
                 <Link to="/">
                     <div className={styles.home_btn}>
                         <FontAwesomeIcon icon={faPersonThroughWindow} />
-                        <span className={styles.icon_text}>Back</span>
+                        <span className={styles.icon_text}></span>
                     </div>
                 </Link>
                 <div className={styles.reg_log}>
