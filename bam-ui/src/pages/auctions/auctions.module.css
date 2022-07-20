@@ -23,6 +23,7 @@
     font-size: 1.3rem;
     border-radius: 15px;
     height: fit-content;
+    margin-bottom: 20px;
 }
 .auction_search_results {
     flex:3;

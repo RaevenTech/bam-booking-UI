@@ -1,7 +1,4 @@
 import styles from "./auctions.module.css";
-//import Header from "../../features/header/Header";
-//import Navbar from "../../features/navbar/Navbar";
-import Footer from "../../features/footer/Footer";
 import AuctionSearch from "./AuctionSearch";
 import AuctionResults from "./AuctionResults";
 
@@ -17,9 +14,6 @@ const Auctions = () => {
                         <AuctionResults />
                     </div>
                 </div>
-            </div>
-            <div className={styles.auctions_footer}>
-                <Footer />
             </div>
         </div>
     );

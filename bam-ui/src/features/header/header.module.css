@@ -84,7 +84,7 @@
 }
 
 .header_search_icon {
-    color:lightgray;
+    color:var(--g);
     font-size: 1.3rem;
 }
 .header_search_input {
