@@ -3,10 +3,10 @@ import "./App.css";
 import { Routes, Route, useParams } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Auctions from "./pages/auctions/Auctions";
-import Property from "./pages/propertyDetails/Property";
+import Property from "./pages/propertyDetails/Details";
 import NotFound from "./pages/notFound/NotFound";
 import BackOffice from "./pages/dashboard/BackOffice";
-import Layout from "./forms/formlayout/Layout";
+import Layout from "./forms/formlayout/LoginRegister";
 
 function App() {
     return (
