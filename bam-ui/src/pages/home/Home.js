@@ -1,8 +1,4 @@
-//import FeaturedCity from "../../features/city/FeaturedCity";
-//import Footer from "../../features/footer/Footer";
 import Header from "../../features/header/Header";
-//import Navbar from "../../features/navbar/Navbar";
-//import PropertyType from "../../features/property/PropertyType";
 import styles from "./Home.module.css";
 import { useState } from "react";
 import { useSearchParams, useNavigate, useParams } from "react-router-dom";
@@ -10,6 +6,7 @@ import { useSearchParams, useNavigate, useParams } from "react-router-dom";
 const Home = () => {
     const navigate = useNavigate();
     let city = useParams();
+
     const [citySearch, setCitySearch] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
 
