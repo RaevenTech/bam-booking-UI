@@ -17,30 +17,124 @@
     font-size: 1.3rem;
     margin-bottom: -15px;
 }
-.email_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1024px;
-  height: 50px;
-  background-color: var(--d);
-  margin-bottom: 20px;
-  border-radius: 5px;
+
+/*------------------------------------------------ featured city --------------------------------*/
+.cities {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
-.email_input {
-    width: 300px;
-    border-radius: 5px 0px 0px 5px;
+.cities_item {
+    position: relative;
+    height :250px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-left: 5px;
+    cursor: pointer;
+    
 }
-.email_btn {
-    border-radius: 0px 5px 5px 0px;
+.cities_img:hover {
+    transform: scale(1.1,1.1);
+    transition: 0.3s ease-in-out;
 }
-.email_btn:hover {
-    background-color: var(--orange);
-    color: var(--d);
+.cities_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(80%) ;
 }
-.newsletter {
-    color: var(--gy);
-    padding-right: 10px;
+.cities_title {
+    position: absolute;
+    bottom: 15px;
+    left:20px;
+    color: white;
+}
+.cities_title>h1{
+    margin-bottom: 5px;
+}
+.cities_title>h3{
+    margin-top: 5px;
+}
+.cities_secondary {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 20px;
+    max-width: 1024px;
+    position: relative;
+
+}
+/*------------------------------------------------ Property type selection --------------------------------*/
+.property_list {
+    display: flex;
+    max-width: 1024px;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.property_list_item{
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
+.property_list_item_img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.property_list_item:hover {
+    transform: scale(1.1,1.1);
+    transition: 3ms ease-in-out;
+}
+.property_list_item_title {
+    font-size: 0.8rem;
+    padding-left: 2px;
+}
+.property_list_item_title>h1{
+    margin: 0px;
+    font-size: 22px;
+    
+}
+.property_list_item_title>h3{
+    margin-top: 0px;
+    font-size: 15px;
+    color: var(--gy);
+    
+}
+/*------------------------------------------------ mailing list --------------------------------*/
+.email_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+    height: 50px;
+    background-color: var(--d);
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  .email_input {
+      width: 300px;
+      border-radius: 5px 0px 0px 5px;
+  }
+  .email_btn {
+      border-radius: 0px 5px 5px 0px;
+  }
+  .email_btn:hover {
+      background-color: var(--orange);
+      color: var(--d);
+  }
+  .newsletter {
+      color: var(--gy);
+      padding-right: 10px;
+  }
+  
+  /*------------------------------------------------ mailing list --------------------------------*/
+
+  

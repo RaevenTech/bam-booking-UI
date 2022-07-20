@@ -143,14 +143,7 @@ const AuctionResults = () => {
                         </div>
                     </div>
                 </div>
-            ))}{" "}
-            :{" "}
-            <div className={styles.no_match}>
-                <h1>unfortunately!</h1>
-                <h4>No listings that match at this momment.</h4>
-                <h4>Please check again later</h4>
-            </div>
-            )
+            ))}
         </>
     );
 };

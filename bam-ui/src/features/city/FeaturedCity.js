@@ -1,9 +1,10 @@
 import styles from "./featuredCity.module.css";
 import { useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, useParams } from "react-router-dom";
 
 const FeaturedCity = () => {
     let navigate = useNavigate();
+    let city = useParams();
     const [citySearch, setCitySearch] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
 

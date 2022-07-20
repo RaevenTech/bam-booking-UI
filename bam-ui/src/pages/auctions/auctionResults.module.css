@@ -121,6 +121,16 @@
 .bid_btn:hover {
     background:green;
 }
+.no_match {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--d);
+}
+ .no_match h1 {
+    color: var(--orange);
+ }
 
 
 
