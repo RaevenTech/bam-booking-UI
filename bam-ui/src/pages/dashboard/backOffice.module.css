@@ -30,3 +30,51 @@ background: var(--d);
     display: flex;
     justify-content: center;
 }
+
+/*------------------------------ avtive listings ------------------ 
+
+.active_auctions {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.active_img {
+    width: 240px;
+    height: 150px;
+    object-fit:cover;
+    border-radius: 5px;
+}
+.highest_bid {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+}
+.count_down {
+    display: flex;
+    flex-direction: column;
+}
+.btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.btn_delete {
+    border-radius: 5px;
+    background: var(--orange);
+    border: none;
+}
+.btn_delete:hover {
+    background: red;
+    border: none;
+}
+.gavel {
+    font-size: 2rem;
+    color: var(--g);
+}
+
+----------------------------------- */

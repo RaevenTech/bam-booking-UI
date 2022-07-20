@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./layout.module.css";
+import styles from "./loginregister.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
 import UserLogin from "../login/UserLogin";
 
 import Register from "../register/Register";
 
-const Layout = () => {
+const UserRegisterLogin = () => {
     return (
         <div className={styles.main}>
             <div className={styles.form_container}>
@@ -30,4 +30,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default UserRegisterLogin;

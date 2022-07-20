@@ -1,7 +1,7 @@
 import Navbar from "../../features/navbar/Navbar";
 import Header from "../../features/header/Header";
 import Footer from "../../features/footer/Footer";
-import styles from "./property.module.css";
+import styles from "./details.module.css";
 import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
