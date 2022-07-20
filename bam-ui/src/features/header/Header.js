@@ -1,10 +1,21 @@
 import styles from "./header.module.css";
-
-import HeaderSearch from "./HeaderSearch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ page }) => {
+    const [destination, setDestination] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        navigate("/auctions", { state: { destination } });
+    };
+
     return (
         <>
+            {/*------------------------ header with text only to display on auction page ---------------------------------- */}
             <div className={styles.header}>
                 <div className={styles.header_container}>
                     <div className={styles.header_list}>
@@ -18,7 +29,7 @@ const Header = ({ page }) => {
                             </div>
                         )}
                     </div>
-
+                    {/*------------------------ header with text only to display on home page ---------------------------------- */}
                     {page !== "auctions" && (
                         <>
                             <h1 className={styles.header_title}>
@@ -37,7 +48,56 @@ const Header = ({ page }) => {
                             </p>
                             <section>
                                 <div className={styles.header_search}>
-                                    <HeaderSearch />
+                                    <>
+                                        {/*------------------------ header search with text only to display on home page ---------------------------------- */}
+                                        <div className={styles.header_search}>
+                                            <div
+                                                className={
+                                                    styles.header_search_container
+                                                }
+                                            >
+                                                <div
+                                                    className={
+                                                        styles.header_search_section
+                                                    }
+                                                >
+                                                    {" "}
+                                                    <FontAwesomeIcon
+                                                        icon={faMapLocation}
+                                                        className={
+                                                            styles.header_search_icon
+                                                        }
+                                                    />
+                                                    <input
+                                                        className={
+                                                            styles.header_search_input
+                                                        }
+                                                        type="text"
+                                                        placeholder="Search destination"
+                                                        onChange={(e) =>
+                                                            setDestination(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.header_search_section
+                                                    }
+                                                >
+                                                    <button
+                                                        className={
+                                                            styles.header_search_btn
+                                                        }
+                                                        onClick={handleSearch}
+                                                    >
+                                                        Search
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
                                 </div>
                             </section>
                         </>

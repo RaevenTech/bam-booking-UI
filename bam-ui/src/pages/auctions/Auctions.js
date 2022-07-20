@@ -1,6 +1,6 @@
 import styles from "./auctions.module.css";
-import Header from "../../features/header/Header";
-import Navbar from "../../features/navbar/Navbar";
+//import Header from "../../features/header/Header";
+//import Navbar from "../../features/navbar/Navbar";
 import Footer from "../../features/footer/Footer";
 import AuctionSearch from "./AuctionSearch";
 import AuctionResults from "./AuctionResults";
@@ -8,8 +8,6 @@ import AuctionResults from "./AuctionResults";
 const Auctions = () => {
     return (
         <div>
-            <Navbar />
-            <Header page="auctions" />
             <div className={styles.auction_container}>
                 <div className={styles.auction_section}>
                     <div className={styles.auction_search}>
