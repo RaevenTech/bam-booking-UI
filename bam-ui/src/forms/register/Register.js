@@ -1,32 +1,45 @@
 import styles from "./register.module.css";
 import { useState } from "react";
-import { db } from "../../utils/firebase";
-import { ref, set } from "firebase/database";
+//import { db } from "../../utils/firebase";
+import { firebaseAuth } from "../../utils/firebase";
+//import { ref, set } from "firebase/database";
+import { useNavigate } from "react-router-dom";
+import {
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+} from "firebase/auth";
 
 const Register = () => {
-    const [userName, setUserName] = useState("");
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const [error, setError] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
+        try {
+            await createUserWithEmailAndPassword(firebaseAuth, email, password);
+        } catch (error) {
+            console.log(error);
+        }
 
         if (password !== confirmPassword) {
             return setError(<alert>Password does not match</alert>);
         }
     };
 
-    //write to db
-    const writeUserData = (userName, email, password);
-    let reference = ref(db, "users/");
-    set(reference, {
-        userName: userName,
-        email: email,
-        password: password,
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (currentUser) navigate("auctions");
     });
+
+    //write to db
+    //  const writeUserData = (email, password);
+    // let reference = ref(db, "users/");
+    //  set(reference, {
+    //      email: email,
+    //      password: password,
+    //  });
 
     return (
         <div>
@@ -38,17 +51,6 @@ const Register = () => {
                         className={styles.form_inputs}
                         onSubmit={handleSubmit}
                     >
-                        <div className={styles.input_item}>
-                            <label>Username</label>
-                            <input
-                                className={styles.info_input}
-                                type="text"
-                                value={userName}
-                                onChange={(e) => {
-                                    setUserName(e.target.value);
-                                }}
-                            />
-                        </div>
                         <div className={styles.input_item}>
                             <label>Email</label>
                             <input
@@ -85,7 +87,7 @@ const Register = () => {
                         </div>
                         <button
                             className={styles.submit_reg_btn}
-                            onClick={() => handleSubmit(writeUserData)}
+                            onClick={handleSubmit}
                         >
                             Create an account
                         </button>

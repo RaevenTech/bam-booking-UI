@@ -16,10 +16,6 @@ const UserLogin = () => {
                 <h1 className={styles.form_title_1}>account</h1>
                 <form className={styles.form_inputs}>
                     <div className={styles.input_item}>
-                        <label>Username</label>
-                        <input className={styles.username_input} type="text" />
-                    </div>
-                    <div className={styles.input_item}>
                         <label>Email</label>
                         <input className={styles.username_input} type="email" />
                     </div>
