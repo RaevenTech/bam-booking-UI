@@ -7,7 +7,7 @@ import UserLogin from "../login/UserLogin";
 
 import Register from "../register/Register";
 
-const Layout = () => {
+const UserRegisterLogin = () => {
     return (
         <div className={styles.main}>
             <div className={styles.form_container}>
@@ -30,4 +30,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default UserRegisterLogin;

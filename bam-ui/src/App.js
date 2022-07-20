@@ -1,12 +1,12 @@
 import "./App.css";
 
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Auctions from "./pages/auctions/Auctions";
 import Property from "./pages/propertyDetails/Details";
 import NotFound from "./pages/notFound/NotFound";
 import BackOffice from "./pages/dashboard/BackOffice";
-import Layout from "./forms/formlayout/LoginRegister";
+import UserRegisterLogin from "./forms/registration/LoginRegister";
 
 import Footer from "./features/footer/Footer";
 import Header from "./features/header/Header";
@@ -19,7 +19,7 @@ function App() {
             <Header page="auctions" />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login/register" element={<Layout />} />
+                <Route path="/login/register" element={<UserRegisterLogin />} />
                 <Route path="/auctions/" element={<Auctions />} />
                 <Route path="/details/:firebaseId" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
