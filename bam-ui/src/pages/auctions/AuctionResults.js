@@ -8,6 +8,7 @@ import { onValue, ref } from "firebase/database";
 import { db } from "../../utils/firebase";
 
 const AuctionResults = () => {
+    const params = useParams();
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation().search;
@@ -18,9 +19,7 @@ const AuctionResults = () => {
     );
 
     const navigate = useNavigate();
-    const handleNavigate = () => {
-        navigate("/details");
-    };
+
     /* const url =
         "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json?city=Paris";
     useEffect(() => {
@@ -61,8 +60,7 @@ const AuctionResults = () => {
         });
 
         //   fetchData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [destination]);
     if (loading) {
         return (
             <section>
@@ -82,7 +80,7 @@ const AuctionResults = () => {
         <>
             {listings.map((listing, i) => (
                 <div key={[i]} className={styles.auction_results}>
-                    <Link to={`/details/${listing.id}`}>
+                    <Link to={`/details/${listing.Id}`}>
                         <img
                             className={styles.search_results_img}
                             src="https://www.fillmurray.com/640/360"
@@ -136,7 +134,9 @@ const AuctionResults = () => {
                         <div className={styles.add_bid_btn}>
                             <button
                                 className={styles.bid_btn}
-                                onClick={handleNavigate}
+                                onClick={() => {
+                                    navigate(listing.id);
+                                }}
                             >
                                 Add your bid
                             </button>

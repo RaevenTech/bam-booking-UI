@@ -73,7 +73,7 @@ const Header = ({ page }) => {
                                                             styles.header_search_input
                                                         }
                                                         type="text"
-                                                        placeholder="Search destination"
+                                                        placeholder="Search City"
                                                         onChange={(e) =>
                                                             setDestination(
                                                                 e.target.value

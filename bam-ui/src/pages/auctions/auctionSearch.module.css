@@ -18,7 +18,7 @@
     cursor: pointer;
     
 }
-.auction_search_destination> input {
+.auction_search_destination input {
     border: none;
     padding: 2px;
     height: 30px;
@@ -75,3 +75,4 @@
     color: var(--g);
     border: none;
 }
+

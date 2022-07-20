@@ -94,9 +94,6 @@ const Property = () => {
 
     return (
         <div>
-            <Navbar />
-            <Header page="auctions" />
-
             <section className={styles.image_display}>
                 <div className={styles.property_images}>
                     {pictures.map((image, i) => (

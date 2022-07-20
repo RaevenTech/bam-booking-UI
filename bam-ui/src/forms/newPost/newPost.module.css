@@ -55,7 +55,7 @@
     justify-content: start;
     align-items: center;
     gap: 30px;
-    text-transform: capitalize;
+    text-transform: lowercase;
 }
 .startbid_closeDate {
     display: flex;
