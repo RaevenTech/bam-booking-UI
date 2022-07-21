@@ -19,8 +19,8 @@ function App() {
             <Header page="auctions" />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login/register" element={<UserRegisterLogin />} />
-                <Route path="/auctions/" element={<Auctions />} />
+                <Route path="/registration" element={<UserRegisterLogin />} />
+                <Route path="/auctions" element={<Auctions />} />
                 <Route path="/details/:firebaseId" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
                 <Route path="*" element={<NotFound />} />

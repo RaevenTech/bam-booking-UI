@@ -41,3 +41,20 @@
     background: var(--d);
     color: var(--w);
 }
+/*---------------------- user name and icon ----------------*/
+.sign_out {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top:10px ;
+    background-color: var(--d);
+    padding: 5px;
+    border-radius: 5px;
+}
+.username_text {
+padding-top: 5px;
+}
+.user_icon {
+    color: var(--g);
+    font-size: 2rem;
+}

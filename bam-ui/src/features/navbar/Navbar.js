@@ -6,13 +6,14 @@ import styles from "./Navbar.module.css";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../../utils/firebase";
 
-const Navbar = ({ logOut, page }) => {
+const Navbar = ({ logOut }) => {
     const navigate = useNavigate();
+
     const [user, setUser] = useState(undefined);
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) );
-        else navigate("/");
+        if (currentUser) setUser(currentUser);
+        else navigate("/registration");
     });
 
     return (
@@ -22,17 +23,18 @@ const Navbar = ({ logOut, page }) => {
                     <div className={styles.nav_logo}>
                         Bid<span className={styles.logo_2}>2</span>Buy.com
                     </div>
-
-                    {logOut !== "details" && page !== "auction" && (
+                    {logOut !== "details" && (
                         <div className={styles.nav_btns}>
                             <button className={styles.nav_btn}>Register</button>
                             <button className={styles.nav_btn}>Sign in</button>
                         </div>
-                    )}
+                    )}{" "}
                     <>
                         {logOut === "details" && (
                             <div className={styles.sign_out}>
-                                <h2>{user?.email}</h2>
+                                <h5 className={styles.username_text}>
+                                    User name
+                                </h5>
                                 <FontAwesomeIcon
                                     icon={faUserCircle}
                                     className={styles.user_icon}
