@@ -15,7 +15,7 @@ import Navbar from "./features/navbar/Navbar";
 function App() {
     return (
         <div className="App">
-            <Navbar />
+            <Navbar logOut="details" />
             <Header page="auctions" />
             <Routes>
                 <Route path="/" element={<Home />} />
