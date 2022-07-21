@@ -46,15 +46,27 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top:10px ;
+    margin-top:20px ;
     background-color: var(--d);
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
 }
 .username_text {
 padding-top: 5px;
+font-size: 0.8rem;
 }
 .user_icon {
     color: var(--g);
-    font-size: 2rem;
+    font-size: 1.8rem;
+}
+.sign_out_btn {
+    background: var(--gy);
+    border-radius: 5px;
+
+}
+.sign_out_btn:hover {
+    color: var(--d);
+    background-color: var(--orange);
 }

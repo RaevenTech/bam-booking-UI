@@ -33,13 +33,16 @@ const Navbar = ({ logOut }) => {
                         {logOut === "details" && (
                             <div className={styles.sign_out}>
                                 <h5 className={styles.username_text}>
-                                    User name
+                                    {user?.email}
                                 </h5>
                                 <FontAwesomeIcon
                                     icon={faUserCircle}
                                     className={styles.user_icon}
                                 />
-                                <button onClick={() => signOut(firebaseAuth)}>
+                                <button
+                                    className={styles.sign_out_btn}
+                                    onClick={() => signOut(firebaseAuth)}
+                                >
                                     Log Out
                                 </button>
                             </div>
