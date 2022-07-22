@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../../utils/firebase";
