@@ -19,7 +19,7 @@ const Header = ({ page }) => {
             <div className={styles.header}>
                 <div className={styles.header_container}>
                     <div className={styles.header_list}>
-                        {page === "auctions" && (
+                        {page !== "auctions" && (
                             <div className={styles.header_item}>
                                 <span>
                                     Bid
@@ -30,7 +30,7 @@ const Header = ({ page }) => {
                         )}
                     </div>
                     {/*------------------------ header with text only to display on home page ---------------------------------- */}
-                    {page !== "auctions" && (
+                    {page === "auctions" && (
                         <>
                             <h1 className={styles.header_title}>
                                 You want it? Get it!

@@ -13,7 +13,7 @@ const Navbar = ({ logOut }) => {
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) setUser(currentUser);
-        else navigate("/registration");
+        else navigate("/");
     });
 
     return (
@@ -23,14 +23,14 @@ const Navbar = ({ logOut }) => {
                     <div className={styles.nav_logo}>
                         Bid<span className={styles.logo_2}>2</span>Buy.com
                     </div>
-                    {logOut !== "details" && (
+                    {logOut === "details" && (
                         <div className={styles.nav_btns}>
                             <button className={styles.nav_btn}>Register</button>
                             <button className={styles.nav_btn}>Sign in</button>
                         </div>
                     )}{" "}
                     <>
-                        {logOut === "details" && (
+                        {logOut !== "details" && (
                             <div className={styles.sign_out}>
                                 <h5 className={styles.username_text}>
                                     {user?.email}

@@ -1,4 +1,5 @@
 import Header from "../../features/header/Header";
+import Navbar from "../../features/navbar/Navbar";
 import styles from "./Home.module.css";
 import { useState } from "react";
 import { useSearchParams, useNavigate, useParams } from "react-router-dom";
@@ -15,7 +16,8 @@ const Home = () => {
 
     return (
         <>
-            <Header />
+            <Navbar logOut="details" />
+            <Header page="auctions" />
             {/*------------------------------------ Main cities top 3---------------------------------------------------------------- */}
             <div className={styles.home_main_container}>
                 <div className={styles.cities}>
