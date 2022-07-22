@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { onValue, ref } from "firebase/database";
+import { onValue, ref, get } from "firebase/database";
 import { db } from "../../utils/firebase";
 
 const AuctionResults = () => {
@@ -12,54 +12,31 @@ const AuctionResults = () => {
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation().search;
-    //console.log("LOCATION: ", location);
-    //console.log(new URLSearchParams(location).get("state"));
     const [destination, setDestination] = useState(
         new URLSearchParams(location).get("city")
     );
 
     const navigate = useNavigate();
 
-    /* const url =
-        "https://bid2buy-ca5c9-default-rtdb.firebaseio.com/listings.json?city=Paris";
     useEffect(() => {
         setLoading(true);
-        fetch(url)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const allPosts = [];
-                for (const key in data) {
-                    const postObj = {
-                        id: key,
-                        ...data[key],
-                    };
-                    allPosts.push(postObj);
-                }
-                setLoading(false);
-                setListings(allPosts);
 
-                console.log("Post ", listings);
-            });
-    }, []);*/
-
-    useEffect(() => {
-        //console.log("STATE: ", location);
-        setLoading(true);
-        onValue(ref(db, `listings`), (snapshot) => {
-            // id should be taken from url params
+        const fetchData = async () => {
+            const snapshot = await get(ref(db, "listings"));
+            console.log(snapshot);
             const data = [];
             snapshot.forEach((s) => {
-                data.push(s.val());
+                console.log("S: ", s.val());
+                console.log("KEY: ", s.key);
+                data.push({ Id: s.key, ...s.val() });
             });
 
-            console.log("DATA: ", data);
             setListings(data.filter((listing) => listing.city === destination));
-            setLoading(false);
-        });
 
-        //   fetchData();
+            setLoading(false);
+        };
+
+        fetchData();
     }, []);
     if (loading) {
         return (
