@@ -60,7 +60,7 @@ const AuctionResults = () => {
         });
 
         //   fetchData();
-    }, [destination]);
+    }, []);
     if (loading) {
         return (
             <section>

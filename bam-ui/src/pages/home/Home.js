@@ -1,11 +1,12 @@
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 import styles from "./Home.module.css";
+import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
-//import { useSearchParams, useNavigate, useParams } from "react-router-dom";
+//import { useSearchParams, useParams } from "react-router-dom";
 
 const Home = () => {
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     //let city = useParams();
 
     //const [citySearch, setCitySearch] = useState("");

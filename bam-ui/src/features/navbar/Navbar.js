@@ -11,10 +11,10 @@ const Navbar = ({ logOut }) => {
 
     const [user, setUser] = useState(undefined);
 
-    onAuthStateChanged(firebaseAuth, (currentUser) => {
+    /*onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) setUser(currentUser);
         else navigate("/");
-    });
+    });*/
 
     return (
         <nav>

@@ -19,7 +19,7 @@ const UserLogin = () => {
     };
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("auctions");
+        if (currentUser) navigate("/auctions");
     });
 
     return (

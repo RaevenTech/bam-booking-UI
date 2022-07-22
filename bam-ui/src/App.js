@@ -16,11 +16,11 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/" element={<UserRegisterLogin />} />
+                {/* <Route path="/" element={<UserRegisterLogin />} />
                 <Route path="/auctions" element={<Auctions />} />
                 <Route path="/details/:firebaseId" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
-                <Route path="*" element={<NotFound />} />
+     <Route path="*" element={<NotFound />} />*/}
             </Routes>
             <Footer />
         </div>

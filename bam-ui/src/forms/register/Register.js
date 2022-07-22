@@ -17,7 +17,7 @@ const Register = () => {
 
     const [error, setError] = useState("");
 
-    const handleSubmit = async () => {
+    const handleRegister = async () => {
         try {
             await createUserWithEmailAndPassword(firebaseAuth, email, password);
         } catch (error) {
@@ -49,7 +49,7 @@ const Register = () => {
                     <h1 className={styles.form_title_1}>account</h1>
                     <form
                         className={styles.form_inputs}
-                        onSubmit={handleSubmit}
+                        onSubmit={handleRegister}
                     >
                         <div className={styles.input_item}>
                             <label>Email</label>
@@ -87,7 +87,7 @@ const Register = () => {
                         </div>
                         <button
                             className={styles.submit_reg_btn}
-                            onClick={handleSubmit}
+                            onClick={handleRegister}
                         >
                             Create an account
                         </button>
