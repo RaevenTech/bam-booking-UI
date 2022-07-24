@@ -3,7 +3,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../utils/firebase";
 
 const Navbar = ({ logOut }) => {
@@ -25,8 +25,18 @@ const Navbar = ({ logOut }) => {
                     </div>
                     {logOut === "details" && (
                         <div className={styles.nav_btns}>
-                            <button className={styles.nav_btn}>Register</button>
-                            <button className={styles.nav_btn}>Sign in</button>
+                            <button
+                                className={styles.nav_btn}
+                                onClick={() => navigate("/register")}
+                            >
+                                Register
+                            </button>
+                            <button
+                                className={styles.nav_btn}
+                                onClick={() => navigate("/login")}
+                            >
+                                Login
+                            </button>
                         </div>
                     )}{" "}
                     <>
