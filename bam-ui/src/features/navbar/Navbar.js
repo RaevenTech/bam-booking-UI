@@ -29,7 +29,7 @@ const Navbar = ({ logOut }) => {
                                 className={styles.nav_btn}
                                 onClick={() => navigate("/register")}
                             >
-                                Register
+                                Sign up
                             </button>
                             <button
                                 className={styles.nav_btn}
