@@ -1,13 +1,20 @@
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { signOut } from "firebase/auth";
+import { firebaseAuth } from "../../utils/firebase";
 
-const Navbar = () => {
+const Navbar = ({ logOut }) => {
     const navigate = useNavigate();
 
-    const handleForms = () => {
-        navigate("/login/register");
-    };
+    const [user, setUser] = useState(undefined);
+
+    /*onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (currentUser) setUser(currentUser);
+        else navigate("/");
+    });*/
 
     return (
         <nav>
@@ -16,20 +23,41 @@ const Navbar = () => {
                     <div className={styles.nav_logo}>
                         Bid<span className={styles.logo_2}>2</span>Buy.com
                     </div>
-                    <div className={styles.nav_btns}>
-                        <button
-                            className={styles.nav_btn}
-                            onClick={handleForms}
-                        >
-                            Register
-                        </button>
-                        <button
-                            className={styles.nav_btn}
-                            onClick={handleForms}
-                        >
-                            Sign in
-                        </button>
-                    </div>
+                    {logOut === "details" && (
+                        <div className={styles.nav_btns}>
+                            <button
+                                className={styles.nav_btn}
+                                onClick={() => navigate("/register")}
+                            >
+                                Register
+                            </button>
+                            <button
+                                className={styles.nav_btn}
+                                onClick={() => navigate("/login")}
+                            >
+                                Login
+                            </button>
+                        </div>
+                    )}{" "}
+                    <>
+                        {logOut !== "details" && (
+                            <div className={styles.sign_out}>
+                                <h5 className={styles.username_text}>
+                                    {user?.email}
+                                </h5>
+                                <FontAwesomeIcon
+                                    icon={faUserCircle}
+                                    className={styles.user_icon}
+                                />
+                                <button
+                                    className={styles.sign_out_btn}
+                                    onClick={() => signOut(firebaseAuth)}
+                                >
+                                    Log Out
+                                </button>
+                            </div>
+                        )}
+                    </>
                 </div>
             </div>
         </nav>

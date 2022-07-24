@@ -1,13 +1,26 @@
 import React from "react";
 import styles from "./userLogin.module.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { firebaseAuth } from "../../utils/firebase";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
 const UserLogin = () => {
     const navigate = useNavigate();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
-    const handleLogin = () => {
-        navigate("/dashboard");
+    const handleLogin = async () => {
+        try {
+            await signInWithEmailAndPassword(firebaseAuth, email, password);
+        } catch (error) {
+            console.log(error);
+        }
     };
+
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (currentUser) navigate("/auctions");
+    });
 
     return (
         <div className={styles.form_container}>
@@ -17,7 +30,12 @@ const UserLogin = () => {
                 <form className={styles.form_inputs}>
                     <div className={styles.input_item}>
                         <label>Email</label>
-                        <input className={styles.username_input} type="email" />
+                        <input
+                            className={styles.username_input}
+                            type="email"
+                            value={"email"}
+                            onChange={(e) => e.target.value}
+                        />
                     </div>
                     <div className={styles.input_item}>
                         <label>Password</label>

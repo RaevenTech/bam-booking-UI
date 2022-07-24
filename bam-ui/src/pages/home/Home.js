@@ -1,21 +1,24 @@
 import Header from "../../features/header/Header";
+import Navbar from "../../features/navbar/Navbar";
 import styles from "./Home.module.css";
-import { useState } from "react";
-import { useSearchParams, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+//import { useState } from "react";
+//import { useSearchParams, useParams } from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate();
-    let city = useParams();
+    //let city = useParams();
 
-    const [citySearch, setCitySearch] = useState("");
-    const [searchParams, setSearchParams] = useSearchParams();
+    //const [citySearch, setCitySearch] = useState("");
+    //const [searchParams, setSearchParams] = useSearchParams();
 
-    const searchCity = searchParams.get("city");
-    console.log(searchParams);
+    //const searchCity = searchParams.get("city");
+    //console.log(searchParams);
 
     return (
         <>
-            <Header />
+            <Navbar logOut="details" />
+            <Header page="auctions" />
             {/*------------------------------------ Main cities top 3---------------------------------------------------------------- */}
             <div className={styles.home_main_container}>
                 <div className={styles.cities}>
