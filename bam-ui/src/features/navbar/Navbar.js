@@ -9,7 +9,7 @@ import { firebaseAuth } from "../../utils/firebase";
 const Navbar = ({ logOut }) => {
     const navigate = useNavigate();
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState(null);
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) setUser(currentUser);

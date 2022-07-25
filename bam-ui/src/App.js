@@ -12,15 +12,13 @@ import Footer from "./features/footer/Footer";
 //import Login from "./forms/registration/Login"; <Route path="/login" element={<Login />} />
 
 function App() {
-    //<Route path="/registration" element={<UserRegisterLogin />} />
     return (
         <div className="App">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/registration" element={<UserRegisterLogin />} />
-
                 <Route path="/auctions" element={<Auctions />} />
-                <Route path="/details/:firebaseId" element={<Property />} />
+                <Route path="/details:firebase" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
