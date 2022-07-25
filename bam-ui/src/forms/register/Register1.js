@@ -30,7 +30,7 @@ const Register = () => {
     };
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("auctions");
+        if (currentUser) navigate("/auctions");
     });
 
     //write to db

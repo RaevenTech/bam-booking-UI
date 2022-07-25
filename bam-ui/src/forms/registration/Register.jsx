@@ -21,10 +21,10 @@ const Register = () => {
     const handleRegister = async () => {
         try {
             await createUserWithEmailAndPassword(firebaseAuth, email, password);
+            console.log(email);
         } catch (error) {
             console.log(error);
         }
-
         if (password !== confirmPassword) {
             return setError(<alert>Password does not match</alert>);
         }

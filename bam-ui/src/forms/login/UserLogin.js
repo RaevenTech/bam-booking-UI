@@ -19,7 +19,7 @@ const UserLogin = () => {
     };
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("/auctions");
+        if (currentUser) navigate("dashboard");
     });
 
     return (
@@ -33,8 +33,8 @@ const UserLogin = () => {
                         <input
                             className={styles.username_input}
                             type="email"
-                            value={"email"}
-                            onChange={(e) => e.target.value}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className={styles.input_item}>
@@ -42,6 +42,7 @@ const UserLogin = () => {
                         <input
                             className={styles.username_input}
                             type="password"
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
