@@ -30,6 +30,10 @@ const Register = () => {
         if (currentUser) navigate("/auctions");
     });*/
 
+    if (password !== confirmPassword) {
+        return setError(<alert>Password does not match</alert>);
+    }
+
     //write to db leave commented out!!!!
     //  const writeUserData = (email, password);
     // let reference = ref(db, "users/");

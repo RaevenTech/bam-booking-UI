@@ -1,11 +1,9 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
-import { Form } from "react-bootstrap";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
-
     const titleRef = useRef();
     const countryRef = useRef();
     const cityRef = useRef();
@@ -58,10 +56,6 @@ const NewPost = (props) => {
                 amount: "",
                 userId: 123,
             },
-        };
-
-        const handleType = (e) => {
-            setPropertyType(e.value.target);
         };
 
         const response = await fetch(
