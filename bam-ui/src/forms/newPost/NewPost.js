@@ -5,6 +5,7 @@ import { Form } from "react-bootstrap";
 
 const NewPost = (props) => {
     const [date, setDate] = useState("");
+
     const titleRef = useRef();
     const countryRef = useRef();
     const cityRef = useRef();
@@ -16,6 +17,8 @@ const NewPost = (props) => {
     const childrenRef = useRef();
     const descriptionRef = useRef();
     const imageRef = useRef();
+    const urlRef = useRef();
+    const typeRef = useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +34,8 @@ const NewPost = (props) => {
         const childrenValue = childrenRef.current.value;
         const descriptionValue = descriptionRef.current.value;
         const imageValue = imageRef.current.value;
+        const urlValue = urlRef.current.value;
+        const typeValue = urlRef.current.value;
         const postId = nanoid();
 
         const formData = {
@@ -44,20 +49,19 @@ const NewPost = (props) => {
             adults: adultsValue,
             children: childrenValue,
             description: descriptionValue,
-            image: [
-                { img1: imageValue },
-                { img2: imageValue },
-                { img3: imageValue },
-                { img4: imageValue },
-                { img5: imageValue },
-                { img6: imageValue },
-            ],
+            url: urlValue,
+            type: typeValue,
+            images: imageValue,
             closingDate: date,
             postId: postId,
             currentBid: {
                 amount: "",
                 userId: 123,
             },
+        };
+
+        const handleType = (e) => {
+            setPropertyType(e.value.target);
         };
 
         const response = await fetch(
@@ -73,8 +77,6 @@ const NewPost = (props) => {
         console.log(response);
     };
 
-    const imageUploads = 6;
-
     return (
         <div>
             <h1 className={styles.title}>Add new listing</h1>
@@ -82,21 +84,16 @@ const NewPost = (props) => {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_item}>
                         <label className={styles.post_image_url}>
-                            <b>Add 6 images:</b>
+                            <b>Add an image</b>
                         </label>
-                        {imageUploads === 6 ? (
-                            <input
-                                id="files"
-                                className={styles.input}
-                                type="file"
-                                placeholder="Images"
-                                accept=".jpg,.jpeg,.png"
-                                multiple
-                                ref={imageRef}
-                            />
-                        ) : (
-                            <alert> "6 pictures required to be uploaded"</alert>
-                        )}
+                        <input
+                            id="files"
+                            className={styles.input}
+                            type="file"
+                            placeholder="Images"
+                            accept=".jpg,.jpeg,.png"
+                            ref={imageRef}
+                        />
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
@@ -180,33 +177,24 @@ const NewPost = (props) => {
                         </div>
                     </div>
                     <div className={styles.property_type_select}>
-                        <Form.Select
-                            className={styles.prop_type_container}
-                            aria-label="Default select example"
-                        >
-                            <option className={styles.prop_type_item}>
-                                Select property type
-                            </option>
-                            <option className={styles.prop_type_item} value="1">
-                                Apartment
-                            </option>
-                            <option className={styles.prop_type_item} value="2">
-                                Cabin
-                            </option>
-                            <option className={styles.prop_type_item} value="3">
-                                Hotel
-                            </option>
-                            <option className={styles.prop_type_item} value="4">
-                                Campsite
-                            </option>
-                            <option className={styles.prop_type_item} value="5">
-                                Villa/Guest house
-                            </option>
-                            <option className={styles.prop_type_item} value="6">
-                                BnB/Inn
-                            </option>
-                        </Form.Select>
+                        <label className={styles.post_title}>
+                            <b>Propert type:</b>
+                        </label>
+                        <input
+                            value={typeRef}
+                            className={styles.input}
+                            type="text"
+                            placeholder="Property type"
+                            required
+                            onChange={(e) => {
+                                setDate(e.target.value);
+                            }}
+                        />
                     </div>
+                    <p className={styles.prop_type_text}>
+                        Type: Apartment, Cabin, Hotel, Campsite, Villa, Guest
+                        house, BnB, Inn
+                    </p>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
                             <b>Attractions:</b>
@@ -272,6 +260,19 @@ const NewPost = (props) => {
                             rows="6"
                             required
                             ref={descriptionRef}
+                        />
+                    </div>
+
+                    <div className={styles.url_item}>
+                        <label className={styles.url_title}>
+                            <b>Partner Url:</b>
+                        </label>
+                        <input
+                            className={styles.input}
+                            type="url"
+                            placeholder="link to your booking.com / Airbnb / trivago page"
+                            required
+                            ref={urlRef}
                         />
                     </div>
 
