@@ -3,18 +3,18 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { firebaseAuth } from "../../utils/firebase";
+//import { onAuthStateChanged, signOut } from "firebase/auth";
+//import { firebaseAuth } from "../../utils/firebase";
 
 const Navbar = ({ logOut }) => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
 
-    onAuthStateChanged(firebaseAuth, (currentUser) => {
+    /*onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) setUser(currentUser);
-        /*else navigate("/");*/
-    });
+        else navigate("/");
+    });*/
 
     return (
         <nav>
@@ -51,7 +51,7 @@ const Navbar = ({ logOut }) => {
                                 />
                                 <button
                                     className={styles.sign_out_btn}
-                                    onClick={() => signOut(firebaseAuth)}
+                                    //onClick={() => signOut(firebaseAuth)}
                                 >
                                     Log Out
                                 </button>
