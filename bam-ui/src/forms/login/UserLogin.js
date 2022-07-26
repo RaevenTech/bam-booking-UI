@@ -42,6 +42,7 @@ const UserLogin = () => {
                         <input
                             className={styles.username_input}
                             type="password"
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
