@@ -16,7 +16,7 @@ const NewPost = (props) => {
     const descriptionRef = useRef();
     const imageRef = useRef();
     const urlRef = useRef();
-    const typeRef = useRef();
+    const propertyRef = useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ const NewPost = (props) => {
         const descriptionValue = descriptionRef.current.value;
         const imageValue = imageRef.current.value;
         const urlValue = urlRef.current.value;
-        const typeValue = urlRef.current.value;
+        const propertyValue = propertyRef.current.value;
         const postId = nanoid();
 
         const formData = {
@@ -48,7 +48,7 @@ const NewPost = (props) => {
             children: childrenValue,
             description: descriptionValue,
             url: urlValue,
-            type: typeValue,
+            property: propertyValue,
             images: imageValue,
             closingDate: date,
             postId: postId,
@@ -75,7 +75,7 @@ const NewPost = (props) => {
         <div>
             <h1 className={styles.title}>Add new listing</h1>
             <div className={styles.main_form_container}>
-                <form onSubmit={handleSubmit}>
+                <form onChange={handleSubmit}>
                     <div className={styles.form_item}>
                         <label className={styles.post_image_url}>
                             <b>Add an image</b>
@@ -175,14 +175,10 @@ const NewPost = (props) => {
                             <b>Propert type:</b>
                         </label>
                         <input
-                            value={typeRef}
-                            className={styles.input}
+                            className={styles.property_input}
                             type="text"
-                            placeholder="Property type"
-                            required
-                            onChange={(e) => {
-                                setDate(e.target.value);
-                            }}
+                            placeholder="Type of property"
+                            ref={propertyRef}
                         />
                     </div>
                     <p className={styles.prop_type_text}>
@@ -190,10 +186,7 @@ const NewPost = (props) => {
                         house, BnB, Inn
                     </p>
                     <div className={styles.form_item}>
-                        <label
-                            className={styles.post_attractions}
-                            id="attractions"
-                        >
+                        <label className={styles.post_title} id="attractions">
                             <b>Attractions:</b>
                         </label>
                         <textarea
@@ -265,10 +258,9 @@ const NewPost = (props) => {
                             <b>Partner Url:</b>
                         </label>
                         <input
-                            className={styles.input}
-                            type="url"
+                            className={styles.url_input}
                             placeholder="link to your booking.com / Airbnb / trivago page"
-                            required
+                            type="text"
                             ref={urlRef}
                         />
                     </div>
