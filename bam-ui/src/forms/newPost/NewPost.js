@@ -103,7 +103,7 @@ const NewPost = (props) => {
                                 <b>Country:</b>
                             </label>
                             <input
-                                className={styles.input}
+                                className={styles.country_input}
                                 type="text"
                                 placeholder="Country"
                                 required
@@ -115,7 +115,7 @@ const NewPost = (props) => {
                                 <b>City:</b>
                             </label>
                             <input
-                                className={styles.input}
+                                className={styles.city_input}
                                 type="text"
                                 placeholder="city"
                                 required
@@ -128,7 +128,7 @@ const NewPost = (props) => {
                             <b>Adderss:</b>
                         </label>
                         <input
-                            className={styles.input}
+                            className={styles.address_input}
                             type="text"
                             placeholder="Address"
                             required
@@ -281,9 +281,16 @@ const NewPost = (props) => {
                         <button
                             className={styles.add_btn}
                             type="submit"
-                            onClick={"/details"}
+                            //onClick={() => navigate("/details")}
                         >
                             Add to auction
+                        </button>
+                        <button
+                            className={styles.reset_btn}
+                            type="submit"
+                            //onClick={() => navigate("/details")}
+                        >
+                            Reset
                         </button>
                     </div>
                 </form>

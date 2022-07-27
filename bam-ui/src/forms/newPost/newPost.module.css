@@ -61,8 +61,12 @@
     justify-content: start;
     align-items: center;
     gap: 30px;
+    
+}
+.country_input, .city_input, .address_input {
     text-transform: lowercase;
 }
+
 .startbid_closeDate {
     display: flex;
     justify-content: start;
@@ -75,6 +79,7 @@
 }
 .property_input{
     margin-left: 5px;
+    text-transform: lowercase;
 }
 .prop_type_text {
     margin-top:0px ;
@@ -92,5 +97,13 @@
     width: 400px;
     padding: 5px;
     margin-left: 5px;
+}
+.reset_btn {
+    border-radius: 5px;
+    border: none;
+    background: var(--t);
+}
+.reset_btn:hover {
+    background: var(--orange);
 }
 
