@@ -190,7 +190,10 @@ const NewPost = (props) => {
                         house, BnB, Inn
                     </p>
                     <div className={styles.form_item}>
-                        <label className={styles.post_title}>
+                        <label
+                            className={styles.post_attractions}
+                            id="attractions"
+                        >
                             <b>Attractions:</b>
                         </label>
                         <textarea
@@ -201,15 +204,15 @@ const NewPost = (props) => {
                             required
                             ref={attractionsRef}
                         />
-                        <p>
+                        <p id="attractions_text">
                             <small>
                                 Local places you would recommend to visitors
                             </small>
                         </p>
                     </div>
-                    <section>
+                    <section id="guests">
                         <div className={styles.form_item_guest}>
-                            <label className={styles.post_title}>
+                            <label className={styles.post_title} id="adults">
                                 <b>Adults:</b>
                             </label>
                             <input
@@ -220,7 +223,7 @@ const NewPost = (props) => {
                                 min={1}
                                 ref={adultsRef}
                             />
-                            <label className={styles.post_title}>
+                            <label className={styles.post_title} id="children">
                                 <b>Children:</b>
                             </label>
                             <input
@@ -231,7 +234,7 @@ const NewPost = (props) => {
                                 required
                                 ref={childrenRef}
                             />
-                            <label className={styles.post_title}>
+                            <label className={styles.post_title} id="beds">
                                 <b>Beds:</b>
                             </label>
                             <input
@@ -244,7 +247,7 @@ const NewPost = (props) => {
                             />
                         </div>
                     </section>
-                    <div className={styles.form_item}>
+                    <div className={styles.form_item} id="description">
                         <label className={styles.post_title}>
                             <b>Description</b>
                         </label>
@@ -257,7 +260,7 @@ const NewPost = (props) => {
                         />
                     </div>
 
-                    <div className={styles.url_item}>
+                    <div className={styles.url_item} id="url">
                         <label className={styles.url_title}>
                             <b>Partner Url:</b>
                         </label>
