@@ -19,12 +19,18 @@
     padding: 5px 20px;
     
 }
+.available_dates{
+    display: flex;
+}
 
 .form_item_guest{
     display: flex;
     justify-content:center;
+    align-items: center;
+    padding: 3px;
     gap: 5px;
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
     
 }
 .input_guests {
@@ -67,10 +73,14 @@
 .property_type_select {
     padding: 10px 20px;
 }
+.property_input{
+    margin-left: 5px;
+}
 .prop_type_text {
     margin-top:0px ;
     padding-left:20px ;
     font-size: 0.9rem;
+     
 }
 .url_item {
     margin-top: 10px;

@@ -3,20 +3,20 @@ import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
 
 const NewPost = (props) => {
-    const [date, setDate] = useState("");
-    const titleRef = useRef();
-    const countryRef = useRef();
-    const cityRef = useRef();
-    const addressRef = useRef();
-    const attractionsRef = useRef();
-    const startingBidRef = useRef();
-    const bedsRef = useRef();
-    const adultsRef = useRef();
-    const childrenRef = useRef();
-    const descriptionRef = useRef();
-    const imageRef = useRef();
-    const urlRef = useRef();
-    const propertyRef = useRef();
+    const [closingDate, setClosingDate] = useState("");
+    const [dateAvailableFrom, setDateAvailableFrom] = useState("");
+    const [dateAvailableTo, setDateAvailableTo] = useState("");
+    const titleRef = useRef(null);
+    const countryRef = useRef(null);
+    const cityRef = useRef(null);
+    const addressRef = useRef(null);
+    const attractionsRef = useRef(null);
+    const startingBidRef = useRef(null);
+    const sleepsRef = useRef(null);
+    const descriptionRef = useRef(null);
+    const imageRef = useRef(null);
+    const urlRef = useRef(null);
+    const propertyRef = useRef(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,9 +27,7 @@ const NewPost = (props) => {
         const addressValue = addressRef.current.value;
         const attractionsValue = attractionsRef.current.value;
         const startingBidValue = startingBidRef.current.value;
-        const bedsValue = bedsRef.current.value;
-        const adultsValue = adultsRef.current.value;
-        const childrenValue = childrenRef.current.value;
+        const sleepsValue = sleepsRef.current.value;
         const descriptionValue = descriptionRef.current.value;
         const imageValue = imageRef.current.value;
         const urlValue = urlRef.current.value;
@@ -43,14 +41,12 @@ const NewPost = (props) => {
             address: addressValue,
             attractions: attractionsValue,
             price: startingBidValue,
-            beds: bedsValue,
-            adults: adultsValue,
-            children: childrenValue,
+            sleeps: sleepsValue,
             description: descriptionValue,
             url: urlValue,
             property: propertyValue,
             images: imageValue,
-            closingDate: date,
+            closingDate: closingDate,
             postId: postId,
             currentBid: {
                 amount: "",
@@ -75,7 +71,7 @@ const NewPost = (props) => {
         <div>
             <h1 className={styles.title}>Add new listing</h1>
             <div className={styles.main_form_container}>
-                <form onChange={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className={styles.form_item}>
                         <label className={styles.post_image_url}>
                             <b>Add an image</b>
@@ -159,13 +155,13 @@ const NewPost = (props) => {
                                 <b>Closing date:</b>
                             </label>
                             <input
-                                value={date}
-                                className={styles.input}
+                                value={closingDate}
+                                className={styles.input_date_close}
                                 type="date"
                                 placeholder="closing date"
                                 required
                                 onChange={(e) => {
-                                    setDate(e.target.value);
+                                    setClosingDate(e.target.value);
                                 }}
                             />
                         </div>
@@ -185,6 +181,58 @@ const NewPost = (props) => {
                         Type: Apartment, Cabin, Hotel, Campsite, Villa, Guest
                         house, BnB, Inn
                     </p>
+                    <section id="guests">
+                        <div className={styles.available_dates}>
+                            <div className={styles.form_item_guest}>
+                                <label
+                                    className={styles.post_title}
+                                    id="sleeps"
+                                >
+                                    <b>Sleeps:</b>
+                                </label>
+                                <input
+                                    className={styles.input_guests}
+                                    type="number"
+                                    placeholder="1"
+                                    required
+                                    min={1}
+                                    ref={sleepsRef}
+                                />
+                            </div>
+
+                            <div className={styles.form_item}>
+                                <label className={styles.post_title}>
+                                    <b>available from:</b>
+                                </label>
+                                <input
+                                    value={dateAvailableFrom}
+                                    className={styles.input}
+                                    type="date"
+                                    placeholder="available from"
+                                    required
+                                    onChange={(e) => {
+                                        setDateAvailableFrom(e.target.value);
+                                    }}
+                                />
+                            </div>
+
+                            <div className={styles.form_item}>
+                                <label className={styles.post_title}>
+                                    <b>Available to:</b>
+                                </label>
+                                <input
+                                    value={dateAvailableTo}
+                                    className={styles.input}
+                                    type="date"
+                                    placeholder="available from"
+                                    required
+                                    onChange={(e) => {
+                                        setDateAvailableTo(e.target.value);
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </section>
                     <div className={styles.form_item}>
                         <label className={styles.post_title} id="attractions">
                             <b>Attractions:</b>
@@ -203,43 +251,7 @@ const NewPost = (props) => {
                             </small>
                         </p>
                     </div>
-                    <section id="guests">
-                        <div className={styles.form_item_guest}>
-                            <label className={styles.post_title} id="adults">
-                                <b>Adults:</b>
-                            </label>
-                            <input
-                                className={styles.input_guests}
-                                type="number"
-                                placeholder="1"
-                                required
-                                min={1}
-                                ref={adultsRef}
-                            />
-                            <label className={styles.post_title} id="children">
-                                <b>Children:</b>
-                            </label>
-                            <input
-                                className={styles.input_guests}
-                                type="number"
-                                min={0}
-                                placeholder="0"
-                                required
-                                ref={childrenRef}
-                            />
-                            <label className={styles.post_title} id="beds">
-                                <b>Beds:</b>
-                            </label>
-                            <input
-                                className={styles.input_bed}
-                                type="number"
-                                placeholder="2"
-                                min={1}
-                                required
-                                ref={bedsRef}
-                            />
-                        </div>
-                    </section>
+
                     <div className={styles.form_item} id="description">
                         <label className={styles.post_title}>
                             <b>Description</b>
@@ -266,7 +278,11 @@ const NewPost = (props) => {
                     </div>
 
                     <div className={styles.form_btn}>
-                        <button className={styles.add_btn}>
+                        <button
+                            className={styles.add_btn}
+                            type="submit"
+                            onClick={"/details"}
+                        >
                             Add to auction
                         </button>
                     </div>
