@@ -51,7 +51,7 @@ const Navbar = ({ logOut }) => {
                                 />
                                 <button
                                     className={styles.sign_out_btn}
-                                    //onClick={() => signOut(firebaseAuth)}
+                                    onClick={() => navigate("/")}
                                 >
                                     Log Out
                                 </button>

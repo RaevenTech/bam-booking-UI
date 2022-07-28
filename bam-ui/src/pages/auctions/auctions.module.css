@@ -28,3 +28,82 @@
 .auction_search_results {
     flex:3;
 }
+/*---------------------  auction Search ------------------*/
+
+
+.item_price,.item_details {
+    color: var(--t);
+    font-weight: 500;
+}
+
+
+.auction_search_item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+    color: var(--t);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    cursor: pointer;
+    
+}
+.auction_search_destination input {
+    border: none;
+    padding: 2px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+    padding-left: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+
+}
+.auction_list_title {
+    color:var(--t);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+.auction_search_date {
+    background-color: white;
+    padding: 10px 5px;
+    
+}
+.item_input {
+    height: 30px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.search_btn_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 50px;
+    padding: 10px;
+}
+.search_item {
+    display: flex;
+    flex-direction: column;
+}
+.auction_search_btn {
+    padding: 5px 10px 7px 10px;
+    margin-top:10px ;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    color: var(--t);
+    border: 2px solid var(--t);
+    background: transparent;
+    transition: 0.5s ease-in-out;
+}
+.auction_search_btn:hover {
+    background: var(--t);
+    color: var(--g);
+    border: none;
+}
+

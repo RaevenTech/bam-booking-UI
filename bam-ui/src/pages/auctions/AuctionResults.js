@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { onValue, ref, get } from "firebase/database";
+import { ref, get } from "firebase/database";
 import { db } from "../../utils/firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBed } from "@fortawesome/free-solid-svg-icons";
 
 const AuctionResults = () => {
     const params = useParams();
@@ -57,22 +59,27 @@ const AuctionResults = () => {
         <>
             {listings.map((listing, i) => (
                 <div key={[i]} className={styles.auction_results}>
-                    <Link to={`/details/${listing.firebaseId}`}>
+                    <Link to={`/details/${listing.key}`}>
                         <img
                             className={styles.search_results_img}
-                            src="https://www.fillmurray.com/640/360"
-                            alt=""
+                            src={listing.images}
+                            alt="listing"
                         />
                     </Link>
                     <div className={styles.results_description}>
                         <h1 className={styles.results_title}>
                             {listing.title}
                         </h1>
-                        <div className={styles.results_attraction}></div>
-
-                        <div className={styles.results_description_room}>
-                            {listing.beds}
+                        <div className={styles.results_sleeps}>
+                            <FontAwesomeIcon
+                                icon={faBed}
+                                className={styles.guest_sleeps}
+                            />
+                            <h3 className={styles.sleeps_num}>
+                                {listing.sleeps}
+                            </h3>
                         </div>
+
                         <div className={styles.results_terms_conditions}>
                             <small>
                                 Once the bidding is closed, NO cancellations

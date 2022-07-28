@@ -65,6 +65,7 @@ const NewPost = (props) => {
             }
         );
         console.log(response);
+        console.log("submit success");
     };
 
     return (
@@ -287,11 +288,7 @@ const NewPost = (props) => {
                         >
                             Add to auction
                         </button>
-                        <button
-                            className={styles.reset_btn}
-                            type="submit"
-                            //onClick={() => navigate("/details")}
-                        >
+                        <button className={styles.reset_btn} type="submit">
                             Reset
                         </button>
                     </div>
