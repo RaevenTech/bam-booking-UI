@@ -1,7 +1,7 @@
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 import styles from "./Home.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 //import { useState } from "react";
 //import { useSearchParams, useParams } from "react-router-dom";
 
@@ -100,11 +100,14 @@ const Home = () => {
                 <h2 className={styles.home_property_title}>Type of property</h2>
                 <div className={styles.property_list}>
                     <div className={styles.property_list_item}>
-                        <img
-                            className={styles.property_list_item_img}
-                            src="https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2015/05/Aurora-apartments-for-rent-in-North-Bethesda-MD.jpg"
-                            alt="listing"
-                        />
+                        <Link to={"/listings?property=apartments"}>
+                            {" "}
+                            <img
+                                className={styles.property_list_item_img}
+                                src="https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2015/05/Aurora-apartments-for-rent-in-North-Bethesda-MD.jpg"
+                                alt="listing"
+                            />
+                        </Link>
                         <div className={styles.property_list_item_title}>
                             <h1>Apartments</h1>
                             <h3>114 Apartments</h3>
