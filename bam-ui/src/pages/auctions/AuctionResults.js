@@ -37,7 +37,7 @@ const AuctionResults = () => {
         };
 
         fetchData();
-    }, []);
+    }, [destination]);
     if (loading) {
         return (
             <section>
@@ -65,7 +65,9 @@ const AuctionResults = () => {
                         />
                     </Link>
                     <div className={styles.results_description}>
-                        <h1 className={styles.results_title}>Apartment</h1>
+                        <h1 className={styles.results_title}>
+                            {listing.title}
+                        </h1>
                         <div className={styles.results_attraction}></div>
 
                         <div className={styles.results_description_room}>
