@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ref, get } from "firebase/database";
 import { db } from "../../utils/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed } from "@fortawesome/free-solid-svg-icons";
 
 const AuctionResults = () => {
-    const params = useParams();
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation().search;
