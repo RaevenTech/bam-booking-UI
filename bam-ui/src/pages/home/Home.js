@@ -54,7 +54,7 @@ const Home = () => {
                             src="https://www.viajenaviagem.com/wp-content/uploads/2013/10/paris-louvre-noite-1920x1080-1-960x540.jpg"
                             alt="city"
                             onClick={() => {
-                                navigate("/auctions");
+                                navigate("/auctions?city=paris");
                             }}
                         />
                         <div className={styles.cities_title}>

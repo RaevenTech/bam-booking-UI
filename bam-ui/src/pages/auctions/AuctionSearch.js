@@ -14,7 +14,7 @@ const AuctionSearch = () => {
             <h1 className={styles.auction_list_title}>Search</h1>
             <div className={styles.auction_search_item}>
                 <div className={styles.auction_search_destination}>
-                    <label>Destination</label>
+                    <label>Destination City</label>
                     <input
                         typeof="text"
                         placeholder={destination}
@@ -30,7 +30,7 @@ const AuctionSearch = () => {
                 <label className={styles.item_details}>Details</label>
                 <div className={styles.item_text}>
                     <div className={styles.item_adult}>
-                        <small>Adult</small>
+                        <small>Sleeps</small>
                     </div>
                     <input
                         className={styles.item_input}
