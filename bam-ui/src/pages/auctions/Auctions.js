@@ -66,7 +66,7 @@ const Auctions = () => {
             <div className={styles.auction_container}>
                 <div className={styles.auction_section}>
                     <div className={styles.auction_search}>
-                        {/*------------------- auction search---------------------------- */}
+                        {/*------------------- auction search ---------------------------- */}
                         <div className={styles.auction_search_wrapper}>
                             <h1 className={styles.auction_list_title}>
                                 Search
@@ -204,7 +204,9 @@ const Auctions = () => {
                                             <button
                                                 className={styles.bid_btn}
                                                 onClick={() => {
-                                                    navigate(listing.id);
+                                                    navigate(
+                                                        `/details/${listing.postId}`
+                                                    );
                                                 }}
                                             >
                                                 Add your bid
