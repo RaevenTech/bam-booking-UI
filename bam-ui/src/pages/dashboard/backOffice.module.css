@@ -31,7 +31,7 @@ background: var(--d);
     justify-content: center;
 }
 
-/*------------------------------ avtive listings ------------------ 
+/*------------------------------ avtive listings ------------------ */
 
 .active_auctions {
     width: 100%;
@@ -77,4 +77,3 @@ background: var(--d);
     color: var(--g);
 }
 
------------------------------------ */
