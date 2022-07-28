@@ -2,15 +2,15 @@ import React from "react";
 import styles from "./userLogin.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { firebaseAuth } from "../../utils/firebase";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+//import { firebaseAuth } from "../../utils/firebase";
+//import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
 const UserLogin = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const handleLogin = async () => {
+    /*   const handleLogin = async () => {
         try {
             await signInWithEmailAndPassword(firebaseAuth, email, password);
         } catch (error) {
@@ -19,8 +19,8 @@ const UserLogin = () => {
     };
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("/auctions");
-    });
+        if (currentUser) navigate("/dashboard");
+    }); */
 
     return (
         <div className={styles.form_container}>
@@ -33,8 +33,8 @@ const UserLogin = () => {
                         <input
                             className={styles.username_input}
                             type="email"
-                            value={"email"}
-                            onChange={(e) => e.target.value}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className={styles.input_item}>
@@ -42,12 +42,14 @@ const UserLogin = () => {
                         <input
                             className={styles.username_input}
                             type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
                     <button
                         className={styles.submit_reg_btn}
-                        onClick={handleLogin}
+                        onClick={() => navigate("/dashboard")}
                     >
                         Begin session
                     </button>

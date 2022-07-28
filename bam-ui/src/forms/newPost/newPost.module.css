@@ -19,12 +19,18 @@
     padding: 5px 20px;
     
 }
+.available_dates{
+    display: flex;
+}
 
 .form_item_guest{
     display: flex;
     justify-content:center;
+    align-items: center;
+    padding: 3px;
     gap: 5px;
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
     
 }
 .input_guests {
@@ -55,22 +61,49 @@
     justify-content: start;
     align-items: center;
     gap: 30px;
+    
+}
+.country_input, .city_input, .address_input {
     text-transform: lowercase;
 }
+
 .startbid_closeDate {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 30px;
 }
+
 .property_type_select {
-    display: flex;
-    justify-content: start;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    justify-content: center;
+    padding: 10px 20px;
 }
-.prop_type_container {
+.property_input{
+    margin-left: 5px;
+    text-transform: lowercase;
+}
+.prop_type_text {
+    margin-top:0px ;
+    padding-left:20px ;
+    font-size: 0.9rem;
+     
+}
+.url_item {
+    margin-top: 10px;
+}
+.url_title {
+    margin-left: 20px;
+}
+.url_input{
+    width: 400px;
     padding: 5px;
+    margin-left: 5px;
+}
+.reset_btn {
+    border-radius: 5px;
+    border: none;
+    background: var(--t);
+}
+.reset_btn:hover {
+    background: var(--orange);
 }
 

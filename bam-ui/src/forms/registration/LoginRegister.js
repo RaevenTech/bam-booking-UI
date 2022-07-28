@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import styles from "./loginregister.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
-
 import UserLogin from "../login/UserLogin";
-
-//import Register from "../register/Register";
+import Register1 from "../register/Register1";
 
 const UserRegisterLogin = () => {
     return (
@@ -20,10 +18,14 @@ const UserRegisterLogin = () => {
                 </Link>
                 <div className={styles.reg_log}>
                     {/*----------------- register -----------------------*/}
-                    <div className={styles.register}>{/*<Register />*/}</div>
+                    <div className={styles.register}>
+                        <Register1 />
+                    </div>
                     {/*----------------- register -----------------------*/}
                     {/*----------------- login -----------------------*/}
-                    <div className={styles.login}>{/*<UserLogin />*/}</div>
+                    <div className={styles.login}>
+                        <UserLogin />
+                    </div>
                     {/*----------------- login -----------------------*/}
                 </div>
             </div>

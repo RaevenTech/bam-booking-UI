@@ -57,7 +57,7 @@ const AuctionResults = () => {
         <>
             {listings.map((listing, i) => (
                 <div key={[i]} className={styles.auction_results}>
-                    <Link to={`/details/${listing.Id}`}>
+                    <Link to={`/details/${listing.firebaseId}`}>
                         <img
                             className={styles.search_results_img}
                             src="https://www.fillmurray.com/640/360"

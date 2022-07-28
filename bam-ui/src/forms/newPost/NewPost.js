@@ -1,21 +1,22 @@
 import styles from "./newPost.module.css";
 import { useRef, useState } from "react";
 import { nanoid } from "nanoid";
-import { Form } from "react-bootstrap";
 
 const NewPost = (props) => {
-    const [date, setDate] = useState("");
-    const titleRef = useRef();
-    const countryRef = useRef();
-    const cityRef = useRef();
-    const addressRef = useRef();
-    const attractionsRef = useRef();
-    const startingBidRef = useRef();
-    const bedsRef = useRef();
-    const adultsRef = useRef();
-    const childrenRef = useRef();
-    const descriptionRef = useRef();
-    const imageRef = useRef();
+    const [closingDate, setClosingDate] = useState("");
+    const [dateAvailableFrom, setDateAvailableFrom] = useState("");
+    const [dateAvailableTo, setDateAvailableTo] = useState("");
+    const titleRef = useRef(null);
+    const countryRef = useRef(null);
+    const cityRef = useRef(null);
+    const addressRef = useRef(null);
+    const attractionsRef = useRef(null);
+    const startingBidRef = useRef(null);
+    const sleepsRef = useRef(null);
+    const descriptionRef = useRef(null);
+    const imageRef = useRef(null);
+    const urlRef = useRef(null);
+    const propertyRef = useRef(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,11 +27,11 @@ const NewPost = (props) => {
         const addressValue = addressRef.current.value;
         const attractionsValue = attractionsRef.current.value;
         const startingBidValue = startingBidRef.current.value;
-        const bedsValue = bedsRef.current.value;
-        const adultsValue = adultsRef.current.value;
-        const childrenValue = childrenRef.current.value;
+        const sleepsValue = sleepsRef.current.value;
         const descriptionValue = descriptionRef.current.value;
         const imageValue = imageRef.current.value;
+        const urlValue = urlRef.current.value;
+        const propertyValue = propertyRef.current.value;
         const postId = nanoid();
 
         const formData = {
@@ -40,19 +41,12 @@ const NewPost = (props) => {
             address: addressValue,
             attractions: attractionsValue,
             price: startingBidValue,
-            beds: bedsValue,
-            adults: adultsValue,
-            children: childrenValue,
+            sleeps: sleepsValue,
             description: descriptionValue,
-            image: [
-                { img1: imageValue },
-                { img2: imageValue },
-                { img3: imageValue },
-                { img4: imageValue },
-                { img5: imageValue },
-                { img6: imageValue },
-            ],
-            closingDate: date,
+            url: urlValue,
+            property: propertyValue,
+            images: imageValue,
+            closingDate: closingDate,
             postId: postId,
             currentBid: {
                 amount: "",
@@ -73,8 +67,6 @@ const NewPost = (props) => {
         console.log(response);
     };
 
-    const imageUploads = 6;
-
     return (
         <div>
             <h1 className={styles.title}>Add new listing</h1>
@@ -82,21 +74,16 @@ const NewPost = (props) => {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_item}>
                         <label className={styles.post_image_url}>
-                            <b>Add 6 images:</b>
+                            <b>Add an image</b>
                         </label>
-                        {imageUploads === 6 ? (
-                            <input
-                                id="files"
-                                className={styles.input}
-                                type="file"
-                                placeholder="Images"
-                                accept=".jpg,.jpeg,.png"
-                                multiple
-                                ref={imageRef}
-                            />
-                        ) : (
-                            <alert> "6 pictures required to be uploaded"</alert>
-                        )}
+                        <input
+                            id="files"
+                            className={styles.input}
+                            type="file"
+                            placeholder="Images"
+                            accept=".jpg,.jpeg,.png"
+                            ref={imageRef}
+                        />
                     </div>
                     <div className={styles.form_item}>
                         <label className={styles.post_title}>
@@ -116,7 +103,7 @@ const NewPost = (props) => {
                                 <b>Country:</b>
                             </label>
                             <input
-                                className={styles.input}
+                                className={styles.country_input}
                                 type="text"
                                 placeholder="Country"
                                 required
@@ -128,7 +115,7 @@ const NewPost = (props) => {
                                 <b>City:</b>
                             </label>
                             <input
-                                className={styles.input}
+                                className={styles.city_input}
                                 type="text"
                                 placeholder="city"
                                 required
@@ -141,7 +128,7 @@ const NewPost = (props) => {
                             <b>Adderss:</b>
                         </label>
                         <input
-                            className={styles.input}
+                            className={styles.address_input}
                             type="text"
                             placeholder="Address"
                             required
@@ -168,47 +155,86 @@ const NewPost = (props) => {
                                 <b>Closing date:</b>
                             </label>
                             <input
-                                value={date}
-                                className={styles.input}
+                                value={closingDate}
+                                className={styles.input_date_close}
                                 type="date"
                                 placeholder="closing date"
                                 required
                                 onChange={(e) => {
-                                    setDate(e.target.value);
+                                    setClosingDate(e.target.value);
                                 }}
                             />
                         </div>
                     </div>
                     <div className={styles.property_type_select}>
-                        <Form.Select
-                            className={styles.prop_type_container}
-                            aria-label="Default select example"
-                        >
-                            <option className={styles.prop_type_item}>
-                                Select property type
-                            </option>
-                            <option className={styles.prop_type_item} value="1">
-                                Apartment
-                            </option>
-                            <option className={styles.prop_type_item} value="2">
-                                Cabin
-                            </option>
-                            <option className={styles.prop_type_item} value="3">
-                                Hotel
-                            </option>
-                            <option className={styles.prop_type_item} value="4">
-                                Campsite
-                            </option>
-                            <option className={styles.prop_type_item} value="5">
-                                Villa/Guest house
-                            </option>
-                            <option className={styles.prop_type_item} value="6">
-                                BnB/Inn
-                            </option>
-                        </Form.Select>
-                    </div>
-                    <div className={styles.form_item}>
                         <label className={styles.post_title}>
+                            <b>Propert type:</b>
+                        </label>
+                        <input
+                            className={styles.property_input}
+                            type="text"
+                            placeholder="Type of property"
+                            ref={propertyRef}
+                        />
+                    </div>
+                    <p className={styles.prop_type_text}>
+                        Type: Apartment, Cabin, Hotel, Campsite, Villa, Guest
+                        house, BnB, Inn
+                    </p>
+                    <section id="guests">
+                        <div className={styles.available_dates}>
+                            <div className={styles.form_item_guest}>
+                                <label
+                                    className={styles.post_title}
+                                    id="sleeps"
+                                >
+                                    <b>Sleeps:</b>
+                                </label>
+                                <input
+                                    className={styles.input_guests}
+                                    type="number"
+                                    placeholder="1"
+                                    required
+                                    min={1}
+                                    ref={sleepsRef}
+                                />
+                            </div>
+
+                            <div className={styles.form_item}>
+                                <label className={styles.post_title}>
+                                    <b>available from:</b>
+                                </label>
+                                <input
+                                    value={dateAvailableFrom}
+                                    className={styles.input}
+                                    type="date"
+                                    placeholder="available from"
+                                    required
+                                    onChange={(e) => {
+                                        setDateAvailableFrom(e.target.value);
+                                    }}
+                                />
+                            </div>
+
+                            <div className={styles.form_item}>
+                                <label className={styles.post_title}>
+                                    <b>Available to:</b>
+                                </label>
+                                <input
+                                    value={dateAvailableTo}
+                                    className={styles.input}
+                                    type="date"
+                                    placeholder="available from"
+                                    required
+                                    onChange={(e) => {
+                                        setDateAvailableTo(e.target.value);
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </section>
+                    <div className={styles.form_item}>
+                        <label className={styles.post_title} id="attractions">
                             <b>Attractions:</b>
                         </label>
                         <textarea
@@ -219,50 +245,14 @@ const NewPost = (props) => {
                             required
                             ref={attractionsRef}
                         />
-                        <p>
+                        <p id="attractions_text">
                             <small>
                                 Local places you would recommend to visitors
                             </small>
                         </p>
                     </div>
-                    <section>
-                        <div className={styles.form_item_guest}>
-                            <label className={styles.post_title}>
-                                <b>Adults:</b>
-                            </label>
-                            <input
-                                className={styles.input_guests}
-                                type="number"
-                                placeholder="1"
-                                required
-                                min={1}
-                                ref={adultsRef}
-                            />
-                            <label className={styles.post_title}>
-                                <b>Children:</b>
-                            </label>
-                            <input
-                                className={styles.input_guests}
-                                type="number"
-                                min={0}
-                                placeholder="0"
-                                required
-                                ref={childrenRef}
-                            />
-                            <label className={styles.post_title}>
-                                <b>Beds:</b>
-                            </label>
-                            <input
-                                className={styles.input_bed}
-                                type="number"
-                                placeholder="2"
-                                min={1}
-                                required
-                                ref={bedsRef}
-                            />
-                        </div>
-                    </section>
-                    <div className={styles.form_item}>
+
+                    <div className={styles.form_item} id="description">
                         <label className={styles.post_title}>
                             <b>Description</b>
                         </label>
@@ -275,9 +265,32 @@ const NewPost = (props) => {
                         />
                     </div>
 
+                    <div className={styles.url_item} id="url">
+                        <label className={styles.url_title}>
+                            <b>Partner Url:</b>
+                        </label>
+                        <input
+                            className={styles.url_input}
+                            placeholder="link to your booking.com / Airbnb / trivago page"
+                            type="text"
+                            ref={urlRef}
+                        />
+                    </div>
+
                     <div className={styles.form_btn}>
-                        <button className={styles.add_btn}>
+                        <button
+                            className={styles.add_btn}
+                            type="submit"
+                            //onClick={() => navigate("/details")}
+                        >
                             Add to auction
+                        </button>
+                        <button
+                            className={styles.reset_btn}
+                            type="submit"
+                            //onClick={() => navigate("/details")}
+                        >
+                            Reset
                         </button>
                     </div>
                 </form>
