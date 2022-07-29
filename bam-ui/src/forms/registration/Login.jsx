@@ -12,9 +12,25 @@ const Login = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const handleLogin = async () => {
+   /* const handleLogin = async () => {
         try {
             await signInWithEmailAndPassword(firebaseAuth, email, password);
+        } catch (error) {
+            console.log(error);
+        }
+    };*/
+    const handleLogin = async () => {
+        try {
+            // await signInWithEmailAndPassword(firebaseAuth, email, password);
+            const res = await fetch(
+                "https://raeven-be.herokuapp.com/users/login",
+                {
+                    method: "POST",
+                    body: JSON.stringify({ email, password }),
+                }
+            );
+            const data = await res.json();
+            console.log(data);
         } catch (error) {
             console.log(error);
         }

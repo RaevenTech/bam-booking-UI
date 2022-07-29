@@ -23,11 +23,13 @@ const Property = () => {
     console.log("ID: ", Id);
 
     const writeToDatabase = () => {
+        const user = JSON.parse(localStorage.getItem("user"));
         update(ref(db, "listings/" + Id), {
             // id url params
             currentBid: {
                 amount: count,
-                userID: 45454, // <-- once you have real users
+                userID: user._id,
+                username: user.firstName,
             },
         });
     };
@@ -128,7 +130,7 @@ const Property = () => {
                                 Live Auction
                             </h1>
                             <h3 className={styles.current_bid}>
-                                Current price :
+                                Current winner :
                                 {listing.currentBid.amount === null ? (
                                     <span
                                         className={
@@ -140,7 +142,8 @@ const Property = () => {
                                 ) : (
                                     <span className={styles.current_bid_amount}>
                                         {" "}
-                                        € {listing.currentBid.amount}
+                                        {listing.currentBid.username}
+                                        -- € {listing.currentBid.amount}
                                     </span>
                                 )}
                             </h3>
