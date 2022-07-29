@@ -6,21 +6,19 @@ const NewPost = (props) => {
     const [closingDate, setClosingDate] = useState("");
     const [dateAvailableFrom, setDateAvailableFrom] = useState("");
     const [dateAvailableTo, setDateAvailableTo] = useState("");
-    const titleRef = useRef(null);
-    const countryRef = useRef(null);
-    const cityRef = useRef(null);
-    const addressRef = useRef(null);
-    const attractionsRef = useRef(null);
-    const startingBidRef = useRef(null);
-    const sleepsRef = useRef(null);
-    const descriptionRef = useRef(null);
-    const imageRef = useRef(null);
-    const urlRef = useRef(null);
-    const propertyRef = useRef(null);
+    const titleRef = useRef();
+    const countryRef = useRef();
+    const cityRef = useRef();
+    const addressRef = useRef();
+    const attractionsRef = useRef();
+    const startingBidRef = useRef();
+    const sleepsRef = useRef();
+    const descriptionRef = useRef();
+    const imageRef = useRef();
+    const urlRef = useRef();
+    const propertyRef = useRef();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSubmit = async () => {
         const titleValue = titleRef.current.value;
         const countryValue = countryRef.current.value;
         const cityValue = cityRef.current.value;
@@ -47,6 +45,8 @@ const NewPost = (props) => {
             property: propertyValue,
             images: imageValue,
             closingDate: closingDate,
+            checkIn: dateAvailableFrom,
+            checkOut: dateAvailableTo,
             postId: postId,
             currentBid: {
                 amount: "",
@@ -65,6 +65,7 @@ const NewPost = (props) => {
             }
         );
         console.log(response);
+        console.log("submit success");
     };
 
     return (
@@ -77,11 +78,11 @@ const NewPost = (props) => {
                             <b>Add an image</b>
                         </label>
                         <input
-                            id="files"
+                            id="url"
                             className={styles.input}
-                            type="file"
-                            placeholder="Images"
-                            accept=".jpg,.jpeg,.png"
+                            type="url"
+                            placeholder="Image url"
+                            required
                             ref={imageRef}
                         />
                     </div>
@@ -152,7 +153,7 @@ const NewPost = (props) => {
                         </div>
                         <div className={styles.form_item}>
                             <label className={styles.post_title}>
-                                <b>Closing date:</b>
+                                <b>Auction closing date:</b>
                             </label>
                             <input
                                 value={closingDate}
@@ -175,6 +176,7 @@ const NewPost = (props) => {
                             type="text"
                             placeholder="Type of property"
                             ref={propertyRef}
+                            required
                         />
                     </div>
                     <p className={styles.prop_type_text}>
@@ -202,7 +204,7 @@ const NewPost = (props) => {
 
                             <div className={styles.form_item}>
                                 <label className={styles.post_title}>
-                                    <b>available from:</b>
+                                    <b>Check In:</b>
                                 </label>
                                 <input
                                     value={dateAvailableFrom}
@@ -218,7 +220,7 @@ const NewPost = (props) => {
 
                             <div className={styles.form_item}>
                                 <label className={styles.post_title}>
-                                    <b>Available to:</b>
+                                    <b>Check out:</b>
                                 </label>
                                 <input
                                     value={dateAvailableTo}
@@ -273,6 +275,7 @@ const NewPost = (props) => {
                             className={styles.url_input}
                             placeholder="link to your booking.com / Airbnb / trivago page"
                             type="text"
+                            required
                             ref={urlRef}
                         />
                     </div>
@@ -285,11 +288,7 @@ const NewPost = (props) => {
                         >
                             Add to auction
                         </button>
-                        <button
-                            className={styles.reset_btn}
-                            type="submit"
-                            //onClick={() => navigate("/details")}
-                        >
+                        <button className={styles.reset_btn} type="submit">
                             Reset
                         </button>
                     </div>

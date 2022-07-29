@@ -4,6 +4,8 @@ import { faGavel } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Active = () => {
+    const sold = false;
+
     return (
         <div>
             {" "}
@@ -30,11 +32,13 @@ const Active = () => {
                         </span>
                     </div>
                     <div className={styles.btns}>
-                        <FontAwesomeIcon
-                            icon={faGavel}
-                            className={styles.gavel}
-                            //if item is sold gavel diplays green : red
-                        />
+                        {sold && (
+                            <FontAwesomeIcon
+                                icon={faGavel}
+                                className={styles.gavel}
+                                //if item is sold gavel diplays green : red
+                            />
+                        )}
                         <button className={styles.btn_delete}>Delete</button>
                     </div>
                 </div>

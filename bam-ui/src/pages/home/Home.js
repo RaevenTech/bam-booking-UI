@@ -1,18 +1,18 @@
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 import styles from "./Home.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 //import { useState } from "react";
 //import { useSearchParams, useParams } from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate();
-    //let city = useParams();
+    //let property = useParams();
 
-    //const [citySearch, setCitySearch] = useState("");
+    //const [propertyTypeSearch, setPropertyTypeSearch] = useState("");
     //const [searchParams, setSearchParams] = useSearchParams();
 
-    //const searchCity = searchParams.get("city");
+    //const searchCity = searchParams.get("property");
     //console.log(searchParams);
 
     return (
@@ -27,7 +27,7 @@ const Home = () => {
                             className={styles.cities_img}
                             src="https://4.bp.blogspot.com/-JSKx1mfNp2A/Vyz8cVODCzI/AAAAAAAAmh0/Xmi6WYxXn18WOGCyB2n18PfpSdkLXfS2QCLcB/s1600/IMG_9350.JPG"
                             alt="city"
-                            onClick={() => navigate("/auctions")}
+                            onClick={() => navigate("/auctions?city=budapest")}
                         />
 
                         <div className={styles.cities_title}>
@@ -40,7 +40,7 @@ const Home = () => {
                             className={styles.cities_img}
                             src="https://www.melhoresdestinos.com.br/wp-content/uploads/2017/01/lisboa-portugal-capa-1-820x430.jpg"
                             alt="city"
-                            onClick={() => navigate("/auctions")}
+                            onClick={() => navigate("/auctions?city=lisbon")}
                         />
 
                         <div className={styles.cities_title}>
@@ -54,7 +54,7 @@ const Home = () => {
                             src="https://www.viajenaviagem.com/wp-content/uploads/2013/10/paris-louvre-noite-1920x1080-1-960x540.jpg"
                             alt="city"
                             onClick={() => {
-                                navigate("/auctions");
+                                navigate("/auctions?city=paris");
                             }}
                         />
                         <div className={styles.cities_title}>
@@ -72,7 +72,7 @@ const Home = () => {
                                 src="https://reisetips.nettavisen.no/content/uploads/sites/2/2022/05/Barcelona-scaled.jpg"
                                 alt="city"
                                 onClick={() => {
-                                    navigate("/auctions");
+                                    navigate("/auctions?city=barcelona");
                                 }}
                             />
                             <div className={styles.cities_title}>
@@ -86,7 +86,7 @@ const Home = () => {
                                 src="https://www.thegeographicalcure.com/wp-content/uploads/2021/09/160_file.jpg"
                                 alt="city"
                                 onClick={() => {
-                                    navigate("/auctions");
+                                    navigate("/auctions?city=florence");
                                 }}
                             />
                             <div className={styles.cities_title}>
@@ -100,11 +100,14 @@ const Home = () => {
                 <h2 className={styles.home_property_title}>Type of property</h2>
                 <div className={styles.property_list}>
                     <div className={styles.property_list_item}>
-                        <img
-                            className={styles.property_list_item_img}
-                            src="https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2015/05/Aurora-apartments-for-rent-in-North-Bethesda-MD.jpg"
-                            alt="listing"
-                        />
+                        <Link to={"/listings?property=apartments"}>
+                            {" "}
+                            <img
+                                className={styles.property_list_item_img}
+                                src="https://www.rentcafe.com/blog/wp-content/uploads/sites/62/2015/05/Aurora-apartments-for-rent-in-North-Bethesda-MD.jpg"
+                                alt="listing"
+                            />
+                        </Link>
                         <div className={styles.property_list_item_title}>
                             <h1>Apartments</h1>
                             <h3>114 Apartments</h3>
