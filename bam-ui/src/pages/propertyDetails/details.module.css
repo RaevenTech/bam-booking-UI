@@ -9,23 +9,66 @@
     flex-direction: column;
     width: 100%;
     max-width: 1024px;
-    position: relative;
     
 }
-.property_url_btn {
-    position:absolute;
-    top:10px;
+
+.property_image {
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    background: var(--d);
     margin-top: 20px;
-    right: 0;
-    padding: 10px;
-    font-weight: bold;
-    background: var(--g);
-    border: none;
-    color: white;
-    cursor: pointer;
+    position: relative;
+}
+.image {
+    position: relative;
+overflow: hidden;
+}
+.back_btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 2rem;
+    color: var(--g);
+    z-index: 2;
+}
+.back_btn:hover {
+    color:var(--orange)
 }
 .property_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 2.5rem;
+}
+.link_imgaes_btn {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px;
+}
+.partner_link_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    border-radius: 5%;
+    margin-right: 10px;
+    background: var(--g);
+    border:none ;
+    margin-left: 12px;
+}
+.partner_link_btn:hover {
+    background: var(--LB);
+}
+.url_link {
+    text-decoration: none;
+}
+.partner_link {
+    display: flex;
+    font-size: 0.7rem;
+    margin-right: 10px;
+    color: var(--LB);
 }
 .property_location_icon {
     font-size: 2rem;
@@ -39,32 +82,9 @@
     margin-bottom: 10px;
 }
 .property_attractions {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 20px;
     ;
-}
-.property_images {
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-height: 500px;
-    margin: 20px 400px;
-    flex-wrap: wrap ;
-   
-    align-items: center;
-    border-radius: 10px;
-    overflow: hidden;
-    
-}
-.image_section {
-    width: 33%;
-}
-.src_image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    padding: 5px;
 }
 .property_description {
     display: flex;
@@ -72,77 +92,55 @@ height: 500px;
     gap: 20px;
     margin-top: 30px;
 }
-.property_details {
-    flex: 3;
-}
+
 .property_specifications {
-    font-size: 20px;
+    font-size: 1rem;
 }
 .guests_room {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+}
+.sleeps {
     display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-
-}
-.guest_count {
-    font-size: 1.3rem;
-    margin-left: 10px;
-    color:var(--d);
-}
-.adult,.children,.bed {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--gy);
-}
-
-/*--------------------------------------- slider --------------------------------*/
-
-
-.image_slider {
-    position: absolute;
-    top: 160px;
-    left: 380px;
-    width: 100%;
-    max-width: 1020px;
-    height: 490px;
-    margin: 0px 40px 0px 20px;
-   padding-left: 190px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.724);
+    gap: 10px;
 }
-.slider_image {
-    width: 800px;
-    margin-right: 270px;
-}
-.exit_slider {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    color: var(--gy);
-    font-size: 2rem;
-}
-.exit_slider:hover {
+.sleeps_icon {
+    font-size: 1.5rem;
+    padding-left: 5px;
     color: var(--orange);
 }
-.arrow {
-    color: var(--gy);
-    font-size: 3rem;
+.guest_count {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 5px;
 }
-.arrow:hover {
-color: var(--g)
+.checkIn{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
 }
-.arrow_right {
-    position: absolute;
-    color: var(--gy);
-    font-size: 3rem;
-    margin-right:-700px;
+.checkOut{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
 }
-.arrow_right:hover {
-color: var(--g)
+.price{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-right: 15px;
 }
+.checkin_outdate_text {
+    color: var(--orange);
+}
+
+
 /*---------------------------- spinner   -------------------------------------------------*/
 
 .loading_spinner {
@@ -275,4 +273,10 @@ color: var(--g)
     color: var(--d);
     font-weight: 400;
     border-radius: 5px;
+}
+.date_display {
+    color: var(--gy);
+    margin-left:300px;
+    margin-top: -30px;
+    margin-bottom: 20px;
 }

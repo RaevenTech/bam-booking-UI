@@ -2,7 +2,7 @@ import styles from "./auctions.module.css";
 //import AuctionSearch from "./AuctionSearch"; <AuctionSearch />
 //import AuctionResults from "./AuctionResults";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { ref, get } from "firebase/database";
@@ -109,7 +109,7 @@ const Auctions = () => {
                                     key={[i]}
                                     className={styles.auction_results}
                                 >
-                                    <Link to={`/details/${listing.key}`}>
+                                    <Link to={`/details/${listing.Id}`}>
                                         <img
                                             className={
                                                 styles.search_results_img

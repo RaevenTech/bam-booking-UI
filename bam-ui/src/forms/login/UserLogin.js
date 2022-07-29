@@ -10,13 +10,29 @@ const UserLogin = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    /*   const handleLogin = async () => {
+    const handleLogin = async (e) => {
         try {
-            await signInWithEmailAndPassword(firebaseAuth, email, password);
+            e.preventDefault();
+            console.log("CLICK");
+            // await signInWithEmailAndPassword(firebaseAuth, email, password);
+            const res = await fetch(
+                "https://raeven-be.herokuapp.com/users/login",
+                {
+                    method: "POST",
+                    body: JSON.stringify({ email, password }),
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                }
+            );
+            const data = await res.json();
+            console.log(data);
+            localStorage.setItem("user", JSON.stringify(data.user));
         } catch (error) {
             console.log(error);
         }
     };
+    /*
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) navigate("/dashboard");
@@ -49,7 +65,7 @@ const UserLogin = () => {
 
                     <button
                         className={styles.submit_reg_btn}
-                        onClick={() => navigate("/dashboard")}
+                        onClick={(e) => handleLogin(e)}
                     >
                         Begin session
                     </button>
