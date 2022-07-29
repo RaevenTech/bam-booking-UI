@@ -11,6 +11,7 @@ const Header = ({ page }) => {
 
     const handleSearch = () => {
         navigate("/auctions", { state: { destination } });
+        console.log(destination);
     };
 
     return (
@@ -73,7 +74,7 @@ const Header = ({ page }) => {
                                                             styles.header_search_input
                                                         }
                                                         type="text"
-                                                        placeholder="Search City"
+                                                        placeholder="Check out the live auction"
                                                         onChange={(e) =>
                                                             setDestination(
                                                                 e.target.value

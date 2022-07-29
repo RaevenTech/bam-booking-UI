@@ -3,51 +3,29 @@ import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+    faBackward,
+    faBed,
+    faCross,
     faLocationDot,
-    faCircleLeft,
-    faCircleRight,
-    faCircleXmark,
+    faPersonThroughWindow,
+    faXmarkCircle,
+    faXmarksLines,
 } from "@fortawesome/free-solid-svg-icons";
-//import LiveAuction from "../../auction_live/LiveAuction";
 import { useParams } from "react-router-dom";
 import { onValue, ref, update } from "firebase/database";
 import { db } from "../../utils/firebase";
 import Clock from "../../countdowntimer/Clock";
+import Header from "../../features/header/Header";
+import Navbar from "../../features/navbar/Navbar";
 
 const Property = () => {
-    const { firebaseId } = useParams();
+    const { key } = useParams();
     const [listing, setListing] = useState(null);
-    const [imageIndex, setImageIndex] = useState(0);
-    const [showOpen, setShowOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
 
-    const pictures = [
-        { src: "https://www.fillmurray.com/640/360" },
-        { src: "https://loremflickr.com/640/360" },
-        { src: "https://www.stevensegallery.com/640/360" },
-        { src: "http://placeimg.com/640/360/any" },
-        { src: "https://picsum.photos/640/360" },
-        { src: "https://www.placecage.com/640/360" },
-    ];
-
-    const handleShowOpen = (index) => {
-        setImageIndex(index);
-        setShowOpen(true);
-    };
-
-    const handleOnClick = (click) => {
-        let newImageIndex;
-        if (click === "left") {
-            newImageIndex = imageIndex === 0 ? 5 : imageIndex - 1;
-        } else {
-            newImageIndex = imageIndex === 5 ? 0 : imageIndex + 1;
-        }
-        setImageIndex(newImageIndex);
-    };
-
     const writeToDatabase = () => {
-        update(ref(db, "listings/" + firebaseId), {
+        update(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), {
             // id url params
             currentBid: {
                 amount: count,
@@ -62,7 +40,7 @@ const Property = () => {
 
     useEffect(() => {
         setLoading(true);
-        onValue(ref(db, "listings/" + firebaseId), (snapshot) => {
+        onValue(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), (snapshot) => {
             // id taken from url params
             const data = snapshot.val();
             console.log("DATA: ", data);
@@ -89,52 +67,22 @@ const Property = () => {
     }
 
     return (
-        <div>
-            <section className={styles.image_display}>
-                <div className={styles.property_images}>
-                    {pictures.map((image, i) => (
-                        <div className={styles.image_section} key={[i]}>
-                            <img
-                                className={styles.src_image}
-                                src={image.src}
-                                alt=""
-                                onClick={() => handleShowOpen(i)}
-                            />
-                        </div>
-                    ))}
-                </div>
-
-                {showOpen && (
-                    <div className={styles.image_slider}>
-                        <FontAwesomeIcon
-                            icon={faCircleXmark}
-                            className={styles.exit_slider}
-                            onClick={() => setShowOpen(false)}
-                        />
-
-                        <FontAwesomeIcon
-                            icon={faCircleLeft}
-                            className={styles.arrow}
-                            onClick={() => handleOnClick("left")}
-                        />
-                        <div className={styles.image_slider_wrapper}>
-                            <img
-                                className={styles.slider_image}
-                                src={pictures[imageIndex].src}
-                                alt=""
-                            />
-                        </div>
-                        <FontAwesomeIcon
-                            icon={faCircleRight}
-                            className={styles.arrow_right}
-                            onClick={() => handleOnClick("right")}
-                        />
-                    </div>
-                )}
-            </section>
-
+        <>
+            <Navbar />
+            <Header />
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
+                    <div className={styles.property_image}>
+                        <img
+                            className={styles.image}
+                            src={listing.images}
+                            alt=""
+                        />
+                        <FontAwesomeIcon
+                            icon={faXmarkCircle}
+                            className={styles.back_btn}
+                        />
+                    </div>
                     <h1 className={styles.property_title}>{listing.title}</h1>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon
@@ -150,32 +98,24 @@ const Property = () => {
                         </div>
                     </div>
                     <span className={styles.property_attractions}>
-                        <h3>Local attractions:</h3>
+                        <h4>Local attractions</h4>
                         {listing.attractions}
                     </span>
 
                     <div className={styles.property_description}>
                         <div className={styles.property_details}>
                             <p className={styles.property_specifications}>
+                                <h4>What guests can expect</h4>
                                 {listing.description}
                             </p>
                             <div className={styles.guests_room}>
-                                <div className={styles.adult}>
-                                    Adult:
+                                <div className={styles.sleeps}>
+                                    <FontAwesomeIcon
+                                        icon={faBed}
+                                        className={styles.sleeps_icon}
+                                    />
                                     <span className={styles.guest_count}>
-                                        {listing.adults}
-                                    </span>
-                                </div>
-                                <div className={styles.children}>
-                                    Children:
-                                    <span className={styles.guest_count}>
-                                        0
-                                    </span>
-                                </div>
-                                <div className={styles.bed}>
-                                    Beds:
-                                    <span className={styles.guest_count}>
-                                        1 Double
+                                        {listing.sleeps}
                                     </span>
                                 </div>
                             </div>
@@ -242,7 +182,7 @@ const Property = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
