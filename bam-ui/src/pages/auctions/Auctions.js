@@ -21,6 +21,7 @@ const Auctions = () => {
 
     const location = useLocation().search;
     console.log("LOCATION: ", location);
+    console.log("ID: ", Id);
     const [destination, setDestination] = useState(
         new URLSearchParams(location).get("city")
     );
