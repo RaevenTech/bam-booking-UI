@@ -14,14 +14,12 @@ import Header from "../../features/header/Header";
 
 const Auctions = () => {
     const navigate = useNavigate();
-    const Id = useParams();
 
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const location = useLocation().search;
     console.log("LOCATION: ", location);
-    console.log("ID: ", Id);
     const [destination, setDestination] = useState(
         new URLSearchParams(location).get("city")
     );
@@ -30,7 +28,7 @@ const Auctions = () => {
         setLoading(true);
 
         const fetchData = async () => {
-            const snapshot = await get(ref(db, "listings" + Id));
+            const snapshot = await get(ref(db, "listings"));
             console.log(snapshot);
             const data = [];
             snapshot.forEach((s) => {
@@ -111,7 +109,7 @@ const Auctions = () => {
                                     key={[i]}
                                     className={styles.auction_results}
                                 >
-                                    <Link to={"/details" + Id}>
+                                    <Link to={`/details/${listing.Id}`}>
                                         <img
                                             className={
                                                 styles.search_results_img

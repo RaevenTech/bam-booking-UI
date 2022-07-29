@@ -15,17 +15,19 @@ import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 
 const Property = () => {
-    const Id = useParams();
+    const { Id } = useParams();
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
+
+    console.log("ID: ", Id);
 
     const writeToDatabase = () => {
         update(ref(db, "listings/" + Id), {
             // id url params
             currentBid: {
                 amount: count,
-                userID: 123123, // <-- once you have real users
+                userID: 45454, // <-- once you have real users
             },
         });
     };
