@@ -3,13 +3,9 @@ import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faBackward,
     faBed,
-    faCross,
     faLocationDot,
-    faPersonThroughWindow,
     faXmarkCircle,
-    faXmarksLines,
 } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { onValue, ref, update } from "firebase/database";
