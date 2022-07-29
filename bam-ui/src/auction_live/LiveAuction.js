@@ -14,7 +14,7 @@ const LiveAuction = () => {
 
     //read
     useEffect(() => {
-        onValue(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), (snapshot) => {
+        onValue(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), (snapshot) => {
             // id should be taken from url params
             const data = snapshot.val();
             console.log("DATA: ", data);
@@ -25,7 +25,7 @@ const LiveAuction = () => {
     //write
     const writeToDatabase = () => {
         console.log("COUNT ", count);
-        update(ref(db, "listings/-N6m7Nv_ceZxKPwjIabA"), {
+        update(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), {
             // the two id should match
             currentBid: {
                 amount: count,

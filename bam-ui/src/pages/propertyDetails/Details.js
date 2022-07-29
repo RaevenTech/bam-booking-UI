@@ -3,55 +3,33 @@ import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+    faBed,
     faLocationDot,
-    faCircleLeft,
-    faCircleRight,
-    faCircleXmark,
+    faXmarkCircle,
 } from "@fortawesome/free-solid-svg-icons";
-//import LiveAuction from "../../auction_live/LiveAuction";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { onValue, ref, update } from "firebase/database";
 import { db } from "../../utils/firebase";
-import Clock from "../../countdowntimer/Clock";
+import Header from "../../features/header/Header";
+import Navbar from "../../features/navbar/Navbar";
 
 const Property = () => {
-    const { firebaseId } = useParams();
+    const navigate = useNavigate();
+    const { Id } = useParams();
     const [listing, setListing] = useState(null);
-    const [imageIndex, setImageIndex] = useState(0);
-    const [showOpen, setShowOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
 
-    const pictures = [
-        { src: "https://www.fillmurray.com/640/360" },
-        { src: "https://loremflickr.com/640/360" },
-        { src: "https://www.stevensegallery.com/640/360" },
-        { src: "http://placeimg.com/640/360/any" },
-        { src: "https://picsum.photos/640/360" },
-        { src: "https://www.placecage.com/640/360" },
-    ];
-
-    const handleShowOpen = (index) => {
-        setImageIndex(index);
-        setShowOpen(true);
-    };
-
-    const handleOnClick = (click) => {
-        let newImageIndex;
-        if (click === "left") {
-            newImageIndex = imageIndex === 0 ? 5 : imageIndex - 1;
-        } else {
-            newImageIndex = imageIndex === 5 ? 0 : imageIndex + 1;
-        }
-        setImageIndex(newImageIndex);
-    };
+    console.log("ID: ", Id);
 
     const writeToDatabase = () => {
-        update(ref(db, "listings/" + firebaseId), {
+        const user = JSON.parse(localStorage.getItem("user"));
+        update(ref(db, "listings/" + Id), {
             // id url params
             currentBid: {
                 amount: count,
-                userID: 123123, // <-- once you have real users
+                userID: user._id,
+                username: user.firstName,
             },
         });
     };
@@ -62,7 +40,7 @@ const Property = () => {
 
     useEffect(() => {
         setLoading(true);
-        onValue(ref(db, "listings/" + firebaseId), (snapshot) => {
+        onValue(ref(db, "listings/" + Id), (snapshot) => {
             // id taken from url params
             const data = snapshot.val();
             console.log("DATA: ", data);
@@ -89,53 +67,40 @@ const Property = () => {
     }
 
     return (
-        <div>
-            <section className={styles.image_display}>
-                <div className={styles.property_images}>
-                    {pictures.map((image, i) => (
-                        <div className={styles.image_section} key={[i]}>
-                            <img
-                                className={styles.src_image}
-                                src={image.src}
-                                alt=""
-                                onClick={() => handleShowOpen(i)}
-                            />
-                        </div>
-                    ))}
-                </div>
-
-                {showOpen && (
-                    <div className={styles.image_slider}>
-                        <FontAwesomeIcon
-                            icon={faCircleXmark}
-                            className={styles.exit_slider}
-                            onClick={() => setShowOpen(false)}
-                        />
-
-                        <FontAwesomeIcon
-                            icon={faCircleLeft}
-                            className={styles.arrow}
-                            onClick={() => handleOnClick("left")}
-                        />
-                        <div className={styles.image_slider_wrapper}>
-                            <img
-                                className={styles.slider_image}
-                                src={pictures[imageIndex].src}
-                                alt=""
-                            />
-                        </div>
-                        <FontAwesomeIcon
-                            icon={faCircleRight}
-                            className={styles.arrow_right}
-                            onClick={() => handleOnClick("right")}
-                        />
-                    </div>
-                )}
-            </section>
-
+        <>
+            <Navbar />
+            <Header />
             <div className={styles.property_container}>
                 <div className={styles.property_section}>
-                    <h1 className={styles.property_title}>{listing.title}</h1>
+                    <div className={styles.property_image}>
+                        <img
+                            className={styles.image}
+                            src={listing.images}
+                            alt=""
+                        />
+                        <FontAwesomeIcon
+                            icon={faXmarkCircle}
+                            className={styles.back_btn}
+                            onClick={() => navigate("/auctions")}
+                        />
+                    </div>
+                    <div className={styles.property_title}>
+                        <div>
+                            <h1>{listing.title}</h1>{" "}
+                        </div>
+                        <Link to={listing.url} className={styles.url_link}>
+                            <div className={styles.link_images_btn}>
+                                <button className={styles.partner_link_btn}>
+                                    More images
+                                </button>
+                                <span>
+                                    <small className={styles.partner_link}>
+                                        Link to partner website
+                                    </small>
+                                </span>
+                            </div>
+                        </Link>
+                    </div>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon
                             icon={faLocationDot}
@@ -150,32 +115,69 @@ const Property = () => {
                         </div>
                     </div>
                     <span className={styles.property_attractions}>
-                        <h3>Local attractions:</h3>
+                        <h4>Local attractions</h4>
                         {listing.attractions}
                     </span>
 
                     <div className={styles.property_description}>
                         <div className={styles.property_details}>
                             <p className={styles.property_specifications}>
+                                <h4>What guests can expect</h4>
                                 {listing.description}
                             </p>
                             <div className={styles.guests_room}>
-                                <div className={styles.adult}>
-                                    Adult:
+                                <div className={styles.sleeps}>
+                                    <FontAwesomeIcon
+                                        icon={faBed}
+                                        className={styles.sleeps_icon}
+                                    />
                                     <span className={styles.guest_count}>
-                                        {listing.adults}
+                                        {listing.sleeps}
                                     </span>
                                 </div>
-                                <div className={styles.children}>
-                                    Children:
-                                    <span className={styles.guest_count}>
-                                        0
+                                <div className={styles.checkIn}>
+                                    <span className={styles.check_in_out}>
+                                        {" "}
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Check In:{" "}
+                                        </span>
+                                        <span
+                                            className={styles.checkin_outdate}
+                                        >
+                                            {listing.checkIn}
+                                        </span>
                                     </span>
                                 </div>
-                                <div className={styles.bed}>
-                                    Beds:
-                                    <span className={styles.guest_count}>
-                                        1 Double
+                                <div className={styles.checkOut}>
+                                    <span className={styles.check_in_out}>
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Check Out:{" "}
+                                        </span>
+                                        <span
+                                            className={styles.checkin_outdate}
+                                        >
+                                            {listing.checkOut}
+                                        </span>
+                                    </span>
+                                </div>
+                                <div className={styles.price}>
+                                    <span className={styles.check_in_out}>
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Opening Bid:{" "}
+                                        </span>
+                                        <span>€{listing.price}</span>
                                     </span>
                                 </div>
                             </div>
@@ -188,7 +190,7 @@ const Property = () => {
                                 Live Auction
                             </h1>
                             <h3 className={styles.current_bid}>
-                                Current price :
+                                Current winner :
                                 {listing.currentBid.amount === null ? (
                                     <span
                                         className={
@@ -200,7 +202,8 @@ const Property = () => {
                                 ) : (
                                     <span className={styles.current_bid_amount}>
                                         {" "}
-                                        € {listing.currentBid.amount}
+                                        {listing.currentBid.username}
+                                        -- € {listing.currentBid.amount}
                                     </span>
                                 )}
                             </h3>
@@ -227,22 +230,25 @@ const Property = () => {
                             <div className={styles.counter_section}>
                                 <div className={styles.clock}>
                                     <h3 className={styles.count_down}>
-                                        Time left:
+                                        Auction closing:
                                     </h3>
 
                                     <h3 className={styles.count_down_clock}>
-                                        <Clock />
+                                        {listing.closingDate}
                                     </h3>
                                 </div>
                                 <button className={styles.cancel_bid_btn}>
                                     Cancel/Remove bid
                                 </button>
                             </div>
+                            <small className={styles.date_display}>
+                                yyyy-dd-mm
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
