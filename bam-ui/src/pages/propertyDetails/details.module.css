@@ -29,14 +29,46 @@ overflow: hidden;
     top: 10px;
     left: 15px;
     font-size: 2rem;
-    color: var(--orange);
+    color: var(--g);
     z-index: 2;
-    
 }
-
-
+.back_btn:hover {
+    color:var(--orange)
+}
 .property_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 2.5rem;
+}
+.link_imgaes_btn {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px;
+}
+.partner_link_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    border-radius: 5%;
+    margin-right: 10px;
+    background: var(--g);
+    border:none ;
+    margin-left: 12px;
+}
+.partner_link_btn:hover {
+    background: var(--LB);
+}
+.url_link {
+    text-decoration: none;
+}
+.partner_link {
+    display: flex;
+    font-size: 0.7rem;
+    margin-right: 10px;
+    color: var(--LB);
 }
 .property_location_icon {
     font-size: 2rem;
@@ -64,6 +96,12 @@ overflow: hidden;
 .property_specifications {
     font-size: 1rem;
 }
+.guests_room {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+}
 .sleeps {
     display: flex;
     align-items: center;
@@ -79,6 +117,29 @@ overflow: hidden;
     font-weight: 400;
     margin-top: 5px;
 }
+.checkIn{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.checkOut{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.price{
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-right: 15px;
+}
+.checkin_outdate_text {
+    color: var(--orange);
+}
+
 
 /*---------------------------- spinner   -------------------------------------------------*/
 
@@ -212,4 +273,10 @@ overflow: hidden;
     color: var(--d);
     font-weight: 400;
     border-radius: 5px;
+}
+.date_display {
+    color: var(--gy);
+    margin-left:300px;
+    margin-top: -30px;
+    margin-bottom: 20px;
 }

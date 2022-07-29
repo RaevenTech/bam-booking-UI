@@ -7,14 +7,14 @@ import {
     faLocationDot,
     faXmarkCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { onValue, ref, update } from "firebase/database";
 import { db } from "../../utils/firebase";
-import Clock from "../../countdowntimer/Clock";
 import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 
 const Property = () => {
+    const navigate = useNavigate();
     const { Id } = useParams();
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -81,10 +81,25 @@ const Property = () => {
                         <FontAwesomeIcon
                             icon={faXmarkCircle}
                             className={styles.back_btn}
+                            onClick={() => navigate("/auctions")}
                         />
                     </div>
                     <div className={styles.property_title}>
-                        <h1>{listing.title}</h1> <button>More images</button>
+                        <div>
+                            <h1>{listing.title}</h1>{" "}
+                        </div>
+                        <Link to={listing.url} className={styles.url_link}>
+                            <div className={styles.link_images_btn}>
+                                <button className={styles.partner_link_btn}>
+                                    More images
+                                </button>
+                                <span>
+                                    <small className={styles.partner_link}>
+                                        Link to partner website
+                                    </small>
+                                </span>
+                            </div>
+                        </Link>
                     </div>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon
@@ -118,6 +133,51 @@ const Property = () => {
                                     />
                                     <span className={styles.guest_count}>
                                         {listing.sleeps}
+                                    </span>
+                                </div>
+                                <div className={styles.checkIn}>
+                                    <span className={styles.check_in_out}>
+                                        {" "}
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Check In:{" "}
+                                        </span>
+                                        <span
+                                            className={styles.checkin_outdate}
+                                        >
+                                            {listing.checkIn}
+                                        </span>
+                                    </span>
+                                </div>
+                                <div className={styles.checkOut}>
+                                    <span className={styles.check_in_out}>
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Check Out:{" "}
+                                        </span>
+                                        <span
+                                            className={styles.checkin_outdate}
+                                        >
+                                            {listing.checkOut}
+                                        </span>
+                                    </span>
+                                </div>
+                                <div className={styles.price}>
+                                    <span className={styles.check_in_out}>
+                                        <span
+                                            className={
+                                                styles.checkin_outdate_text
+                                            }
+                                        >
+                                            Opening Bid:{" "}
+                                        </span>
+                                        <span>€{listing.price}</span>
                                     </span>
                                 </div>
                             </div>
@@ -170,17 +230,20 @@ const Property = () => {
                             <div className={styles.counter_section}>
                                 <div className={styles.clock}>
                                     <h3 className={styles.count_down}>
-                                        Time left:
+                                        Auction closing:
                                     </h3>
 
                                     <h3 className={styles.count_down_clock}>
-                                        <Clock />
+                                        {listing.closingDate}
                                     </h3>
                                 </div>
                                 <button className={styles.cancel_bid_btn}>
                                     Cancel/Remove bid
                                 </button>
                             </div>
+                            <small className={styles.date_display}>
+                                yyyy-dd-mm
+                            </small>
                         </div>
                     </div>
                 </div>

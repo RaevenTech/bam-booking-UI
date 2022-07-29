@@ -31,6 +31,8 @@ const Login = () => {
             );
             const data = await res.json();
             console.log(data);
+
+            //TODO: redirect to homepage
         } catch (error) {
             console.log(error);
         }
