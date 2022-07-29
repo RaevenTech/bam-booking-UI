@@ -15,13 +15,13 @@ import Header from "../../features/header/Header";
 import Navbar from "../../features/navbar/Navbar";
 
 const Property = () => {
-    const { key } = useParams();
+    const Id = useParams();
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
 
     const writeToDatabase = () => {
-        update(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), {
+        update(ref(db, "listings/" + Id), {
             // id url params
             currentBid: {
                 amount: count,
@@ -36,7 +36,7 @@ const Property = () => {
 
     useEffect(() => {
         setLoading(true);
-        onValue(ref(db, "listings/-N84K3JspSIhJV4KLX8Z"), (snapshot) => {
+        onValue(ref(db, "listings/" + Id), (snapshot) => {
             // id taken from url params
             const data = snapshot.val();
             console.log("DATA: ", data);
@@ -79,7 +79,9 @@ const Property = () => {
                             className={styles.back_btn}
                         />
                     </div>
-                    <h1 className={styles.property_title}>{listing.title}</h1>
+                    <div className={styles.property_title}>
+                        <h1>{listing.title}</h1> <button>More images</button>
+                    </div>
                     <div className={styles.property_location}>
                         <FontAwesomeIcon
                             icon={faLocationDot}

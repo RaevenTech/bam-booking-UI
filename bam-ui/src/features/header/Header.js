@@ -2,7 +2,7 @@ import styles from "./header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ page }) => {
     const [destination, setDestination] = useState("");
@@ -48,10 +48,11 @@ const Header = ({ page }) => {
                                 the holiday you want!
                             </p>
                             <section>
-                                <div className={styles.header_search}>
-                                    <>
-                                        {/*------------------------ header search with text only to display on home page ---------------------------------- */}
-                                        <div className={styles.header_search}>
+                                <>
+                                    {/*------------------------ header search with text only to display on home page ---------------------------------- */}
+                                    <div className={styles.header_search}>
+                                        <Link to={"/auction"}>
+                                            {" "}
                                             <div
                                                 className={
                                                     styles.header_search_container
@@ -75,31 +76,17 @@ const Header = ({ page }) => {
                                                         }
                                                         type="text"
                                                         placeholder="Check out the live auction"
-                                                        onChange={(e) =>
-                                                            setDestination(
-                                                                e.target.value
+                                                        onClick={() =>
+                                                            navigate(
+                                                                "/auctions"
                                                             )
                                                         }
                                                     />
                                                 </div>
-                                                <div
-                                                    className={
-                                                        styles.header_search_section
-                                                    }
-                                                >
-                                                    <button
-                                                        className={
-                                                            styles.header_search_btn
-                                                        }
-                                                        onClick={handleSearch}
-                                                    >
-                                                        Search
-                                                    </button>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </>
-                                </div>
+                                        </Link>
+                                    </div>
+                                </>
                             </section>
                         </>
                     )}

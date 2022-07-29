@@ -2,7 +2,7 @@ import styles from "./auctions.module.css";
 //import AuctionSearch from "./AuctionSearch"; <AuctionSearch />
 //import AuctionResults from "./AuctionResults";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { ref, get } from "firebase/database";
@@ -14,6 +14,7 @@ import Header from "../../features/header/Header";
 
 const Auctions = () => {
     const navigate = useNavigate();
+    const Id = useParams();
 
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const Auctions = () => {
         setLoading(true);
 
         const fetchData = async () => {
-            const snapshot = await get(ref(db, "listings"));
+            const snapshot = await get(ref(db, "listings" + Id));
             console.log(snapshot);
             const data = [];
             snapshot.forEach((s) => {
@@ -109,7 +110,7 @@ const Auctions = () => {
                                     key={[i]}
                                     className={styles.auction_results}
                                 >
-                                    <Link to={`/details/${listing.key}`}>
+                                    <Link to={"/details" + Id}>
                                         <img
                                             className={
                                                 styles.search_results_img
