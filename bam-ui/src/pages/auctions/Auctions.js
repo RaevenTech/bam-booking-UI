@@ -4,7 +4,7 @@ import styles from "./auctions.module.css";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import Clock from "../../countdowntimer/Clock";
+
 import { ref, get } from "firebase/database";
 import { db } from "../../utils/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -161,7 +161,7 @@ const Auctions = () => {
                                                     <small
                                                         className={styles.clock}
                                                     >
-                                                        <Clock />
+                                                        {listing.closingDate}
                                                     </small>
                                                 </span>
                                             </div>
