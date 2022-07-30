@@ -2,7 +2,7 @@ import styles from "./auctions.module.css";
 //import AuctionSearch from "./AuctionSearch"; <AuctionSearch />
 //import AuctionResults from "./AuctionResults";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import Clock from "../../countdowntimer/Clock";
 import { ref, get } from "firebase/database";
