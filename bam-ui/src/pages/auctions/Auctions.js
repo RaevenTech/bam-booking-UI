@@ -201,16 +201,13 @@ const Auctions = () => {
                                             </div>
                                         </div>
                                         <div className={styles.add_bid_btn}>
-                                            <button
-                                                className={styles.bid_btn}
-                                                onClick={() => {
-                                                    navigate(
-                                                        `/details/${listing.postId}`
-                                                    );
-                                                }}
-                                            >
-                                                Add your bid
-                                            </button>
+                                            <Link to={`/details/${listing.Id}`}>
+                                                <button
+                                                    className={styles.bid_btn}
+                                                >
+                                                    Add your bid
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

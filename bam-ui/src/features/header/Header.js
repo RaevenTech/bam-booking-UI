@@ -1,14 +1,10 @@
 import styles from "./header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 const Header = ({ page }) => {
-    const [destination, setDestination] = useState("");
-
-    const navigate = useNavigate();
-
     return (
         <>
             {/*------------------------ header with text only to display on auction page ---------------------------------- */}
