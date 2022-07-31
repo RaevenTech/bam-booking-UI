@@ -9,11 +9,6 @@ const Header = ({ page }) => {
 
     const navigate = useNavigate();
 
-    const handleSearch = () => {
-        navigate("/auctions", { state: { destination } });
-        console.log(destination);
-    };
-
     return (
         <>
             {/*------------------------ header with text only to display on auction page ---------------------------------- */}
@@ -51,7 +46,7 @@ const Header = ({ page }) => {
                                 <>
                                     {/*------------------------ header search with text only to display on home page ---------------------------------- */}
                                     <div className={styles.header_search}>
-                                        <Link to={"/auction"}>
+                                        <Link to={"/auction?city=barcelona"}>
                                             {" "}
                                             <div
                                                 className={
@@ -76,11 +71,6 @@ const Header = ({ page }) => {
                                                         }
                                                         type="text"
                                                         placeholder="Check out the live auction"
-                                                        onClick={() =>
-                                                            navigate(
-                                                                "/auctions"
-                                                            )
-                                                        }
                                                     />
                                                 </div>
                                             </div>

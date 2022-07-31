@@ -30,10 +30,12 @@ const Home = () => {
                             onClick={() => navigate("/auctions?city=budapest")}
                         />
 
-                        <div className={styles.cities_title}>
-                            <h1>Budapest</h1>
-                            <h3>Hungary</h3>
-                        </div>
+                        <Link to={"/auctions?city=budapest"}>
+                            <div className={styles.cities_title}>
+                                <h1>Budapest</h1>
+                                <h3>Hungary</h3>
+                            </div>
+                        </Link>
                     </div>
                     <div className={styles.cities_item}>
                         <img
@@ -43,10 +45,12 @@ const Home = () => {
                             onClick={() => navigate("/auctions?city=lisbon")}
                         />
 
-                        <div className={styles.cities_title}>
-                            <h1>Lisbon</h1>
-                            <h3>Portugal</h3>
-                        </div>
+                        <Link to={"/auctions?city=lisbon"}>
+                            <div className={styles.cities_title}>
+                                <h1>Lisbon</h1>
+                                <h3>Portugal</h3>
+                            </div>
+                        </Link>
                     </div>
                     <div className={styles.cities_item}>
                         <img
@@ -57,10 +61,12 @@ const Home = () => {
                                 navigate("/auctions?city=paris");
                             }}
                         />
-                        <div className={styles.cities_title}>
-                            <h1>Paris</h1>
-                            <h3>France</h3>
-                        </div>
+                        <Link to={"/auctions?city=paris"}>
+                            <div className={styles.cities_title}>
+                                <h1>Paris</h1>
+                                <h3>France</h3>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 {/*-------------------------------------------- Main cities bottom 2 ---------------------------------------------------------- */}
@@ -75,10 +81,12 @@ const Home = () => {
                                     navigate("/auctions?city=barcelona");
                                 }}
                             />
-                            <div className={styles.cities_title}>
-                                <h1>Barcelona</h1>
-                                <h3>Spain</h3>
-                            </div>
+                            <Link to={"/auctions?city=barcelona"}>
+                                <div className={styles.cities_title}>
+                                    <h1>Barcelona</h1>
+                                    <h3>Spain</h3>
+                                </div>
+                            </Link>
                         </div>
                         <div className={styles.cities_item}>
                             <img
@@ -89,10 +97,12 @@ const Home = () => {
                                     navigate("/auctions?city=florence");
                                 }}
                             />
-                            <div className={styles.cities_title}>
-                                <h1>Florence</h1>
-                                <h3>Italy</h3>
-                            </div>
+                            <Link to={"/auctions?city=florence"}>
+                                <div className={styles.cities_title}>
+                                    <h1>Florence</h1>
+                                    <h3>Italy</h3>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </section>

@@ -52,6 +52,10 @@
     left:20px;
     color: white;
 }
+.cities_title:hover {
+    color: var(--orange
+    ) ;
+}
 .cities_title>h1{
     margin-bottom: 5px;
 }

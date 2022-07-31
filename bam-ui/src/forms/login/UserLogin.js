@@ -53,6 +53,7 @@ const UserLogin = () => {
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
+
                     <div className={styles.input_item}>
                         <label>Password</label>
                         <input
@@ -67,7 +68,7 @@ const UserLogin = () => {
                         className={styles.submit_reg_btn}
                         onClick={(e) => handleLogin(e)}
                     >
-                        Begin session
+                        <span onClick={() => navigate("/")}>Begin session</span>
                     </button>
                 </form>
             </div>
