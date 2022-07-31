@@ -281,3 +281,6 @@ gap: 40px;
     margin-top: -30px;
     margin-bottom: 20px;
 }
+.bid_space_from {
+    color: var(--gy);
+}

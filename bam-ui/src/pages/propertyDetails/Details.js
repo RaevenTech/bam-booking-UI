@@ -81,7 +81,7 @@ const Property = () => {
                         <FontAwesomeIcon
                             icon={faXmarkCircle}
                             className={styles.back_btn}
-                            onClick={() => navigate("/auctions")}
+                            onClick={() => navigate("/")}
                         />
                     </div>
                     <div className={styles.property_title}>
@@ -190,7 +190,7 @@ const Property = () => {
                                 Live Auction
                             </h1>
                             <h3 className={styles.current_bid}>
-                                Current winner :
+                                Highest bid :
                                 {listing.currentBid.amount === null ? (
                                     <span
                                         className={
@@ -202,22 +202,29 @@ const Property = () => {
                                 ) : (
                                     <span className={styles.current_bid_amount}>
                                         {" "}
-                                        {listing.currentBid.username}
-                                        -- € {listing.currentBid.amount}
+                                        €{listing.currentBid.amount}
+                                        <span className={styles.bid_space_from}>
+                                            {" "}
+                                            from user{" "}
+                                        </span>
+                                        <span className={styles.bid_space_from}>
+                                            {" "}
+                                            {listing.currentBid.username}
+                                        </span>
                                     </span>
                                 )}
                             </h3>
 
                             <div className={styles.bid_info}>
                                 <span className={styles.bid_input_text}>
-                                    Your last bid: €
+                                    Add your bid: €
                                 </span>
                                 <input
                                     type="number"
                                     className={styles.bid_input_field}
-                                    min={0}
-                                    value={count}
                                     onChange={handleAmountChange}
+                                    value={count}
+                                    min={0}
                                 />
                             </div>
                             <button
