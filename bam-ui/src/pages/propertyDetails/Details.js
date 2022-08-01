@@ -1,5 +1,5 @@
 import styles from "./details.module.css";
-import { Spinner } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -207,9 +207,13 @@ const Property = () => {
                                             {" "}
                                             from user{" "}
                                         </span>
-                                        <span className={styles.bid_space_from}>
+                                        <span className={styles.bid_username}>
                                             {" "}
                                             {listing.currentBid.username}
+                                        </span>
+                                        <span className={styles.bid_space_from}>
+                                            {" "}
+                                            per night.
                                         </span>
                                     </span>
                                 )}
@@ -224,7 +228,18 @@ const Property = () => {
                                     className={styles.bid_input_field}
                                     onChange={handleAmountChange}
                                     value={count}
-                                    min={0}
+                                    placeholder={listing.currentBid.amount}
+                                    min={
+                                        count < listing.currentBid.amount ? (
+                                            listing.currentBid.amount
+                                        ) : (
+                                            <Alert variant="warning">
+                                                {" "}
+                                                Your bid has to be higgher than
+                                                the currnet bid!
+                                            </Alert>
+                                        )
+                                    }
                                 />
                             </div>
                             <button

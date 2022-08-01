@@ -227,6 +227,7 @@ gap: 40px;
 .bid_input_field {
     margin: 5px 20px;
     border-radius: 5px;
+    width: 150px;
 }
 .submit_bid_amount {
     font-size: 1.5rem;
@@ -235,6 +236,9 @@ gap: 40px;
     border-radius: 10px;
     padding: 5px;
     border: none;
+}
+.bid_username {
+    color: var(--g);
 }
 .update_bid_amount {
     font-size: 1.5rem;
@@ -282,5 +286,6 @@ gap: 40px;
     margin-bottom: 20px;
 }
 .bid_space_from {
+    font-size: 1.5rem;
     color: var(--gy);
 }

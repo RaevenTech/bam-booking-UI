@@ -15,10 +15,11 @@ background: var(--d);
 }
 .active_auctions {
     width: 100%;
-    max-width: 1024px;
+    max-width: 300px;
     display: flex;
-    flex: 1;
-    gap: 5px;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+    gap: 20px;
     background:var(--w);
     border-radius: 5px;
     position: relative;
@@ -35,45 +36,59 @@ background: var(--d);
 
 .active_auctions {
     width: 100%;
-    max-width: 1024px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    margin-bottom: 20px;
+    padding-left: 2px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+   
 }
 .active_img {
-    width: 240px;
-    height: 150px;
+    width: 290px;
+    height: 160px;
     object-fit:cover;
     border-radius: 5px;
 }
-.highest_bid {
+.highest_bid_card {
     display: flex;
     flex-direction: column;
     padding-left: 5px;
 }
+.open_close_bid {
+
+}
 .count_down {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
 }
 .btns {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
+    
 }
 .btn_delete {
     border-radius: 5px;
     background: var(--orange);
     border: none;
+    margin-right: 5px;
+    
 }
 .btn_delete:hover {
     background: red;
     border: none;
+    
 }
 .gavel {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--g);
+}
+.sold {
+    background: var(--g) !important;
+}
+.id {
+    margin-bottom: -5px;
+    font-size: 0.7rem;
 }
 
