@@ -10,13 +10,21 @@ const Footer = () => {
     const handleListing = () => {
         navigate("/auctions");
     };
+    const handleAboutUs = () => {
+        navigate("/aboutus");
+    };
 
     return (
         <>
             <div className={styles.footer_container}>
                 <div className={styles.footer_container_lists}>
                     <ul className={styles.footer_list}>
-                        <li className={styles.footer_list_item}>About us</li>
+                        <li
+                            className={styles.footer_list_item}
+                            onClick={handleAboutUs}
+                        >
+                            About us
+                        </li>
                         <li className={styles.footer_list_item}>Reviews</li>
                         <li className={styles.footer_list_item}>
                             Terms & conditions

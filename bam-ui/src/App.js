@@ -8,8 +8,7 @@ import NotFound from "./pages/notFound/NotFound";
 import BackOffice from "./pages/dashboard/BackOffice";
 import UserRegisterLogin from "./forms/registration/LoginRegister";
 import Footer from "./features/footer/Footer";
-//import Register from "./forms/registration/Register"; <Route path="/register" element={<Register />} />
-//import Login from "./forms/registration/Login"; <Route path="/login" element={<Login />} />
+import AboutUs from "./pages/aboutUs/AboutUs";
 
 function App() {
     return (
@@ -20,6 +19,7 @@ function App() {
                 <Route path="/auctions" element={<Auctions />} />
                 <Route path="/details/:Id" element={<Property />} />
                 <Route path="/dashboard" element={<BackOffice />} />
+                <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
