@@ -4,28 +4,87 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding:50px;
+    padding-top:50px;
     
 }
 .name {
-    font-size: 4rem
+    font-size: 3rem
 }
-.front_title {
+.titles {
  display: flex;
- flex-direction: column;
  justify-content: center;
  align-items: center;
  font-size: 2.5rem;
+ font-weight: 600;
+}
+.tecs_fe_be {
+    display: flex;
+    justify-content: center;
+
+    
 }
 .techs_used_front {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
-   
-    
+    align-items: center;  
 }
 .tec_img {
+    width: 200px;
+    height: 100px;
+}
+.tec_img1 {
+    width: 250px;
+    height: 100px;
+}
+.tec_img2 {
+    width: 100px;
+    height: 100px;
+    margin-right: 80px;
+}
+.tec_img3 {
     width: 300px;
     height: 200px;
+}
+.tec_img4 {
+    width: 200px;
+    height: 150px;
+}
+
+.react_router {
+    display: flex;
+    align-items: center;
+}
+.react_text {
+    display: flex;
+    flex-direction: column;
+}
+.react_bs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reactbs_bs {
+    display: flex;
+    align-items: center;
+}
+.back_end_tecs {
+    display: flex;
+    flex-direction: column;
+    
+}
+.social_links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 20px;
+}
+.linked {
+    width: 50px;
+    height: 50px;
+}
+.github {
+    width: 50px;
+    height: 50px;
 }

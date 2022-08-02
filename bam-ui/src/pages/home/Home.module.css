@@ -50,10 +50,10 @@
     position: absolute;
     bottom: 15px;
     left:20px;
-    color: white;
+    color: rgba(255, 255, 255, 0.445);
 }
 .cities_title:hover {
-    color: var(--orange
+    color: var(--w
     ) ;
 }
 .cities_title>h1{
