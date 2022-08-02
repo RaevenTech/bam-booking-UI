@@ -5,11 +5,15 @@ function AboutUs() {
         <div className={styles.main}>
             <div className={styles.container}>
                 <h1 className={styles.name}>Raeven Gonçalves</h1>
-                <p>Looking For junior front-end web developer position.</p>
+                <p>
+                    Looking For <b>junior front-end web developer</b> position.
+                </p>
                 <p>
                     {" "}
-                    I am open to remote, hybrid or onsite relocation positions
-                    across Europe or the Uk.{" "}
+                    I am open to <b>remote, hybrid</b> or{" "}
+                    <b>in office relocation</b> positions across <b>Europe</b>{" "}
+                    or the
+                    <b> Uk</b>.{" "}
                 </p>
             </div>
             <div className={styles.tecs_fe_be}>
@@ -86,17 +90,42 @@ function AboutUs() {
                     />
 
                     <div className={styles.social_links}>
-                        <h2> Contact me</h2>
-                        <img
-                            className={styles.linked}
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/2048px-Linkedin_icon.svg.png"
-                            alt="linked_in"
-                        />
-                        <img
-                            className={styles.github}
-                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                            alt="github"
-                        />
+                        <h5>
+                            <b>Contact me:</b>
+                        </h5>
+                        <div className={styles.social_icons}>
+                            <div className={styles.linked_text}>
+                                <img
+                                    className={styles.linked}
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/2048px-Linkedin_icon.svg.png"
+                                    alt="linked_in"
+                                />
+                                <span>
+                                    <b> @Raeven Gonçalves</b>
+                                </span>
+                            </div>
+                            <div>
+                                <img
+                                    className={styles.github}
+                                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                    alt="github"
+                                />
+                                <span>
+                                    <b> @RaevenTech</b>
+                                </span>
+                            </div>
+                            <div>
+                                <img
+                                    className={styles.epicode}
+                                    src="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1045/original/EPICODE-pitto-color.png"
+                                    alt="epicode"
+                                />
+                                <span>
+                                    {" "}
+                                    <b>@Hiring platform</b>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

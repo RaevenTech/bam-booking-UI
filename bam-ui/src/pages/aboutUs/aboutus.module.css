@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top:50px;
+    padding-top:20px;
+   
     
 }
 .name {
@@ -28,6 +29,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;  
+    ;
 }
 .tec_img {
     width: 200px;
@@ -43,12 +45,17 @@
     margin-right: 80px;
 }
 .tec_img3 {
-    width: 300px;
-    height: 200px;
+    width: 250px;
+    height: 150px;
+    margin-left: 40px;
 }
 .tec_img4 {
-    width: 200px;
-    height: 150px;
+    display: flex;
+    margin-left: 90px;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    height: 100px;
 }
 
 .react_router {
@@ -75,16 +82,40 @@
 }
 .social_links {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 2px;
     padding-top: 20px;
 }
+.social_icons {
+    flex: 2;
+}
+
 .linked {
+    margin-bottom: 5px;
     width: 50px;
     height: 50px;
 }
 .github {
+    margin-bottom: 5px;
     width: 50px;
     height: 50px;
+}
+.epicode {
+    width: 50px;
+    height: 50px;
+}
+h5 {
+    font-size: 1.1rem;
+    flex: 1;
+}
+.linked_text {
+    display: flex;
+}
+.tecs_fe_be {
+    display: flex;
+    
+    margin-left: 350px;
+    margin-bottom: 50px;
+    width: 800px;
+    border: 1px solid var(--gy);
 }
