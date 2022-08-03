@@ -45,10 +45,12 @@ const Navbar = ({ logOut }) => {
                                 <h5 className={styles.username_text}>
                                     {user?.email}
                                 </h5>
-                                <FontAwesomeIcon
-                                    icon={faUserCircle}
-                                    className={styles.user_icon}
-                                />
+                                <div onClick={() => navigate("/dashboard")}>
+                                    <FontAwesomeIcon
+                                        icon={faUserCircle}
+                                        className={styles.user_icon}
+                                    />
+                                </div>
                                 <button
                                     className={styles.sign_out_btn}
                                     onClick={() => navigate("/")}

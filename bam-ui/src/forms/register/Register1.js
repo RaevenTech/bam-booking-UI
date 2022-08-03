@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
+
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 

@@ -2,9 +2,9 @@ import styles from "./auctions.module.css";
 //import AuctionSearch from "./AuctionSearch"; <AuctionSearch />
 //import AuctionResults from "./AuctionResults";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import Clock from "../../countdowntimer/Clock";
+
 import { ref, get } from "firebase/database";
 import { db } from "../../utils/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -161,7 +161,7 @@ const Auctions = () => {
                                                     <small
                                                         className={styles.clock}
                                                     >
-                                                        <Clock />
+                                                        {listing.closingDate}
                                                     </small>
                                                 </span>
                                             </div>
@@ -201,16 +201,13 @@ const Auctions = () => {
                                             </div>
                                         </div>
                                         <div className={styles.add_bid_btn}>
-                                            <button
-                                                className={styles.bid_btn}
-                                                onClick={() => {
-                                                    navigate(
-                                                        `/details/${listing.postId}`
-                                                    );
-                                                }}
-                                            >
-                                                Add your bid
-                                            </button>
+                                            <Link to={`/details/${listing.Id}`}>
+                                                <button
+                                                    className={styles.bid_btn}
+                                                >
+                                                    Add your bid
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

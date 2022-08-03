@@ -1,19 +1,10 @@
 import styles from "./header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 const Header = ({ page }) => {
-    const [destination, setDestination] = useState("");
-
-    const navigate = useNavigate();
-
-    const handleSearch = () => {
-        navigate("/auctions", { state: { destination } });
-        console.log(destination);
-    };
-
     return (
         <>
             {/*------------------------ header with text only to display on auction page ---------------------------------- */}
@@ -51,7 +42,7 @@ const Header = ({ page }) => {
                                 <>
                                     {/*------------------------ header search with text only to display on home page ---------------------------------- */}
                                     <div className={styles.header_search}>
-                                        <Link to={"/auction"}>
+                                        <Link to={"/auction?city=barcelona"}>
                                             {" "}
                                             <div
                                                 className={
@@ -76,11 +67,6 @@ const Header = ({ page }) => {
                                                         }
                                                         type="text"
                                                         placeholder="Check out the live auction"
-                                                        onClick={() =>
-                                                            navigate(
-                                                                "/auctions"
-                                                            )
-                                                        }
                                                     />
                                                 </div>
                                             </div>

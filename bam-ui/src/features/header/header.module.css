@@ -15,6 +15,7 @@
 .header_container {
     width: 100%;
     max-width: 1024px;
+    height: fit-content;
 }
 .header_list {
     display: flex;
@@ -30,7 +31,8 @@
     letter-spacing: 0.1rem;
 }
 .header_item {
-    padding-bottom: 20px;
+    padding-bottom: 0px;
+    padding: 0px;
 }
 .logo_2 {
     color: var(--orange);
